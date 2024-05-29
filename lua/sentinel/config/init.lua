@@ -16,6 +16,7 @@ M.init = function()
     -- delay notifications until vim.notify was replaced or after 500ms
     Util.lazy_notify()
 
+    Util.load('options')
     Util.load('keymaps')
 end
 
