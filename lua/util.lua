@@ -40,6 +40,7 @@ end
 
 --- @param name string
 --- @param namespace? string
+--- @return unknown loaderdata
 -- Loads module / file with settings namespace prefixed (Can be overriden by manually specifying namespace)
 M.load = function(name, namespace)
     local nspace = namespace or settings.namespace
