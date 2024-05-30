@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -eux
+
+declare -r NEOVIM_VERSION='v0.10.0'
+
+function download() {
+  TARGET="$1"
+  wget $url
+}
+
+function extract() {
+  TARGET="$1"
+
+  tar -xvf ${TARGET}
+}
+
+function install() {
+  SOURCE="$1"
+  DESTINATION="$2"
+
+  sudo cp -rf $SOURCE $DESTINATION
+}
+
+function main() {
+  local url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux64.tar.gz"
+  local archive='nvim-linux64.tar.gz'
+  local extracted_archive='nvim-linux64'
+  
+  cd /tmp
+  download $url
+  extract $archive
+  install "$extracted_archive/*" /usr/local
+}
+
+main
