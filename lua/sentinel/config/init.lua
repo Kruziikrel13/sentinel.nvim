@@ -4,7 +4,7 @@ vim.uv = vim.uv or vim.loop
 local M = {}
 local Util = require('util')
 M.name = 'sentinel'
-M.version = '30.05.2024'
+M.version = '30.05.2024.1'
 
 M.did_init = false
 M.init = function()
