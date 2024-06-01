@@ -18,6 +18,17 @@ return {
       local cmp = require('cmp')
 
       cmp.setup({
+        enabled = function()
+          -- disable completion in comments
+          local context = require('cmp.config.context')
+          -- keep command mode completion enabled
+          if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+          else
+            return not context.in_treesitter_capture('comment')
+            and not context.in_syntax_group('Comment')
+          end
+        end,
         snippet = {
           expand = function(args)
              vim.snippet.expand(args.body)
