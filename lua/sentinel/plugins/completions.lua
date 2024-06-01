@@ -15,6 +15,7 @@ return {
     },
 
     config = function()
+      vim.opt.completeopt = 'menu,menuone,noselect,popup'
       local cmp = require('cmp')
 
       cmp.setup({
@@ -29,6 +30,10 @@ return {
             and not context.in_syntax_group('Comment')
           end
         end,
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered()
+        },
         snippet = {
           expand = function(args)
              vim.snippet.expand(args.body)
@@ -38,12 +43,15 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<A-j>'] = cmp.mapping.select_next_item(),
           ['<A-k>'] = cmp.mapping.select_prev_item(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true })
+          ['<CR>'] = cmp.mapping.confirm({ select = false }) -- Select False won't auto select on <CR> unless explicitly selecting cmp entry
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           -- { name = 'vsnip' }
         }, { name = 'buffer' }),
+        completion = {
+          completeopt = 'menu,menuone,noselect'
+        }
       })
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
