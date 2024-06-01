@@ -1,10 +1,19 @@
-vim.uv = vim.uv or vim.loop
-
 --- @class SentinelConfig
 local M = {}
-local Util = require('util')
 M.name = 'sentinel'
 M.version = '30.05.2024.1'
+
+M.setup = function()
+  vim.uv = vim.uv or vim.loop
+  vim.api.nvim_create_autocmd("User", {
+    group = vim.api.nvim_create_augroup('Sentinel', { clear = true }),
+    pattern = 'VeryLazy',
+    callback = function()
+      -- we load keymaps after everything else is done
+      require('util').load('keymaps')
+    end
+  })
+end
 
 M.did_init = false
 M.init = function()
@@ -14,10 +23,9 @@ M.init = function()
     M.did_init = true
 
     -- delay notifications until vim.notify was replaced or after 500ms
-    Util.lazy_notify()
+    require('util').lazy_notify()
 
-    Util.load('options')
-    Util.load('keymaps')
+    require('util').load('options')
 end
 
 return M
