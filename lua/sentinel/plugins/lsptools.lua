@@ -19,17 +19,6 @@ return {
     config = true
   },
   {
-    'hedyhli/outline.nvim',
-    opts = {
-      outline_window = {
-        width = 10
-      }
-    },
-    keys = {
-      lazyKeyBind('<leader>fo', '<cmd>Outline<cr>', 'Symbols Outline')
-    }
-  },
-  {
     'm-demare/hlargs.nvim',
     config = true
   }
