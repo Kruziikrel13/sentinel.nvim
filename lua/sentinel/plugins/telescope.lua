@@ -13,7 +13,7 @@ return {
     'sharkdp/fd',
     'nvim-tree/nvim-web-devicons'
   },
-
+  lazy = false,
   keys = {
     lazyKeyBind('<leader>ff', live_grep, 'Live Grep'),
   }
