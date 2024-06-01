@@ -19,16 +19,17 @@ return {
 
   },
   {
-    'FeiyouG/commander.nvim',
-    enable = false,
-    dependencies = { 'nvim-telescope/telescope.nvim' },
-    keys = {
-      lazyKeyBind('<leader>fC', '<cmd>Telescope commander<cr>', 'Commander')
-    },
+    'mrjones2014/legendary.nvim',
+    priority = 1000,
+    config = true,
+    lazy = false,
     opts = {
-      integration = {
-        telescope = { enable = true },
-        lazy = { enable = true }
+      extensions = {
+        which_key = {
+          auto_register = true
+        },
+        lazy_nvim = true,
+        nvim_tree = true
       }
     }
   }
