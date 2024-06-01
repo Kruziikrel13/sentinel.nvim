@@ -15,6 +15,6 @@ return {
   },
 
   keys = {
-    lazyKeyBind('<leader>ff', live_grep, 'Live Grep')
+    lazyKeyBind('<leader>ff', live_grep, 'Live Grep'),
   }
 }
