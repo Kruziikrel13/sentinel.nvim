@@ -34,7 +34,7 @@ local options = {
     whichwrap = "bs<>[]hl",
     hlsearch = false,
     ignorecase = true,
-    exrc = false, -- Local Init File Loading (.nvim.lua)
+    exrc = true, -- Local Init File Loading (.nvim.lua)
     termguicolors = true,
 }
 
