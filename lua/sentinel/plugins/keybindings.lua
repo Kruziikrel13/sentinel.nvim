@@ -20,6 +20,7 @@ return {
   },
   {
     'FeiyouG/commander.nvim',
+    enable = false,
     dependencies = { 'nvim-telescope/telescope.nvim' },
     keys = {
       lazyKeyBind('<leader>fC', '<cmd>Telescope commander<cr>', 'Commander')
