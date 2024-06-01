@@ -21,12 +21,12 @@ M.map = function(mode, key, cmd, opts)
     local keys = require('lazy.core.handler').handlers.keys
 
     -- do not create keymap if lazy keys handler exists
-    if (keys) ~= nil then
-        if not keys.active[keys.parse({ key, mode = mode }).id] then
-            opts = opts or { noremap = true }
-            opts.silent = opts.silent ~= false
-            vim.keymap.set(mode, key, cmd, opts)
-        end
+    if keys ~= nil then
+      if not keys.active[keys.parse({key, mode = mode}).id] then
+        opts = opts or {}
+        opts.silent = opts.silent ~= false
+        vim.keymap.set(mode, key, cmd, opts)
+      end
     end
 end
 
@@ -40,7 +40,6 @@ end
 
 --- @param name string
 --- @param namespace? string
---- @return unknown loaderdata
 -- Loads module / file with settings namespace prefixed (Can be overriden by manually specifying namespace)
 M.load = function(name, namespace)
     local nspace = namespace or settings.namespace
