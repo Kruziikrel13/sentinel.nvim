@@ -1,7 +1,7 @@
 --- @class SentinelConfig
 local M = {}
 M.name = 'sentinel'
-M.version = '01.06.2024'
+M.version = '01.06.2024.1'
 
 M.setup = function()
   vim.uv = vim.uv or vim.loop
