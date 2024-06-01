@@ -19,7 +19,15 @@ return {
     config = true
   },
   {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' }
+  },
+  {
     'm-demare/hlargs.nvim',
     config = true
+  },
+  {
+    'folke/flash.nvim',
+    event = 'VeryLazy'
   }
 }
