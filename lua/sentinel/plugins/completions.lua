@@ -13,6 +13,7 @@ return {
       'petertriho/cmp-git',
       'FelipeLema/cmp-async-path'
     },
+
     config = function()
       local cmp = require('cmp')
 
@@ -23,6 +24,11 @@ return {
               -- vim.fn["vsnip#anonymous"](args.body)
           end
         },
+        mapping = cmp.mapping.preset.insert({
+          ['<A-j>'] = cmp.mapping.select_next_item(),
+          ['<A-k>'] = cmp.mapping.select_prev_item(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true })
+        }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           -- { name = 'vsnip' }
@@ -36,21 +42,6 @@ return {
         })
       })
       require("cmp_git").setup()
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'async_path' }
-        }, {
-          { name = 'cmdline' }
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false }
-      })
     end
   }
 }
