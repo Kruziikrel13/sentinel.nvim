@@ -10,7 +10,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         optional = true,
         opts = {
-            ensure_installed = { 'lua_ls' }
+          automatic_installation = true
         },
         config = true,
         dependencies = { 'williamboman/mason.nvim' }
