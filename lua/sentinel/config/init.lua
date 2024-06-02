@@ -26,6 +26,7 @@ M.init = function()
     require('util').lazy_notify()
 
     require('util').load('options')
+    require('util').load('autocmds')
 end
 
 return M
