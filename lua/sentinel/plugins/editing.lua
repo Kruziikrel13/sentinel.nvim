@@ -1,3 +1,4 @@
+local lazyKeyBind = require('util').lazyKeyBind
 return {
   {
     'numToStr/Comment.nvim',
@@ -50,20 +51,16 @@ return {
       wilder.setup(opts)
 
       wilder.set_option('renderer', wilder.popupmenu_renderer(
-        wilder.popupmenu_border_theme({
-          highlighter = wilder.basic_highlighter(),
-          max_height = '10%',
-          highlights = {
-            border = 'Normal'
-          },
-          border = 'rounded'
-        })
+      wilder.popupmenu_border_theme({
+        highlighter = wilder.basic_highlighter(),
+        max_height = '10%',
+        highlights = {
+          border = 'Normal'
+        },
+        border = 'rounded'
+      })
       ))
     end
-  },
-  {
-    'mrjones2014/smart-splits.nvim',
-    config = true
   },
   {
     'yorickpeterse/nvim-window',
