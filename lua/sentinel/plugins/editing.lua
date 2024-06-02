@@ -41,6 +41,7 @@ return {
       require('auto-session').setup(opts)
       Util.on_plugin_load('telescope.nvim', function()
         require('telescope').load_extension('session-lens')
+        Util.map('n', '<leader>fs', '<cmd>Telescope session-lens search_session<cr>')
       end)
     end,
     lazy = false,

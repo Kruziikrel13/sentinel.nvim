@@ -8,6 +8,7 @@ conf.mapleader = ' '
 conf.maplocalleader = ' '
 
 conf.enable_startuptime = true
+conf.enable_hardtime = false
 
 conf.init_file_loading = false
 
