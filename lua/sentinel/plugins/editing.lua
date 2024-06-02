@@ -1,4 +1,4 @@
-local lazyKeyBind = require('util').lazyKeyBind
+local Util = require('util')
 return {
   {
     'numToStr/Comment.nvim',
@@ -33,11 +33,15 @@ return {
   {
     'rmagatti/auto-session',
     opts = {
-      pre_save_cmds = { 'NvimTreeClose' }
+      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      pre_save_cmds = { 'NvimTreeClose' },
     },
     config = function (_, opts)
       vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
       require('auto-session').setup(opts)
+      Util.on_plugin_load('telescope.nvim', function()
+        require('telescope').load_extension('session-lens')
+      end)
     end,
     lazy = false,
   },
