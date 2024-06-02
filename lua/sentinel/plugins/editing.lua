@@ -31,8 +31,14 @@ return {
   },
   {
     'rmagatti/auto-session',
-    config = true,
-    lazy = false
+    opts = {
+      pre_save_cmds = { 'NvimTreeClose' }
+    },
+    config = function (_, opts)
+      vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+      require('auto-session').setup(opts)
+    end,
+    lazy = false,
   },
   {
     'gelguy/wilder.nvim',
