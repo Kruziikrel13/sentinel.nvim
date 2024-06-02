@@ -9,4 +9,6 @@ conf.maplocalleader = ' '
 
 conf.enable_startuptime = true
 
+conf.init_file_loading = false
+
 return conf

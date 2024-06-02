@@ -1,3 +1,5 @@
+local settings = require('configuration')
+
 local options = {
     backup = false,
     writebackup = false,
@@ -34,7 +36,7 @@ local options = {
     whichwrap = "bs<>[]hl",
     hlsearch = false,
     ignorecase = true,
-    exrc = true, -- Local Init File Loading (.nvim.lua)
+    exrc = settings.init_file_loading, -- Local Init File Loading (.nvim.lua)
     termguicolors = true,
 }
 
