@@ -57,6 +57,20 @@ M.load = function(name, namespace)
     })
 end
 
+M.setup_lsp = function(lsp)
+  local function lspsetup()
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    if type(lsp) == 'string' then
+      require('lspconfig')[lsp].setup {
+        capabilities = capabilities
+      }
+    end
+
+  end
+
+  M.on_plugin_load('nvim-lspconfig', lspsetup)
+end
+
 --- @param fn function
 -- Execute function on Very Lazy Event
 M.on_very_lazy = function(fn)
