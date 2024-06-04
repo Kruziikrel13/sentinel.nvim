@@ -8,8 +8,6 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/nvim-cmp',
-      -- 'hrsh7th/cmp-vsnip',
-      -- 'hrsh7th/vim-vsnip',
       'petertriho/cmp-git',
       'FelipeLema/cmp-async-path'
     },
@@ -47,7 +45,6 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          -- { name = 'vsnip' }
         }, { name = 'buffer' }),
         completion = {
           completeopt = 'menu,menuone,noselect'
