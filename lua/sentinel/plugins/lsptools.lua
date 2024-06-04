@@ -7,11 +7,18 @@ return {
     version = '*',
     opts = {
       ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query' },
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true
+      },
+      indent = { enable = true },
+      incremental_selection = { enable = true },
+
       auto_install = true
     },
-    config = true,
-    main = 'nvim-treesitter.configs'
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+    end
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
