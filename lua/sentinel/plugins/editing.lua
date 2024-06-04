@@ -15,10 +15,6 @@ return {
     config = true
   },
   {
-    'kylechui/nvim-surround',
-    config = true
-  },
-  {
     'lukas-reineke/indent-blankline.nvim',
     config = function(_, opts)
       require('ibl').setup(opts)
@@ -27,7 +23,6 @@ return {
       exclude = { filetypes = { 'nvimtree', 'dashboard' } },
       scope = { enabled = true }
     },
-    dependencies = { 'HiPhish/rainbow-delimiters.nvim' },
     main = 'ibl'
   },
   {
@@ -45,34 +40,6 @@ return {
       end)
     end,
     lazy = false,
-  },
-  {
-    'gelguy/wilder.nvim',
-    opts = {
-      modes = {':', '/', '?'}
-    },
-    config = function (_, opts)
-      local wilder = require('wilder')
-      wilder.setup(opts)
-
-      wilder.set_option('renderer', wilder.popupmenu_renderer(
-      wilder.popupmenu_border_theme({
-        highlighter = wilder.basic_highlighter(),
-        max_height = '10%',
-        highlights = {
-          border = 'Normal'
-        },
-        border = 'rounded'
-      })
-      ))
-    end
-  },
-  {
-    'yorickpeterse/nvim-window',
-    config = true,
-    keys = {
-      { '<C-w>s', '<cmd>lua require("nvim-window").pick()<cr>', desc = 'Jump Window'}
-    }
   },
   {
     'dstein64/nvim-scrollview',
