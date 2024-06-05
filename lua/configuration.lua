@@ -12,4 +12,6 @@ conf.enable_hardtime = false -- For enforcing good vim practices
 
 conf.init_file_loading = false -- load .nvim.lua init files (note: we already auto load .lazy.lua files)
 
+conf.mode = 'light'
+
 return conf
