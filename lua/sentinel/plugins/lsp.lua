@@ -29,6 +29,11 @@ return {
   },
   {
     'nvimdev/lspsaga.nvim',
+    opts = {
+      lightbulb = {
+        virtual_text = false
+      }
+    },
     config = function(_, opts)
 
       if has('gitsigns.nvim') then
