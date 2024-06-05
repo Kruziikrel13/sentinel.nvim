@@ -1,3 +1,4 @@
+local settings = require('configuration')
 return {
     'projekt0n/github-nvim-theme',
     lazy = false,
@@ -9,6 +10,6 @@ return {
         local module = require('github-theme')
         module.setup(opts)
         module.compile()
-        vim.cmd.colorscheme('github_dark_default')
+        vim.cmd.colorscheme('github_' .. settings.mode .. '_default')
     end
 }
