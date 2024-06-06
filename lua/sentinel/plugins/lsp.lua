@@ -6,15 +6,15 @@ return {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'nvimdev/lspsaga.nvim',
+      {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+          automatic_installation = true
+        },
+        dependencies = { 'williamboman/mason.nvim' }
+      },
       { 'folke/neodev.nvim', opts = {} },
     },
-  },
-  {
-    'folke/neodev.nvim',
-    ft = 'lua',
-    event = "VeryLazy",
   },
   {
     'zeioth/garbage-day.nvim',
@@ -29,13 +29,13 @@ return {
   },
   {
     'nvimdev/lspsaga.nvim',
+    event = 'LspAttach',
     opts = {
       lightbulb = {
         virtual_text = false
       }
     },
     config = function(_, opts)
-
       if has('gitsigns.nvim') then
         opts.code_action = {
           extend_gitsigns = true
