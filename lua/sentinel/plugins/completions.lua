@@ -3,13 +3,14 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    dependencies = { 
+    event = 'InsertEnter',
+    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-cmdline',
       'hrsh7th/nvim-cmp',
-      'petertriho/cmp-git',
-      'FelipeLema/cmp-async-path'
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'ray-x/cmp-treesitter'
     },
 
     config = function()
@@ -25,7 +26,7 @@ return {
             return true
           else
             return not context.in_treesitter_capture('comment')
-            and not context.in_syntax_group('Comment')
+              and not context.in_syntax_group('Comment')
           end
         end,
         window = {
@@ -34,8 +35,7 @@ return {
         },
         snippet = {
           expand = function(args)
-             vim.snippet.expand(args.body)
-              -- vim.fn["vsnip#anonymous"](args.body)
+            vim.snippet.expand(args.body)
           end
         },
         mapping = cmp.mapping.preset.insert({
@@ -44,35 +44,16 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }) -- Select False won't auto select on <CR> unless explicitly selecting cmp entry
         }),
         sources = cmp.config.sources({
+          { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
-        }, { name = 'buffer' }),
-        completion = {
-          completeopt = 'menu,menuone,noselect'
-        }
-      })
-      cmp.setup.filetype('gitcommit', {
-        sources = cmp.config.sources({
-          { name = 'git' },
+          { name = 'nvim_lua' }
         }, {
-          { name = 'buffer' },
-        })
-      })
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-            { name = 'cmdline' }
+            { name = 'treesitter' }
           }),
-          matching = { disallow_symbol_nonprefix_matching = false }
+        completion = {
+          completeopt = 'menu,menuone,noselect,popup'
+        }
       })
-      require("cmp_git").setup()
     end
   }
 }
