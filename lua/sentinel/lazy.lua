@@ -17,8 +17,9 @@ require('lazy').setup({
   spec = 'sentinel.plugins',
   defaults = {
     lazy = false,
-    version = '*'
+    version = false
   },
+  checker = { enable = true },
   performance = {
     rtp = {
       disabled_plugins = {
