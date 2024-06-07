@@ -77,20 +77,6 @@ M.on_very_lazy = function(fn)
     })
 end
 
---- @param plugin_name string
---- @param fn function
--- Execute function on loading another plugin
-M.on_plugin_load = function(plugin_name, fn)
-  vim.api.nvim_create_autocmd('User', {
-    pattern = 'LazyLoad',
-    callback = function(event)
-      if event.data == plugin_name then
-        fn()
-      end
-    end
-  })
-end
-
 M.lazy_notify = function()
     local notifs = {}
     local function temp(...)
