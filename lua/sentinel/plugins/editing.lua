@@ -34,10 +34,6 @@ return {
     config = function (_, opts)
       vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
       require('auto-session').setup(opts)
-      Util.on_plugin_load('telescope.nvim', function()
-        require('telescope').load_extension('session-lens')
-        Util.map('n', '<leader>fs', '<cmd>Telescope session-lens search_session<cr>')
-      end)
     end,
     lazy = false,
   },

@@ -39,4 +39,4 @@ vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
 
 -- Entry point, during lazy loading it also executes the rest of our configuration files
-require('sentinel')
+require('sentinel.lazy')
