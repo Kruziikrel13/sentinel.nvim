@@ -1,5 +1,4 @@
 local settings = require('configuration')
-local Util = require('util')
 
 local startuptime = {}
 if settings.enable_startuptime then
