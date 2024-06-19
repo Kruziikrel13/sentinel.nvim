@@ -43,10 +43,11 @@ return {
       },
       keymaps = {
         { '<leader>xL', '<cmd>Lazy<cr>', description = 'Lazy'},
+        { '<leader>xa',  '<cmd>lua require("activate").list_plugins()<cr>', description ='List Plugins'},
         { '<C-s>', '<cmd>w<cr>', description = 'Save File'},
         { '<C-q>', '<cmd>qa!<cr>', description = 'Quit All'},
         { '00', '^', opts = { silent = true, noremap = true }},
-        { '<leader>ff', keymap_fns.telescope.live_grep, description = 'Telescope: Live Grep'}
+        { '<leader>ff', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep'},
       }
     }
   }
