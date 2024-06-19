@@ -108,7 +108,7 @@ elseif settings.lsp_helper == 'combined' then
       config = true,
       cmd = 'Trouble',
       keys = {
-        lazyKeyBind('<tab>d', "<cmd>Trouble diagnostics focus=true<cr>", 'Buffer Diagnostics')
+        lazyKeyBind('<tab>d', "<cmd>Trouble diagnostics focus=true<cr>", 'Workspace Diagnostics')
       }
     },
 
