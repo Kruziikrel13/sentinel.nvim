@@ -47,7 +47,7 @@ return { freeze,
       modes = {
         char = {
           jump_labels = true,
-          keys = { ["t"] = '.', ["T"] = ',' },
+          keys = { ["t"] = ',', ["T"] = '.' },
         }
       }
     },
