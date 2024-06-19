@@ -10,6 +10,9 @@ conf.maplocalleader = ' '
 conf.enable_startuptime = true
 conf.enable_hardtime = false -- For enforcing good vim practices
 
+-- lspsaga | navigator | combined | none
+conf.lsp_helper = 'combined'
+
 conf.init_file_loading = false -- load .nvim.lua init files (note: we already auto load .lazy.lua files)
 
 conf.mode = 'dark'
