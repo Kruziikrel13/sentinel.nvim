@@ -6,11 +6,6 @@ local settings = require('configuration')
 --- @see https://github.com/doctorfree/nvim-lazyman
 --- A large number of these functions are directly from here
 
---- @param plugin string
--- Check if plugin is installed
-M.has = function(plugin)
-    return require('lazy.core.config').plugins[plugin] ~= nil
-end
 
 --- @param mode mode
 --- @param key string
