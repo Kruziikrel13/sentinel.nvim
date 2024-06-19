@@ -1,6 +1,7 @@
 --- @class Utilities
 local M = {}
 local Util = require('lazy.core.util')
+local Plugins = require('utils.plugins')
 local settings = require('configuration')
 
 --- @see https://github.com/doctorfree/nvim-lazyman
@@ -12,6 +13,34 @@ end
 
 M.isEmpty = function(var)
     return var == nil or var == '' or not next(var)
+end
+
+function M.setupLspServers(servers, overrides)
+  local capabilities = M.getCapabilities()
+  local opts = {
+    capabilities = capabilities
+  }
+
+  if Plugins.has('workspace-diagnostics.nvim') then
+    opts = vim.tbl_deep_extend('force', {}, opts, {
+      on_attach = function(client, bufnr)
+        require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
+      end
+    })
+  end
+
+  if overrides ~= nil then
+    opts = vim.tbl_deep_extend('force', {}, opts, overrides)
+  end
+  if type(servers) == 'string' then
+    require('lspconfig')[servers].setup(opts)
+  elseif type(servers) == 'table' then
+    for _, server in ipairs(servers) do
+      require('lspconfig')[server].setup {
+        capabilities = capabilities
+      }
+    end
+  end
 end
 
 --- @param name string
@@ -33,13 +62,6 @@ M.load = function(name, namespace)
     })
 end
 
-M.setup_lsp = function(lsp)
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  if type(lsp) == 'string' then
-    require('lspconfig')[lsp].setup {
-      capabilities = capabilities
-    }
-  end
 M.getCapabilities = function ()
   return vim.tbl_deep_extend('force', {}, vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities())
 end
