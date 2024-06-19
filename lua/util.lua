@@ -100,21 +100,6 @@ M.table_contains = function(table, key)
     return false
 end
 
---- @param key string
---- @param cmd string | function
---- @param description string
---- @return table
--- Wrapper for defining a key and returning it in a LazyVim readable format
-M.lazyKeyBind = function(key, cmd, description)
-    return { key, cmd, desc = description }
-end
-
---- @param description string
---- @return table
--- Wrapper for defining a which key description group
-M.whichKeyGroup = function(description)
-    return { name = description }
-end
 
 return M
 
