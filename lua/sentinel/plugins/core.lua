@@ -1,3 +1,3 @@
 require('sentinel.config').init()
 
-return { 'folke/lazy.nvim', version = '*' }
+return { 'folke/lazy.nvim' }
