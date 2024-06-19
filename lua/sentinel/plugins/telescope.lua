@@ -1,9 +1,3 @@
-local lazyKeyBind = require('util').lazyKeyBind
-
-local function live_grep()
-  require('telescope.builtin').live_grep()
-end
-
 return {
   'nvim-telescope/telescope.nvim',
   config = true,
@@ -14,7 +8,4 @@ return {
     'nvim-tree/nvim-web-devicons'
   },
   lazy = false,
-  keys = {
-    lazyKeyBind('<leader>ff', live_grep, 'Live Grep'),
-  }
 }
