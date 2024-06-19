@@ -1,14 +1,5 @@
 local whichKeyGroup = require('utils.keys').whichKeyGroup
 
-local keymap_fns = {
-  telescope = {}
-}
-
-function keymap_fns.telescope.live_grep()
-  require('telescope.builtin').live_grep()
-end
-
-
 return {
   {
     'folke/which-key.nvim',
@@ -47,7 +38,11 @@ return {
         { '<C-s>', '<cmd>w<cr>', description = 'Save File'},
         { '<C-q>', '<cmd>qa!<cr>', description = 'Quit All'},
         { '00', '^', opts = { silent = true, noremap = true }},
-        { '<leader>ff', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep'},
+        { 'M', '<cmd>delm!<cr>', description = 'Delete Marks', opts = { silent = true, noremap = true } },
+        { 'm', description = 'Mark' },
+
+        { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep'},
+        { '<leader>fa', '<cmd>Telescope agrolens query=functions,labels<cr>', description = 'Telescope: Agrolens Functions'}
       }
     }
   }
