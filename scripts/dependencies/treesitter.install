@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apt install gcc g++ -y
+
 declare -x TREESITTER_VERSION='v0.22.6'
 declare -x TREESITTER_PKG="tree-sitter-linux-x64"
 
