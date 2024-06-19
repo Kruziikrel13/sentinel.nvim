@@ -15,7 +15,6 @@ M.init = function()
 
   require('util').load('options')
   require('util').load('autocmds')
-  require('util').load('keymaps')
 end
 
 return M
