@@ -1,4 +1,4 @@
-local lazyKeyBind = require('util').lazyKeyBind
+local lazyKeyBind = require('utils.keys').lazyKeyBind
 -- Dedicated Terminals
 
 --- Dedicated LazyGit Terminal
