@@ -32,7 +32,30 @@ if settings.lsp_helper == 'lspsaga' then
     }
   }
 elseif settings.lsp_helper == 'combined' then
-  lsp_helper = {
+  local diagnostics = {}
+  if settings.diagnostics == 'lsp_lines' then
+    diagnostics = {
+      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      event = 'LspAttach',
+      config = function()
+        require('lsp_lines').setup()
+        vim.diagnostic.config({
+          virtual_text = false,
+          virtual_lines = {
+            only_current_line = true
+          }
+        })
+      end
+    }
+  elseif settings.diagnostics == 'diagflow' then
+    diagnostics = {
+      'dgagn/diagflow.nvim',
+      event = 'LspAttach',
+      config = true
+
+    }
+  end
+  lsp_helper = { diagnostics,
     {
       'artemave/workspace-diagnostics.nvim'
     },
@@ -44,21 +67,6 @@ elseif settings.lsp_helper == 'combined' then
         lazyKeyBind('<Tab>o', '<cmd>Outline<cr>', 'Symbol Outline')
       }
     },
-    {
-      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-      config = function()
-        vim.diagnostic.config({
-          virtual_text = false,
-          virtual_lines = {
-            only_current_line = true
-          }
-        })
-        require('lsp_lines').setup()
-      end
-    },
-    -- {
-    --   'dgagn/diagflow.nvim',
-    -- },
     {
       'DNLHC/glance.nvim',
       config = true,
@@ -89,29 +97,12 @@ elseif settings.lsp_helper == 'combined' then
       config = true
     },
     {
-      'smjonas/inc-rename.nvim',
-      main = 'inc_rename',
-      config = true,
-      keys = {
-        lazyKeyBind('<Tab>r', '<cmd>IncRename<cr>', 'Incremental Rename')
-      },
-    },
-    {
       'Bekaboo/dropbar.nvim',
       config = true,
       dependencies = {
         'nvim-telescope/telescope-fzf-native.nvim', optional = true
       }
-    },
-    {
-      'folke/trouble.nvim',
-      config = true,
-      cmd = 'Trouble',
-      keys = {
-        lazyKeyBind('<tab>d', "<cmd>Trouble diagnostics focus=true<cr>", 'Workspace Diagnostics')
-      }
-    },
-
+    }
   }
 end
 return { lsp_helper,
