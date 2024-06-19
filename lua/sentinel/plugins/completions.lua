@@ -9,8 +9,8 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'ray-x/cmp-treesitter'
+      'ray-x/cmp-treesitter',
+      'hrsh7th/cmp-nvim-lsp-signature-help'
     },
 
     config = function()
@@ -55,5 +55,5 @@ return {
         }
       })
     end
-  }
+  },
 }
