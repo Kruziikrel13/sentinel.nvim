@@ -5,7 +5,8 @@ return {
     'nvim-lua/plenary.nvim',
     'BurntSushi/ripgrep',
     'sharkdp/fd',
-    'nvim-tree/nvim-web-devicons'
+    'nvim-tree/nvim-web-devicons',
+    'desdic/agrolens.nvim'
   },
   lazy = false,
 }
