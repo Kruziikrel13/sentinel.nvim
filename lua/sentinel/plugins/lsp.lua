@@ -1,6 +1,3 @@
-local lazyKeyBind = require('util').lazyKeyBind
-local has = require('util').has
-
 return {
   {
     'neovim/nvim-lspconfig',
@@ -13,42 +10,28 @@ return {
         },
         dependencies = { 'williamboman/mason.nvim' }
       },
-      { 'folke/neodev.nvim', opts = {} },
     },
   },
+
+  -- Lsp Plugins
   {
     'zeioth/garbage-day.nvim',
-    event = 'VeryLazy',
+    event = 'LspAttach',
     config = true,
     dependencies = { 'neovim/nvim-lspconfig' }
   },
+
   {
     'j-hui/fidget.nvim',
+    event = 'LspAttach',
     config = true,
     dependencies = { 'neovim/nvim-lspconfig' }
   },
+
   {
-    'nvimdev/lspsaga.nvim',
+    'hinell/lsp-timeout.nvim',
     event = 'LspAttach',
-    opts = {
-      lightbulb = {
-        virtual_text = false
-      }
-    },
-    config = function(_, opts)
-      if has('gitsigns.nvim') then
-        opts.code_action = {
-          extend_gitsigns = true
-        }
-      end
-      require('lspsaga').setup(opts)
-    end,
-    keys = {
-      lazyKeyBind('<Tab><Tab>', '<cmd>Lspsaga hover_doc<cr>', 'Hover Info'),
-      lazyKeyBind('<Tab>d', '<cmd>Lspsaga goto_definition<cr>', 'Goto Definition'),
-      lazyKeyBind('<Tab>r', '<cmd>Lspsaga rename ++project<cr>', 'Rename Symbol'),
-      lazyKeyBind('<Tab>a', '<cmd>Lspsaga code_action<cr>', 'Code Actions'),
-      lazyKeyBind('<Tab>o', '<cmd>Lspsaga outline<cr>', 'Code Outline')
-    }
+    dependencies = { 'neovim/nvim-lspconfig' }
   }
+
 }
