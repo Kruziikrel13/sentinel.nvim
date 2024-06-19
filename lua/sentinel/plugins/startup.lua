@@ -1,22 +1,7 @@
-local SENTINEL = {
-'███████╗███████╗███╗   ██╗████████╗██╗███╗   ██╗███████╗██╗     ',
-'██╔════╝██╔════╝████╗  ██║╚══██╔══╝██║████╗  ██║██╔════╝██║     ',
-'███████╗█████╗  ██╔██╗ ██║   ██║   ██║██╔██╗ ██║█████╗  ██║     ',
-'╚════██║██╔══╝  ██║╚██╗██║   ██║   ██║██║╚██╗██║██╔══╝  ██║     ',
-'███████║███████╗██║ ╚████║   ██║   ██║██║ ╚████║███████╗███████╗',
-'╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝'
-}
-
 return {
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    opts = {
-      config = {
-        header = SENTINEL
-      }
-    },
-    config = true,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  }
+  'echasnovski/mini.starter',
+  opts = {
+    query_updaters = 'abcdefghijklmnopqrsuvwxyz0123456789_-.'
+  },
+  config = true
 }
