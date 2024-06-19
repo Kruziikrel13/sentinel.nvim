@@ -1,4 +1,4 @@
-local lazyKeyBind = require('util').lazyKeyBind
+local lazyKeyBind = require('utils.keys').lazyKeyBind
 
 return {
   {
@@ -8,8 +8,15 @@ return {
     },
     event = { 'BufEnter' },
     keys = {
-      lazyKeyBind('<leader>gs', '<cmd>Gitsigns<cr>', 'Git Signs')
+      lazyKeyBind('<leader>gs', '<cmd>Gitsigns<cr>', 'Git Signs'),
     },
     config = true,
+    dependencies = {
+      {'nvimdev/lspsaga.nvim', optional = true, opts = {
+        code_action = {
+          extend_gitsigns = true
+        }
+      }}
+    }
   }
 }
