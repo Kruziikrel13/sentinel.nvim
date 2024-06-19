@@ -1,5 +1,4 @@
 require('sentinel.config').init()
-local lazyKeyBind = require('utils.keys').lazyKeyBind
 return {
   'folke/lazy.nvim',
   {

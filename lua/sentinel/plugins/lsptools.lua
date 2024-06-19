@@ -56,6 +56,9 @@ elseif settings.lsp_helper == 'combined' then
         require('lsp_lines').setup()
       end
     },
+    -- {
+    --   'dgagn/diagflow.nvim',
+    -- },
     {
       'DNLHC/glance.nvim',
       config = true,
@@ -99,13 +102,15 @@ elseif settings.lsp_helper == 'combined' then
       dependencies = {
         'nvim-telescope/telescope-fzf-native.nvim', optional = true
       }
-    }
-    -- {
-    --   'folke/trouble.nvim',
-    --   config = true,
-    --   cmd = 'Trouble',
-    --   enabled = false
-    -- },
+    },
+    {
+      'folke/trouble.nvim',
+      config = true,
+      cmd = 'Trouble',
+      keys = {
+        lazyKeyBind('<tab>d', "<cmd>Trouble diagnostics focus=true<cr>", 'Buffer Diagnostics')
+      }
+    },
 
   }
 end
