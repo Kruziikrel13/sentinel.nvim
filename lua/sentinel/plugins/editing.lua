@@ -12,7 +12,35 @@ if settings.enable_freeze then
   }
 end
 
-return { freeze,
+local session_manager = {}
+if settings.session_manager == 'possession' then
+  session_manager = {
+    'jedrzejboczar/possession.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      autosave = {
+        current = true,
+        cwd = true
+      },
+      autoload = {
+        cwd = true
+      }
+    }
+  }
+elseif settings.session_manager == 'persisted' then
+  session_manager = {
+    'olimorris/persisted.nvim',
+    lazy = false,
+    opts = {
+      autosave = true,
+      autoload = true,
+      use_git_branch = true
+    },
+    config = true,
+  }
+end
+
+return { freeze, session_manager,
   {
     'fnune/recall.nvim',
     config = true,
