@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   callback = function()
     vim.cmd.checktime()

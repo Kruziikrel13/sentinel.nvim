@@ -17,6 +17,7 @@ if settings.session_manager == 'possession' then
   session_manager = {
     'jedrzejboczar/possession.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = false,
     opts = {
       autosave = {
         current = true,
@@ -43,7 +44,9 @@ end
 return { freeze, session_manager,
   {
     'fnune/recall.nvim',
-    config = true,
+    config = function()
+      vim.opt.secure = true
+    end,
     keys = {
       lazyKeyBind('<leader>mm', '<cmd>lua require("recall").toggle()<cr>', 'Recall: Toggle'),
       lazyKeyBind('<leader>mn', '<cmd>lua require("recall").goto_next()<cr>', 'Recall: Goto Next'),
@@ -71,7 +74,7 @@ return { freeze, session_manager,
       modes = {
         char = {
           jump_labels = true,
-          keys = { ["t"] = ',', ["T"] = '.' },
+          keys = { ["t"] = '.', ["T"] = ',' },
         }
       }
     },
