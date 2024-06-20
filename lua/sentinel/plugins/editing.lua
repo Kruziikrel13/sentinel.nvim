@@ -14,10 +14,6 @@ end
 
 return { freeze,
   {
-    'gen740/SmoothCursor.nvim',
-    config = true
-  },
-  {
     'fnune/recall.nvim',
     config = true,
     keys = {
@@ -96,22 +92,8 @@ return { freeze,
     'sitiom/nvim-numbertoggle'
   },
   {
-    'LintaoAmons/scratch.nvim',
-    opts = {
-      window_cmd = 'tabedit'
-    },
-    keys = {
-      lazyKeyBind('<leader>xs', '<cmd>Scratch<cr>', 'Scratch Window')
-    }
-  },
-  {
     'ChuufMaster/buffer-vacuum',
     config = true
-  },
-  {
-    'nanozuki/tabby.nvim',
-    config = true,
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
   {
     'folke/twilight.nvim',
