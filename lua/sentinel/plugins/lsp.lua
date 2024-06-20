@@ -30,6 +30,7 @@ return {
 
   {
     'hinell/lsp-timeout.nvim',
+    branch = 'dev',
     event = 'LspAttach',
     dependencies = { 'neovim/nvim-lspconfig' }
   }
