@@ -18,18 +18,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  pattern = 'NvimTree*',
-  callback = function()
-    local api = require('nvim-tree.api')
-    local view = require('nvim-tree.view')
-
-    if not view.is_visible() then
-      api.tree.open()
-    end
-  end
-})
-
 -- disable hlargs if lsp server has same capabilities 
 vim.api.nvim_create_augroup('LspAttach_hlargs', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {

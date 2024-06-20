@@ -89,17 +89,6 @@ return { freeze,
     main = 'ibl'
   },
   {
-    'rmagatti/auto-session',
-    opts = {
-      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }
-    },
-    config = function (_, opts)
-      vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
-      require('auto-session').setup(opts)
-    end,
-    lazy = false,
-  },
-  {
     'dstein64/nvim-scrollview',
     config = true
   },
