@@ -24,7 +24,9 @@ if settings.session_manager == 'possession' then
         cwd = true
       },
       autoload = {
-        cwd = true
+        cwd = function()
+          return vim.fn.argc() == 0
+        end
       }
     }
   }
