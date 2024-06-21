@@ -40,6 +40,7 @@ return {
         { '00', '^', opts = { silent = true, noremap = true }},
         { 'M', '<cmd>delm!<cr>', description = 'Delete Marks', opts = { silent = true, noremap = true } },
         { 'm', description = 'Mark' },
+        { '<Tab><Tab>', '<cmd>lua vim.lsp.buf.hover()<cr>', description = 'Hover Doc' },
 
         { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep'},
         { '<leader>fa', '<cmd>Telescope agrolens query=functions,labels<cr>', description = 'Telescope: Agrolens Functions'}
