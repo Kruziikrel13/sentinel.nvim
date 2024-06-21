@@ -68,39 +68,19 @@ elseif settings.lsp_helper == 'combined' then
       }
     },
     {
-      'DNLHC/glance.nvim',
-      config = true,
-      opts = {
-        border = {
-          enable = true,
-        },
-        mappings = {
-          list = {
-            ['<C-v>'] = function() require('glance').actions.jump_vsplit() end,
-            ['<C-x>'] = function() require('glance').actions.jump_split() end,
-          }
-        },
-        use_trouble_qf = Plugins.has('trouble.nvim')
-      },
-      dependencies = { 'folke/trouble.nvim', optional = true },
-      keys = {
-        lazyKeyBind('<Tab><Tab>', '<cmd>Glance definitions<cr>', 'Preview Definitions'),
-        lazyKeyBind('<Tab>z', '<cmd>Glance implementations<cr>', 'Preview Implementations'),
-        lazyKeyBind('<Tab>x', '<cmd>Glance references<cr>', 'Preview References'),
-        lazyKeyBind('<Tab>t', '<cmd>Glance type_definitions<cr>', 'Preview Type Definitions'),
-      }
-    },
-    {
-      'Wansmer/symbol-usage.nvim',
-      main = 'symbol-usage',
-      event = 'BufReadPre',
-      config = true
-    },
-    {
       'Bekaboo/dropbar.nvim',
       config = true,
       dependencies = {
         'nvim-telescope/telescope-fzf-native.nvim', optional = true
+      }
+    },
+    {
+      'folke/trouble.nvim',
+      config = true,
+      cmd = 'Trouble',
+      keys = {
+        lazyKeyBind('<Tab>r', '<cmd>Trouble lsp_definitions focus=true<cr>', 'Definitions'),
+        lazyKeyBind('<Tab>d', '<cmd>Trouble diagnostics focus=true<cr>', 'Diagnostics')
       }
     }
   }
