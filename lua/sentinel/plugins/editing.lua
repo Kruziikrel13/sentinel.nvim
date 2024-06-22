@@ -57,20 +57,6 @@ return { freeze, session_manager,
     }
   },
   {
-    'chentoast/marks.nvim',
-    config = true
-  },
-  {
-    'numToStr/Comment.nvim',
-    config = true,
-    lazy = false
-  },
-  {
-    'altermo/ultimate-autopair.nvim',
-    config = true,
-    event = 'InsertEnter'
-  },
-  {
     'folke/flash.nvim',
     opts = {
       modes = {
@@ -100,13 +86,6 @@ return { freeze, session_manager,
     config = true
   },
   {
-    'mrcjkb/nvim-lastplace'
-  },
-  {
-    'max397574/better-escape.nvim',
-    config = true
-  },
-  {
     'lukas-reineke/indent-blankline.nvim',
     config = function(_, opts)
       require('ibl').setup(opts)
@@ -129,7 +108,24 @@ return { freeze, session_manager,
     config = true
   },
   {
-    'folke/twilight.nvim',
+    'chentoast/marks.nvim',
+    config = true
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = true,
+    lazy = false
+  },
+  {
+    'altermo/ultimate-autopair.nvim',
+    config = true,
+    event = 'InsertEnter'
+  },
+  {
+    'mrcjkb/nvim-lastplace'
+  },
+  {
+    'max397574/better-escape.nvim',
     config = true
   }
 }
