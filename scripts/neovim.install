@@ -2,7 +2,7 @@
 
 set -eux
 
-declare -r NEOVIM_VERSION='v0.10.0'
+declare -r NEOVIM_VERSION='nightly' # stable
 
 function download() {
   TARGET="$1"
