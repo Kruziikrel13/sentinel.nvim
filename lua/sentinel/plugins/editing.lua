@@ -1,20 +1,7 @@
 local lazyKeyBind = require('utils.keys').lazyKeyBind
-local settings = require('configuration')
 
-local freeze = {}
-if settings.enable_freeze then
-  freeze = {
-    'AlejandroSuero/freeze-code.nvim',
-    config = true,
-    keys = {
-      lazyKeyBind('<leader>xf', '<cmd>Freeze<cr>', 'Freeze Code')
-    }
-  }
-end
-
-local session_manager = {}
-if settings.session_manager == 'possession' then
-  session_manager = {
+return {
+  {
     'jedrzejboczar/possession.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = false,
@@ -23,27 +10,9 @@ if settings.session_manager == 'possession' then
         current = true,
         cwd = true
       },
-      autoload = {
-        cwd = function()
-          return vim.fn.argc() == 0
-        end
-      }
+      autoload = 'last_cwd'
     }
-  }
-elseif settings.session_manager == 'persisted' then
-  session_manager = {
-    'olimorris/persisted.nvim',
-    lazy = false,
-    opts = {
-      autosave = true,
-      autoload = true,
-      use_git_branch = true
-    },
-    config = true,
-  }
-end
-
-return { freeze, session_manager,
+  },
   {
     'fnune/recall.nvim',
     config = function()

@@ -9,11 +9,6 @@ conf.maplocalleader = ' '
 
 conf.enable_startuptime = true
 conf.enable_hardtime = false -- For enforcing good vim practices
-conf.enable_freeze = false -- Freeze Code / Convert code selection to image
-
--- possession | persisted
-conf.session_manager = 'possession'
-
 
 -- lspsaga | navigator | combined | none
 conf.lsp_helper = 'combined'
