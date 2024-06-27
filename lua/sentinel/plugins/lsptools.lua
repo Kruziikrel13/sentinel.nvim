@@ -1,6 +1,5 @@
 local settings = require('configuration')
 local lazyKeyBind = require('utils.keys').lazyKeyBind
-local Plugins = require('utils.plugins')
 
 local lsp_helper = {}
 if settings.lsp_helper == 'lspsaga' then
@@ -37,14 +36,15 @@ elseif settings.lsp_helper == 'combined' then
     diagnostics = {
       'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
       event = 'LspAttach',
-      config = function()
+      opts = {
+        virtual_lines = {
+          only_current_line = true
+        }
+      },
+      config = function(_, opts)
+        opts = vim.tbl_deep_extend('force', {virtual_text = false}, opts)
+        vim.diagnostic.config(opts)
         require('lsp_lines').setup()
-        vim.diagnostic.config({
-          virtual_text = false,
-          virtual_lines = {
-            only_current_line = true
-          }
-        })
       end
     }
   elseif settings.diagnostics == 'diagflow' then
