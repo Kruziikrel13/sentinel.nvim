@@ -7,7 +7,12 @@ return {
           conf.col = -1
           conf.row = 0
           return conf
-        end
+        end,
+        mappings = {
+          n = {
+            ['q'] = 'Close'
+          }
+        }
       }
     },
     config = true,
