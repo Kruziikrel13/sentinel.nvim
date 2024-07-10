@@ -33,17 +33,16 @@ return {
         nvim_tree = true
       },
       keymaps = {
-        { '<leader>xL', '<cmd>Lazy<cr>', description = 'Lazy'},
-        { '<leader>xa',  '<cmd>lua require("activate").list_plugins()<cr>', description ='List Plugins'},
-        { '<C-s>', '<cmd>w<cr>', description = 'Save File'},
-        { '<C-q>', '<cmd>qa!<cr>', description = 'Quit All'},
-        { '00', '^', opts = { silent = true, noremap = true }},
-        { 'M', '<cmd>delm!<cr>', description = 'Delete Marks', opts = { silent = true, noremap = true } },
-        { 'm', description = 'Mark' },
-        { '<Tab><Tab>', '<cmd>lua vim.lsp.buf.hover()<cr>', description = 'Hover Doc' },
+        { '<leader>xL', '<cmd>Lazy<cr>',                                         description = 'Lazy' },
+        { '<leader>xa', '<cmd>lua require("activate").list_plugins()<cr>',       description = 'List Plugins' },
+        { '<C-s>',      '<cmd>w<cr>',                                            description = 'Save File' },
+        { '<C-q>',      '<cmd>qa!<cr>',                                          description = 'Quit All' },
+        { '00',         '^',                                                     opts = { silent = true, noremap = true } },
+        { 'M',          '<cmd>delm!<cr>',                                        description = 'Delete Marks',                 opts = { silent = true, noremap = true } },
+        { 'm',          description = 'Mark' },
 
-        { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep'},
-        { '<leader>fa', '<cmd>Telescope agrolens query=functions,labels<cr>', description = 'Telescope: Agrolens Functions'}
+        { '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', description = 'Telescope: Live Grep' },
+        { '<leader>fa', '<cmd>Telescope agrolens query=functions,labels<cr>',    description = 'Telescope: Agrolens Functions' }
       }
     }
   }

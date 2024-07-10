@@ -11,10 +11,10 @@ M.init = function()
   M.did_init = true
 
   -- delay notifications until vim.notify was replaced or after 500ms
-  require('util').lazy_notify()
+  require('utils.lib').lazy_notify()
 
-  require('util').load('options')
-  require('util').load('autocmds')
+  require('utils.lib').load('options')
+  require('utils.lib').load('autocmds')
 end
 
 return M

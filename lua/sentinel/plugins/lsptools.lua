@@ -8,7 +8,7 @@ if settings.lsp_helper == 'lspsaga' then
     event = 'LspAttach',
     dependencies = { 'neovim/nvim-lspconfig' },
     opts = {
-      code_action ={
+      code_action = {
         enable = false
       },
       callhierarchy = {
@@ -31,73 +31,53 @@ if settings.lsp_helper == 'lspsaga' then
     }
   }
 elseif settings.lsp_helper == 'combined' then
-  local diagnostics = {}
-  if settings.diagnostics == 'lsp_lines' then
-    diagnostics = {
-      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-      event = 'LspAttach',
-      opts = {
-        virtual_lines = {
-          only_current_line = true
-        }
-      },
-      config = function(_, opts)
-        opts = vim.tbl_deep_extend('force', {virtual_text = false}, opts)
-        vim.diagnostic.config(opts)
-        require('lsp_lines').setup()
-      end
-    }
-  elseif settings.diagnostics == 'diagflow' then
-    diagnostics = {
-      'dgagn/diagflow.nvim',
-      event = 'LspAttach',
-      config = true
-
-    }
-  end
-  lsp_helper = { diagnostics,
+  lsp_helper = {
     {
-      'artemave/workspace-diagnostics.nvim'
+      'rachartier/tiny-inline-diagnostic.nvim',
+      event = 'LspAttach',
+      config = function()
+        vim.diagnostic.config({ virtual_text = false })
+        require('tiny-inline-diagnostic').setup()
+      end
     },
     {
-      'hedyhli/outline.nvim',
-      config = true,
-      cmd = 'Outline',
+      'LukasPietzschmann/boo.nvim',
+      opts = {
+        max_width = 100,
+        max_height = 80,
+        focus_on_open = false
+      },
       keys = {
-        lazyKeyBind('<Tab>o', '<cmd>Outline<cr>', 'Symbol Outline')
+        lazyKeyBind('<Tab><Tab>', '<cmd>lua require("boo").boo()<cr>', 'Lsp Boo Info')
+      }
+    },
+    {
+      'rmagatti/goto-preview',
+      opts = {
+        resizing_mappings = true,
+      },
+      keys = {
+        lazyKeyBind('<Tab>p', '<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Goto Preview')
       }
     },
     {
       'Bekaboo/dropbar.nvim',
+      event = 'LspAttach',
       config = true,
       dependencies = {
         'nvim-telescope/telescope-fzf-native.nvim', optional = true
       }
-    },
-    {
-      'folke/trouble.nvim',
-      config = true,
-      cmd = 'Trouble',
-      keys = {
-        lazyKeyBind('<Tab>r', '<cmd>Trouble lsp_definitions focus=true<cr>', 'Definitions'),
-        lazyKeyBind('<Tab>d', '<cmd>Trouble diagnostics focus=true<cr>', 'Diagnostics')
-      }
     }
+
   }
 end
 return { lsp_helper,
-  {
-    'm-demare/hlargs.nvim',
-    event = 'LspAttach',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', optional = true },
-    config = true
-  },
   {
     'luckasRanarison/clear-action.nvim',
     config = true,
     opts = {
       mappings = {
-        code_action = { key = '<Tab>a', mode = { 'n' }, options = { desc = 'Code Action'} }
+        code_action = { key = '<Tab>a', mode = { 'n' }, options = { desc = 'Code Action' } }
       }
     },
   }

@@ -11,6 +11,7 @@ local function bindOnAttach(bufnr)
   vim.keymap.set('n', '>', api.tree.change_root_to_node, opts('change root to node'))
   vim.keymap.set('n', '<', api.tree.change_root_to_parent, opts('change root to parent'))
   vim.keymap.set('n', '<BS>', api.tree.toggle_hidden_filter, opts('toggle hidden'))
+  vim.keymap.set('n', 'g<BS>', api.tree.toggle_gitignore_filter, opts('toggle gitignore'))
   vim.keymap.set('n', 'c', api.node.navigate.parent_close, opts('close parent'))
   vim.keymap.set('n', 'C', api.tree.collapse_all, opts('close parent'))
 end

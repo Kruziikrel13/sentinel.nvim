@@ -1,6 +1,8 @@
 --- @class Keys
 local M = {}
 
+local default_opts = { noremap = true, silent = true }
+
 --- @param mode mode
 --- @param key string
 --- @param cmd string | function
@@ -33,6 +35,12 @@ end
 -- Wrapper for defining a which key description group
 M.whichKeyGroup = function(description)
     return { name = description }
+end
+
+function M.map(mode, key, cmd, opts)
+  opts = opts or default_opts
+
+  vim.keymap.set(mode, key, cmd, opts)
 end
 
 
