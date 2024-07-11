@@ -26,7 +26,7 @@ end
 ---@param ... table tables to merge
 ---@return table # tables merged into single table
 function M.merge_tables(...)
-  return vim.tbl_deep_extend('force', {}, {...})
+  return vim.tbl_deep_extend('force', {}, ...)
 end
 
 ---@param name string
