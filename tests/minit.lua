@@ -9,5 +9,10 @@ vim.opt.rtp:prepend(".")
 require("lazy.minit").setup({
   spec = {
     { dir = vim.uv.cwd() },
+    { -- for Plugins test
+      'williamboman/mason.nvim',
+      cmd = 'MasonUpdate',
+      config = true
+    }
   },
 })
