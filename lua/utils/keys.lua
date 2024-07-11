@@ -3,7 +3,7 @@ local M = {}
 
 local default_opts = { noremap = true, silent = true }
 
---- @param mode mode
+--- @param mode string
 --- @param key string
 --- @param cmd string | function
 --- @param opts table?
