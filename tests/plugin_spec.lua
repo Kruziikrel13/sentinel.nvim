@@ -1,3 +1,4 @@
+---@module luassert
 local Plugins = require('utils.plugins')
 
 describe("plugins", function ()
@@ -10,9 +11,7 @@ describe("plugins", function ()
     assert.True(Plugins.getPlugin('mason.nvim').config)
   end)
 
-  it('onLoad & isLoaded', function()
-    Plugins.onLoad('mason.nvim', function()
-      assert.True(Plugins.isLoaded('mason.nvim'))
-    end)
+  it('isLoaded', function()
+    assert.falsy(Plugins.isLoaded('mason.nvim'))
   end)
 end)
