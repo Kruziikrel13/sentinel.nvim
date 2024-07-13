@@ -1,5 +1,6 @@
 local settings = require('configuration')
 local lazyKeyBind = require('utils.keys').lazyKeyBind
+local Lib = require('utils.lib')
 
 local lsp_helper = {}
 if settings.lsp_helper == 'lspsaga' then
@@ -49,15 +50,6 @@ elseif settings.lsp_helper == 'combined' then
       },
       keys = {
         lazyKeyBind('<Tab><Tab>', '<cmd>lua require("boo").boo()<cr>', 'Lsp Boo Info')
-      }
-    },
-    {
-      'rmagatti/goto-preview',
-      opts = {
-        resizing_mappings = true,
-      },
-      keys = {
-        lazyKeyBind('<Tab>p', '<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Goto Preview')
       }
     },
     {

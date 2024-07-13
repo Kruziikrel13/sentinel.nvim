@@ -8,7 +8,7 @@ local default_opts = { noremap = true, silent = true }
 --- @param cmd string | function
 --- @param opts table?
 -- Vim Keymap wrapper, we specify our own default opts if none are passed during call
-M.safe_map = function(mode, key, cmd, opts)
+function M.safe_map(mode, key, cmd, opts)
     local keys = require('lazy.core.handler').handlers.keys
 
     -- do not create keymap if lazy keys handler exists
@@ -26,14 +26,14 @@ end
 --- @param description string
 --- @return table
 -- Wrapper for defining a key and returning it in a LazyVim readable format
-M.lazyKeyBind = function(key, cmd, description)
+function M.lazyKeyBind(key, cmd, description)
     return { key, cmd, desc = description }
 end
 
 --- @param description string
 --- @return table
 -- Wrapper for defining a which key description group
-M.whichKeyGroup = function(description)
+function M.whichKeyGroup(description)
     return { name = description }
 end
 
