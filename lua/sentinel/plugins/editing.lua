@@ -1,5 +1,3 @@
-local lazyKeyBind = require('utils.keys').lazyKeyBind
-
 return {
   {
     'jedrzejboczar/possession.nvim',
@@ -14,18 +12,6 @@ return {
     }
   },
   {
-    'fnune/recall.nvim',
-    config = function()
-      vim.opt.secure = true
-    end,
-    keys = {
-      lazyKeyBind('<leader>mm', '<cmd>lua require("recall").toggle()<cr>', 'Recall: Toggle'),
-      lazyKeyBind('<leader>mn', '<cmd>lua require("recall").goto_next()<cr>', 'Recall: Goto Next'),
-      lazyKeyBind('<leader>mp', '<cmd>lua require("recall").goto_prev()<cr>', 'Recall: Goto Previous'),
-      lazyKeyBind('<leader>ml', '<cmd>lua require("recall").clear()<cr>', 'Recall: Clear Marks'),
-    }
-  },
-  {
     'folke/flash.nvim',
     opts = {
       modes = {
@@ -34,31 +20,10 @@ return {
           keys = { ["t"] = '.', ["T"] = ',' },
         }
       }
-    },
-    config = true
-  },
-  {
-    'kylechui/nvim-surround',
-    config = true,
-    event = 'VeryLazy'
-  },
-  {
-    'roobert/surround-ui.nvim',
-    main = "surround-ui",
-    dependencies = {
-      'kylechui/nvim-surround',
-      'folke/which-key.nvim'
-    },
-    opts = {
-      root_key = "S"
-    },
-    config = true
+    }
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    config = function(_, opts)
-      require('ibl').setup(opts)
-    end,
     opts = {
       exclude = { filetypes = { 'nvimtree', 'dashboard' } },
       scope = { enabled = true }
@@ -66,35 +31,26 @@ return {
     main = 'ibl'
   },
   {
-    'dstein64/nvim-scrollview',
-    config = true
-  },
-  {
-    'sitiom/nvim-numbertoggle'
+    'altermo/ultimate-autopair.nvim',
+    event = 'InsertEnter',
+    opts = {},
   },
   {
     'ChuufMaster/buffer-vacuum',
-    config = true
+    opts = {}
   },
   {
-    'chentoast/marks.nvim',
-    config = true
+    'dstein64/nvim-scrollview',
+    opts = {}
   },
   {
-    'numToStr/Comment.nvim',
-    config = true,
-    lazy = false
-  },
-  {
-    'altermo/ultimate-autopair.nvim',
-    config = true,
-    event = 'InsertEnter'
+    'max397574/better-escape.nvim',
+    opts = {}
   },
   {
     'mrcjkb/nvim-lastplace'
   },
   {
-    'max397574/better-escape.nvim',
-    config = true
-  }
+    'sitiom/nvim-numbertoggle'
+  },
 }
