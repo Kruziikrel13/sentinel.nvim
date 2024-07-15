@@ -33,7 +33,11 @@ function M.setupLangServer(server, overrides)
   if overrides ~= nil then
     opts = Utils.merge_tables(opts, overrides)
   end
-  require('lspconfig')[server].setup(opts)
+  vim.api.nvim_create_autocmd({'BufReadPost', 'BufNewFile', 'BufWritePre'}, {
+    callback = function()
+      require('lspconfig')[server].setup(opts)
+    end
+  })
 end
 
 ---@param ... string | LangServerOpts
