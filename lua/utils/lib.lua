@@ -33,8 +33,10 @@ end
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
 function M.load(name, namespace_override)
-  local nspace = namespace_override or settings.namespace
-  local mod = nspace .. '.' .. name
+  local mod = name
+  if (namespace_override) then
+    mod = namespace_override .. '.' .. mod
+  end
   LazyUtil.try(function()
     require(mod)
   end, {

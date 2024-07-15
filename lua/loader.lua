@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  spec = 'sentinel.plugins',
+  spec = 'plugins',
   defaults = {
     lazy = false,
     version = false

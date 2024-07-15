@@ -1,4 +1,4 @@
-require('sentinel.config').init()
+require('config').init()
 
 return {
   'folke/lazy.nvim',
