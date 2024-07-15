@@ -27,21 +27,36 @@ return {
     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim', optional = true }
   },
   {
-    'kruziikrel13/lspsaga',
-    event = 'LspAttach',
-    dir = '~/definitions',
+    'folke/trouble.nvim',
     opts = {},
-    dev = true,
+    keys = {
+      { '<Tab><leader>', function ()
+        require('trouble').open({
+          mode = 'diagnostics',
+          focus = true
+        })
+      end, desc = 'Workspace Diagnostics' },
+      { '<Tab>o', function ()
+        require('trouble').toggle({
+          mode = 'symbols',
+          focus = true,
+          win = {
+            type = 'float'
+          }
+        })
+      end, desc = 'Document Outline' },
+    }
+  },
+  {
+    'kruziikrel13/lspsaga',
+    opts = {},
     keys = {
       { '<Tab>r', '<cmd>Lspsaga rename ++project<cr>',
         desc = 'Rename Symbol'},
       { '<Tab>d', '<cmd>Lspsaga peek_definition<cr>',
         desc = 'Peek Definition' },
-      { '<Tab>o', '<cmd>Lspsaga outline<cr>',
-        desc = 'File Code Outline' },
       { '<Tab>f', '<cmd>Lspsaga finder<cr>',
-        desc = 'Project Symbol Finder' },
-
+        desc = 'Project Symbol Finder' }
     }
   },
   {

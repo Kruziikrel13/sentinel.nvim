@@ -1,6 +1,5 @@
 ---@class Lib
 local M = {}
-local settings = require('configuration')
 local LazyUtil = require('lazy.core.util')
 
 ---@return boolean # true if the passed variable is not empty
