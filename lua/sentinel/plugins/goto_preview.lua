@@ -1,6 +1,5 @@
 local lazyKeyBind = require('utils.keys').lazyKeyBind
 
-
 local function open_hook(bufnr)
   local function close_callback()
     require('goto-preview').close_all_win()

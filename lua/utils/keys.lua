@@ -3,6 +3,17 @@ local M = {}
 
 local default_opts = { noremap = true, silent = true }
 
+---@enum MODE
+M.MODE = {
+  NORMAL = 'n',
+  VISUAL = 'x',
+  INSERT = 'i',
+  TERMINAL = 't',
+  COMMAND = 'c',
+  OPERATOR_PENDING = 'o',
+  SELECT = 's'
+}
+
 --- @param mode string
 --- @param key string
 --- @param cmd string | function
@@ -13,6 +24,7 @@ function M.safe_map(mode, key, cmd, opts)
 
     -- do not create keymap if lazy keys handler exists
     if keys ~= nil then
+    ---@diagnostic disable-next-line: undefined-field
       if not keys.active[keys.parse({key, mode = mode}).id] then
         opts = opts or {}
         opts.silent = opts.silent ~= false
@@ -37,6 +49,7 @@ function M.whichKeyGroup(description)
     return { name = description }
 end
 
+---@param mode MODE
 function M.map(mode, key, cmd, opts)
   opts = opts or default_opts
 
