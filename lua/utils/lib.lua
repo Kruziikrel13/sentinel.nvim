@@ -97,4 +97,11 @@ function M.lazy_notify()
   timer:start(500, 0, replay)
 end
 
+
+function M.inspect(...)
+  for _, val in ipairs({...}) do
+    vim.notify(vim.inspect(val))
+  end
+end
+
 return M
