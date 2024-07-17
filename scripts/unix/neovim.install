@@ -13,6 +13,7 @@ function extract() {
   TARGET="$1"
 
   tar -xvf ${TARGET}
+  rm ${TARGET}
 }
 
 function install() {
@@ -20,6 +21,7 @@ function install() {
   DESTINATION="$2"
 
   sudo cp -rf $SOURCE $DESTINATION
+  rm -rf $SOURCE
 }
 
 function main() {

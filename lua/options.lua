@@ -37,3 +37,4 @@ vim.opt.ignorecase = true
 vim.opt.exrc = settings.init_file_loading -- Local Init File Loading (.nvim.lua)
 vim.opt.termguicolors = true
 -- vim.opt. clipboard = "unnamedplus" -- Slows down startup time and requires a program to actually use.
+vim.opt.fsync = vim.uv.os_uname().sysname ~= 'Windows_NT'

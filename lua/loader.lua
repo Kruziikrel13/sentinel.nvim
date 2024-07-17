@@ -13,11 +13,11 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-  spec = 'sentinel.plugins',
+require('lazy').setup('plugins', {
   defaults = {
     lazy = false,
-    version = false
+    version = false,
+    submodules = false
   },
   checker = { enable = true },
   performance = {
