@@ -1,4 +1,4 @@
----@module luassert
+---@diagnostic disable: undefined-global
 local Plugins = require('utils.plugins')
 
 describe("plugins", function ()

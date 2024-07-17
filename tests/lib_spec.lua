@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local Lib = require('utils.lib')
 
 describe("lib", function ()
