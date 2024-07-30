@@ -12,7 +12,8 @@ return {
         { '<leader>x', group = 'Utilities' },
         { '<leader>f', group = 'Find' },
         { '<leader>g', group = 'Git' },
-        { '<Tab>', group = 'Language Server' },
+        { '<leader>l', group = 'Language Server' },
+        { '<Tab>', group = 'Hover Utilities' },
         { '<leader>xl', '<cmd>Lazy<cr>', desc = 'Lazy' },
         { 'M', '<cmd>delm!<cr>', desc = 'Clear Marks' }
       }

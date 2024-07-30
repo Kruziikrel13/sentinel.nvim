@@ -1,10 +1,16 @@
+local function module(name)
+  return require('plugins.lsp.' .. name)
+end
+
 return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
   specs = {
-    require('plugins.lsp.state'),
-    require('plugins.lsp.ui'),
-    require('plugins.lsp.tools')
+    module('ui'),
+    module('diagnostics'),
+    module('state'),
+    module('hover'),
+    module('actions')
   },
-  dependencies = require('plugins.lsp.installer')
+  dependencies = module('installer')
 }
