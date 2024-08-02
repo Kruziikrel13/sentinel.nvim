@@ -1,38 +1,29 @@
-local lazyKeyBind = require('utils.keys').lazyKeyBind
--- Dedicated Terminals
-
---- Dedicated LazyGit Terminal
-local lazygit_terminal = {
-    display_name = 'LazyGit',
-    cmd = 'lazygit',
-    hidden = true,
-    count = 12,
-    direction = 'float'
-}
-
-local function lazygit()
-    lazygit_terminal:toggle()
-end
-
-local function config(_, opts)
-  require('toggleterm').setup(opts)
-
-  local terminal = require('toggleterm.terminal').Terminal
-
-  lazygit_terminal = terminal:new(lazygit_terminal)
-end
-
+local SentinelLib = require('utils.lib')
+local lazygit
 return {
-    --- @see https://github.com/akinsho/toggleterm.nvim
-    'akinsho/toggleterm.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    opts = {
-      open_mapping = [[<C-\>]],
-      start_in_insert = true,
-      direction = 'float'
-    },
-    config = config,
-    keys = {
-        lazyKeyBind('<leader>gg', lazygit, 'Lazygit'),
-    }
+  --- @see https://github.com/akinsho/toggleterm.nvim
+  'akinsho/toggleterm.nvim',
+  event = { 'BufReadPost', 'BufNewFile' },
+  opts = {
+    open_mapping = [[<C-\>]],
+    start_in_insert = true,
+    direction = 'float'
+  },
+  config = function(_, opts)
+    require('toggleterm').setup(opts)
+    lazygit = require('toggleterm.terminal').Terminal:new({
+      count = 12,
+      hidden = true,
+      direction = 'float',
+      cmd = 'lazygit',
+      name = 'LazyGit'
+    })
+  end,
+  keys = {
+    { '<leader>gg', function()
+      if SentinelLib.is_not_empty(lazygit) then
+        lazygit:toggle()
+      end
+    end, desc = "Lazygit" }
+  }
 }
