@@ -1,6 +1,10 @@
 local Plugins = require('utils.plugins')
 local Utils = require('utils.lib')
+
 local M = {}
+
+--- Servers appended to this list via appendServers will be configured and started by lspconfig when it loads
+M.servers = {}
 
 ---@class LangServerOpts
 ---@field name string
@@ -23,11 +27,6 @@ end
 function M.setupLangServer(server, overrides)
   local opts = {
     capabilities = get_capabilities(),
-    on_attach = function(client, bufnr)
-      if Plugins.has('workspace-diagnostics.nvim') then
-        require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
-      end
-    end
   }
 
   if overrides ~= nil then
@@ -45,6 +44,16 @@ function M.setupLangServers(...)
       M.setupLangServer(server.name, server.opts)
     end
   end
+end
+
+function M.appendServers(...)
+  for _, servername in ipairs({...}) do
+    table.insert(M.servers, servername)
+  end
+end
+
+function M.startServers()
+  M.setupLangServers(unpack(M.servers))
 end
 
 return M

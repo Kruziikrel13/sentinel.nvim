@@ -12,5 +12,9 @@ return {
     module('hover'),
     module('actions')
   },
+  config = function(_, opts)
+    local LspUtil = require('utils.lsp')
+    LspUtil.startServers()
+  end,
   dependencies = module('installer')
 }
