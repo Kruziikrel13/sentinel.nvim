@@ -11,6 +11,7 @@
 ### Windows
 Ensure neovim is started in an environment with Clang or MSVC on the path.
   - This can be done by sourcing the visual studio build tools cli environment variables
+
 Batch Scripts for Winget are provided but you can also use the above links to install these dependencies
 
 ### Ubuntu
