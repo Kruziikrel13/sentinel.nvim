@@ -1,5 +1,6 @@
 ## Dependencies
-- [Neovim\*](https://github.com/neovim/neovim) v0.10+ **Nightly | Stable**
+- [Neovim](https://github.com/neovim/neovim)
+  - v0.10+ **Nightly | Stable**
 - [RipGrep](https://github.com/BurntSushi/ripgrep)
 - [LazyGit](https://github.com/jesseduffield/lazygit)
 
