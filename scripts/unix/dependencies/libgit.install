@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sudo apt install libgit2.1.7 libgit2-dev -y
