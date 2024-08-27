@@ -1,8 +1,8 @@
 local lazyKeyBind = require('utils.keys').lazyKeyBind
-local settings = require('configuration')
+local configuration = require('configuration')
 
 local fugit2 = {}
-if settings.enable_fugit then
+if configuration.plugins.fugit then
   fugit2 = { -- Not there yet
     'SuperBo/fugit2.nvim',
     opts = {

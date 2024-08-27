@@ -43,14 +43,19 @@ return {
     'dstein64/nvim-scrollview',
     opts = {}
   },
-  {
-    'max397574/better-escape.nvim',
-    opts = {}
-  },
+  -- {
+  --   'max397574/better-escape.nvim',
+  --   opts = {}
+  -- },
   {
     'mrcjkb/nvim-lastplace'
   },
   {
     'sitiom/nvim-numbertoggle'
   },
+  {
+    'stevearc/quicker.nvim',
+    opts = {},
+    event = "Filetype qf"
+  }
 }

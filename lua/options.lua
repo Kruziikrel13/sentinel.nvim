@@ -1,4 +1,4 @@
-local settings = require('configuration')
+local configuration = require('configuration')
 
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -34,7 +34,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.whichwrap = "bs<>[]hl"
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
-vim.opt.exrc = settings.init_file_loading -- Local Init File Loading (.nvim.lua)
+vim.opt.exrc = configuration.init_file_loading -- Local Init File Loading (.nvim.lua)
 vim.opt.termguicolors = true
 -- vim.opt. clipboard = "unnamedplus" -- Slows down startup time and requires a program to actually use.
 vim.opt.fsync = vim.uv.os_uname().sysname ~= 'Windows_NT'

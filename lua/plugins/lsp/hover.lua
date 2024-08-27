@@ -14,7 +14,21 @@ return {
   },
   {
     'kruziikrel13/lspsaga',
-    opts = {},
+    opts = {
+      finder = {
+        keys = {
+          vsplit = "<C-c>v",
+          split = "<C-c>x",
+          toggle_or_open = "<CR>"
+        }
+      },
+      rename = {
+        keys = {
+          quit = '<Esc>',
+          select = 'e'
+        }
+      },
+    },
     keys = {
       { '<Tab>r', '<cmd>Lspsaga rename ++project<cr>',
         desc = 'Rename' },

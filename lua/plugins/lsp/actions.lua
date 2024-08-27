@@ -1,6 +1,6 @@
-local settings = require('configuration')
+local configuration = require('configuration')
 local actions = {}
-if settings.lsp_actions == 'tiny-action' then
+if configuration.diagnostics.actions == 'tiny-action' then
   actions = {
     'rachartier/tiny-code-action.nvim',
     opts = {},
@@ -14,7 +14,7 @@ if settings.lsp_actions == 'tiny-action' then
       end, desc = 'Code Action' }
     }
   }
-elseif settings.lsp_actions == 'clear-action' then
+elseif configuration.diagnostics.actions == 'clear-action' then
   actions = {
     'luckasRanarison/clear-action.nvim',
     opts = {},

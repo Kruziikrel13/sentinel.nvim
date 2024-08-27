@@ -1,13 +1,13 @@
-local settings = require('configuration')
+local configuration = require('configuration')
 
 local theme = {}
-if settings.theme == 'flow'then
+if configuration.theme == 'flow'then
   theme = {
     '0xstepit/flow.nvim',
     lazy = false,
     priority = 1000,
     opts = {
-      transparent = settings.enable_transparency,
+      transparent = configuration.enable_transparency,
       fluo_color = 'orange',
       mode = 'normal',
       aggressive_spell = false
@@ -17,7 +17,7 @@ if settings.theme == 'flow'then
       vim.cmd.colorscheme('flow')
     end
   }
-elseif settings.theme == 'github' then
+elseif configuration.theme == 'github' then
   theme = {
     'projekt0n/github-nvim-theme',
     lazy = false,
@@ -25,16 +25,29 @@ elseif settings.theme == 'github' then
     opts = {
       options = {
         dim_inactive = true,
-        transparent = settings.enable_transparency
+        transparent = configuration.enable_transparency
       }
     },
     config = function(_, opts)
       local github = require('github-theme')
       github.setup(opts)
       github.compile(false)
-      vim.cmd.colorscheme('github_' .. settings.mode .. '_default')
+      vim.cmd.colorscheme('github_' .. configuration.mode .. '_default')
     end
 
+  }
+elseif configuration.theme == 'serene' then
+  theme = {
+    'samharju/serene.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      if configuration.enable_transparency then
+        vim.cmd.colorscheme('serene-transparent')
+      else
+        vim.cmd.colorscheme('serene')
+      end
+    end
   }
 end
 

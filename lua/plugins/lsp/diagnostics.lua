@@ -1,6 +1,6 @@
-local settings = require('configuration')
+local configuration = require('configuration')
 local inline = {}
-if settings.line_diagnostics == "tiny-inline" then
+if configuration.diagnostics.line == "tiny-inline" then
   inline = {
     'rachartier/tiny-inline-diagnostic.nvim',
     event = 'LspAttach',
@@ -9,7 +9,7 @@ if settings.line_diagnostics == "tiny-inline" then
       require('tiny-inline-diagnostic').setup()
     end
   }
-elseif settings.line_diagnostics == "lsp_lines"  then
+elseif configuration.diagnostics.line == "lsp_lines"  then
   inline = {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     config = function()

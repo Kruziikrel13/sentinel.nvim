@@ -1,7 +1,7 @@
-local settings = require('configuration')
+local configuration = require('configuration')
 
 local startuptime = {}
-if settings.enable_startuptime then
+if configuration.plugins.startuptime then
   -- measure startuptime
   startuptime = {
     "dstein64/vim-startuptime",
@@ -13,7 +13,7 @@ if settings.enable_startuptime then
 end
 
 local hardtime = {}
-if settings.enable_hardtime then
+if configuration.plugins.hardtime then
   hardtime = {
     'm4xshen/hardtime.nvim',
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
@@ -25,7 +25,7 @@ if settings.enable_hardtime then
 end
 
 local timespent = {}
-if settings.enable_timespent then
+if configuration.plugins.timespent then
   timespent = {
     'quentingruber/timespent.nvim',
     cmd = 'ShowTimeSpent'

@@ -10,10 +10,10 @@ return {
     module('diagnostics'),
     module('state'),
     module('hover'),
-    module('actions')
+    module('actions'),
   },
-  config = function(_, opts)
-    local LspUtil = require('utils.lsp')
+  config = function()
+    local LspUtil = require('util.lsp')
     LspUtil.startServers()
   end,
   dependencies = module('installer')
