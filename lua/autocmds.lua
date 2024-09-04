@@ -1,7 +1,9 @@
 ---@diagnostic disable: need-check-nil
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   callback = function()
-    vim.cmd.checktime()
+    if vim.o.buftype ~= 'nofile' then
+      vim.cmd.checktime()
+    end
   end
 })
 
