@@ -1,19 +1,6 @@
 return {
   {
-    'LukasPietzschmann/boo.nvim',
-    opts = {
-      max_width = 100,
-      max_height = 80,
-      focus_on_open = false
-    },
-    keys = {
-      { '<Tab><Tab>', function ()
-        require('boo').boo()
-      end, desc = 'Hover Info' }
-    }
-  },
-  {
-    'kruziikrel13/lspsaga',
+    'nvimdev/lspsaga.nvim',
     opts = {
       finder = {
         keys = {
@@ -30,6 +17,8 @@ return {
       },
     },
     keys = {
+      { '<Tab><Tab>', '<cmd>Lspsaga hover_doc<cr>',
+        desc = 'Hover Doc' },
       { '<Tab>r', '<cmd>Lspsaga rename ++project<cr>',
         desc = 'Rename' },
       { '<Tab>d', '<cmd>Lspsaga peek_definition<cr>',
