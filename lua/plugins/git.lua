@@ -1,4 +1,3 @@
-local lazyKeyBind = require('utils.keys').lazyKeyBind
 local configuration = require('configuration')
 
 local fugit2 = {}
@@ -32,7 +31,7 @@ return { fugit2,
     },
     event = { 'BufEnter' },
     keys = {
-      lazyKeyBind('<leader>gs', '<cmd>Gitsigns<cr>', 'Git Signs'),
+      { '<leader>gs', '<cmd>Gitsigns<cr>', desc = 'Git Signs' }
     },
     config = true,
     dependencies = {
