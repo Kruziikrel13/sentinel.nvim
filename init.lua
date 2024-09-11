@@ -8,4 +8,4 @@ vim.g.mapleader = configuration.mapleader
 vim.g.maplocalleader = configuration.maplocalleader
 
 -- Entry point, during lazy loading it also executes the rest of our configuration files
-require('loader')
+require('core.lazy')

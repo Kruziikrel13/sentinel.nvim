@@ -1,5 +1,3 @@
-local lazyKeyBind = require('utils.keys').lazyKeyBind
-
 local function bindOnAttach(bufnr)
   local api = require('nvim-tree.api')
   api.config.mappings.default_on_attach(bufnr)
@@ -41,7 +39,7 @@ return {
     config = true,
     lazy = false,
     keys = {
-      lazyKeyBind('t', '<cmd>NvimTreeToggle<cr>', 'Explorer'),
+      { 't', '<CMD>NvimTreeToggle<cr>', desc = 'Explorer' }
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },

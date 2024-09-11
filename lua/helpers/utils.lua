@@ -1,6 +1,4 @@
----@class Lib
 local M = {}
-local LazyUtil = require('lazy.core.util')
 
 ---@return boolean # true if the passed variable is not empty
 function M.is_not_empty(var)
@@ -36,14 +34,14 @@ function M.load(name, namespace_override)
   if (namespace_override) then
     mod = namespace_override .. '.' .. mod
   end
-  LazyUtil.try(function()
+  require('lazy.core.util').try(function()
     require(mod)
   end, {
       msg = 'Failed loading ' .. mod,
       on_error = function(msg)
         local modpath = require('lazy.core.cache').find('mod')
         if modpath then
-          LazyUtil.error(msg)
+          require('lazy.core.util').error(msg)
         end
       end
     })

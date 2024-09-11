@@ -1,7 +1,7 @@
-local Keys = require('utils.keys')
+local Keys = require('helpers.keys')
 
-Keys.map(Keys.MODE.NORMAL, '00', '^', { silent = true, noremap = true }) -- Only way to overwrite the original mapping
-Keys.map(Keys.MODE.NORMAL, '0', '0', { silent = true, noremap = true }) -- Only way to overwrite the original mapping
+Keys.map(Keys.MODE.NORMAL, '00', '^') -- Only way to overwrite the original mapping
+Keys.map(Keys.MODE.NORMAL, '0', '0') -- Only way to overwrite the original mapping
 
 return {
   {

@@ -1,5 +1,7 @@
+local module_path = 'plugins.lsp'
+
 local function module(name)
-  return require('plugins.lsp.' .. name)
+  return require(module_path .. '.' .. name)
 end
 
 return {
@@ -13,7 +15,7 @@ return {
     module('actions'),
   },
   config = function()
-    local LspUtil = require('util.lsp')
+    local LspUtil = module('utils')
     LspUtil.startServers()
   end,
   dependencies = module('installer')

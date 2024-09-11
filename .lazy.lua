@@ -1,4 +1,4 @@
-local LangServerUtil = require('util.lsp')
+local LangServerUtil = require('plugins.lsp.utils')
 
 return {
   {

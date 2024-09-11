@@ -1,4 +1,4 @@
-require('config').init()
+require('core').init()
 
 return {
   'folke/lazy.nvim',

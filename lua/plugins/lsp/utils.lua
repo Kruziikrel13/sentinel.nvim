@@ -1,7 +1,6 @@
-local Plugins = require('utils.plugins')
-local Utils = require('utils.lib')
+local Plugins = require('helpers.plugins')
+local Utils = require('helpers.utils')
 
----@class Sentinel.Utils.LSP
 local M = {}
 
 --- Servers appended to this list via appendServers will be configured and started by lspconfig when it loads
