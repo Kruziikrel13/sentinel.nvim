@@ -15,9 +15,6 @@ return {
       incremental_selection = { enable = true },
     },
     config = function(_, opts)
-      local html = require('nvim-treesitter.parsers').get_parser_configs().html
-      html.install_info.revision = 'e4d834eb4918df01dcad5c27d1b15d56e3bd94cd' -- force update to latest version to stop crashing
-
       require('nvim-treesitter.install').compilers = { 'gcc', 'clang' }
       require('nvim-treesitter.configs').setup(opts)
     end
