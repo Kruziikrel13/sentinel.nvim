@@ -57,6 +57,10 @@ function M.find_root()
   return vim.fs.dirname(vim.fs.find(patterns, { upward = true })[1])
 end
 
+function M.select(list, prompt, fn)
+  vim.ui.select(list, { prompt = prompt }, fn)
+end
+
 ---@param name string
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
