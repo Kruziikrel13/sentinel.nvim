@@ -3,7 +3,7 @@ local conf = {}
 
 conf.namespace = 'sentinel'
 
-conf.root_patterns = { '.git' } -- patterns to search for root dir using
+conf.root_patterns = { '.git', 'index.html', 'compile_commands.json' } -- patterns to search for root dir using
 
 -- Leader Keys
 conf.mapleader = ' '
