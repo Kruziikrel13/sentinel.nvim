@@ -6,6 +6,9 @@ require('plugins.lsp.utils').appendServers('ts_ls', 'html')
 return {}]],
   gcc = [[
 require('plugins.lsp.utils').appendServers('clangd')
+return {}]],
+  lua = [[
+require('plugins.lsp.utils').appendServers('lua_ls')
 return {}]]
 }
 
