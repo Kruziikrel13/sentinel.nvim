@@ -26,6 +26,17 @@ function M.merge_tables(...)
   return vim.tbl_deep_extend('force', {}, ...)
 end
 
+---@param table table
+---@return table # tables keys in a one dimensional list
+function M.table_keys(table)
+  local keys = {}
+  local i = 0
+  for key, _ in pairs(table) do
+    i=i+1
+    keys[i] = key
+  end
+  return keys
+end
 ---@param name string
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
