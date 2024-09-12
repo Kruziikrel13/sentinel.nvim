@@ -37,6 +37,20 @@ function M.table_keys(table)
   end
   return keys
 end
+
+function M.file_write(filename, contents)
+  local file = assert(io.open(filename, 'w'))
+  file:write(contents)
+  file:close()
+end
+
+function M.file_read(filename)
+  local file = assert(io.open(filename, 'r'))
+  local contents = file:read('*all')
+  file:close()
+  return contents
+end
+
 ---@param name string
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
