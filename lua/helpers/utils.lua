@@ -51,6 +51,12 @@ function M.file_read(filename)
   return contents
 end
 
+---Searches for root dir, using root patterns defined in main configuration file
+function M.find_root()
+  local patterns = require('configuration').root_patterns
+  return vim.fs.dirname(vim.fs.find(patterns, { upward = true })[1])
+end
+
 ---@param name string
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
