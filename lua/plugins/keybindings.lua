@@ -3,6 +3,8 @@ local Keys = require('helpers.keys')
 Keys.map(Keys.MODE.NORMAL, '00', '^') -- Only way to overwrite the original mapping
 Keys.map(Keys.MODE.NORMAL, '0', '0') -- Only way to overwrite the original mapping
 
+Keys.map(Keys.MODE.NORMAL, '<leader>xt', function() require('helpers.templates').writeTemplate() end, 'Generate Template')
+
 return {
   {
     'folke/which-key.nvim',

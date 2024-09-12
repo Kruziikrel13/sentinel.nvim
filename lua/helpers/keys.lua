@@ -13,7 +13,7 @@ M.MODE = {
 
 ---@param mode MODE
 ---@param lhs string
----@param rhs string
+---@param rhs string | function
 ---@param
 function M.map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })

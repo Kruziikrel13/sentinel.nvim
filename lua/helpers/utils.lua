@@ -26,6 +26,41 @@ function M.merge_tables(...)
   return vim.tbl_deep_extend('force', {}, ...)
 end
 
+---@param table table
+---@return table # tables keys in a one dimensional list
+function M.table_keys(table)
+  local keys = {}
+  local i = 0
+  for key, _ in pairs(table) do
+    i=i+1
+    keys[i] = key
+  end
+  return keys
+end
+
+function M.file_write(filename, contents)
+  local file = assert(io.open(filename, 'w'))
+  file:write(contents)
+  file:close()
+end
+
+function M.file_read(filename)
+  local file = assert(io.open(filename, 'r'))
+  local contents = file:read('*all')
+  file:close()
+  return contents
+end
+
+---Searches for root dir, using root patterns defined in main configuration file
+function M.find_root()
+  local patterns = require('configuration').root_patterns
+  return vim.fs.dirname(vim.fs.find(patterns, { upward = true })[1])
+end
+
+function M.select(list, prompt, fn)
+  vim.ui.select(list, { prompt = prompt }, fn)
+end
+
 ---@param name string
 ---@param namespace_override? string
 ---Loads module with namespace prefixed
