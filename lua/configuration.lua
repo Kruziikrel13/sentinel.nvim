@@ -12,10 +12,7 @@ conf.init_file_loading = false -- load .nvim.lua init files (note: we already au
 
 -- Optional Plugins
 conf.plugins = {}
-conf.plugins.startuptime = false -- startuptime monitoring
 conf.plugins.fugit = false -- experimental git plugin
-conf.plugins.hardtime = false -- enforces vim practices
-conf.plugins.timespent = false -- tracks time spent across projects
 
 -- Diagnostics Configuration
 conf.diagnostics = {}
