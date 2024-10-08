@@ -17,9 +17,7 @@ if configuration.plugins.fugit then
       },
     },
     cmd = { 'Fugit2', 'Fugit2Diff', 'Fugit2Graph' },
-    keys = {
-      lazyKeyBind('<leader>gf', '<cmd>Fugit2<cr>', 'Fugit')
-    }
+    keys = { '<leader>gf', '<cmd>Fugit2<cr>', desc = 'Fugit' }
   }
 end
 

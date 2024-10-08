@@ -4,10 +4,10 @@ if vim.fn.has('nvim-0.10.0') == 0 then
     { 'Press any key to exit', 'MoreMsg' }
   }, true, {})
   vim.fn.getchar()
-  vim.cmd([[quit]])
+  os.exit(1)
   return {}
 end
 
-require('core').init()
+require('helpers.utils').lazy_notify()
 
 return { 'folke/lazy.nvim', version = "*" }

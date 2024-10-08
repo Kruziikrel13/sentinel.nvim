@@ -92,7 +92,7 @@ function M.on_very_lazy(fn)
   })
 end
 
----Delays notifications until configuration has loaded
+-- Delays notifications until configuration has loaded
 function M.lazy_notify()
   local notifs = {}
   local function temp(...)
