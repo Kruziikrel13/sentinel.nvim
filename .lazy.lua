@@ -1,3 +1,4 @@
+lspAddServers('lua_ls')
 return {
   {
     'folke/lazydev.nvim',
@@ -9,7 +10,6 @@ return {
     },
     config = function(_, opts)
       require("lazydev").setup(opts)
-      lspAddServers('lua_ls')
     end,
   },
   {

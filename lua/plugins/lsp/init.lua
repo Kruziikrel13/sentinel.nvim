@@ -9,6 +9,9 @@ local Instance = module('instance')
 return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+  cond = function()
+    return Instance.hasServers()
+  end,
   specs = {
     module('ui'),
     module('diagnostics'),
