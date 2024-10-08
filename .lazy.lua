@@ -1,5 +1,3 @@
-local LangServerUtil = require('plugins.lsp.utils')
-
 return {
   {
     'folke/lazydev.nvim',
@@ -11,7 +9,7 @@ return {
     },
     config = function(_, opts)
       require("lazydev").setup(opts)
-      LangServerUtil.setupLangServer('lua_ls')
+      lspAddServers('lua_ls')
     end,
   },
   {

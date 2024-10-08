@@ -81,4 +81,8 @@ function M.setup()
   require('config.keymappings')
 end
 
+function _G.lspAddServers(...)
+  require('plugins.lsp.instance').addServers(...)
+end
+
 return M
