@@ -4,6 +4,8 @@ local function module(name)
   return require(module_path .. '.' .. name)
 end
 
+local Instance = module('instance')
+
 return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
@@ -15,8 +17,7 @@ return {
     module('actions'),
   },
   config = function()
-    local LspUtil = module('utils')
-    LspUtil.startServers()
+    Instance.startServers()
   end,
   dependencies = module('installer')
 }
