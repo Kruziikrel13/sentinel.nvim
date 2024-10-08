@@ -72,7 +72,7 @@ if require('configuration').experimental.blink then
         select_prev = { '<Up>', '<A-k>' },
         select_next = { '<Down>', '<A-j>' }
       },
-      trigger = { signature_help = { enabled = true } },
+      -- trigger = { signature_help = { enabled = true } },
       accept = { auto_brackets = { enabled = true } }
     }
   }
