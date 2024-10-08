@@ -22,10 +22,14 @@ conf.diagnostics = {}
 conf.diagnostics.line = 'tiny-inline' ---@type "lsp_lines" | "tiny-inline"
 conf.diagnostics.actions = 'clear-action' ---@type "clear-action" | "tiny-action"
 
-conf.theme = "github" ---@type "flow" | "github" | "serene"
-conf.enable_transparency = false -- enables transparency if theme supports it
-conf.mode = 'dark'
+-- Theme Configuration
+conf.theme = {}
+conf.theme.preset = "github" ---@type "flow" | "github" | "serene"
+conf.theme.transparency = false -- enables transparency if theme supports it
+conf.theme.mode = 'dark'
+
 conf.experimental = {}
 conf.experimental.blink = true -- use blink for completions instead of cmp
+conf.experimental.trouble = false -- use trouble for quickfixes
 
 return conf
