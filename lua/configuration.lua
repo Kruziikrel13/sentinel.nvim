@@ -10,10 +10,6 @@ conf.mapleader = ' '
 conf.maplocalleader = ' '
 conf.init_file_loading = false -- load .nvim.lua init files (note: we already auto load .lazy.lua files)
 
--- Optional Plugins
-conf.plugins = {}
-conf.plugins.fugit = false -- experimental git plugin
-
 -- Diagnostics Configuration
 conf.diagnostics = {}
 conf.diagnostics.line = 'tiny-inline' ---@type "lsp_lines" | "tiny-inline"
