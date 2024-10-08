@@ -10,7 +10,7 @@ function M.addServers(...)
 end
 
 function M.hasServers()
-  return SentinelUtils.is_not_empty(M.servers)
+  return not vim.tbl_isempty(M.servers)
 end
 
 local function setupServer(server, overrides)
@@ -25,7 +25,7 @@ local function setupServer(server, overrides)
 end
 
 function M.startServers()
-  if SentinelUtils.is_empty(M.servers) then
+  if not M.hasServers() then
     return nil
   end
 
