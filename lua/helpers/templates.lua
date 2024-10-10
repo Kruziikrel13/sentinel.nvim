@@ -1,14 +1,13 @@
 local M = {}
-
 M.templates = {
   web = [[
-require('plugins.lsp.utils').appendServers('ts_ls', 'html')
+lspAddServers('ts_ls', 'html')
 return {}]],
   gcc = [[
-require('plugins.lsp.utils').appendServers('clangd')
+lspAddServers('clangd')
 return {}]],
   lua = [[
-require('plugins.lsp.utils').appendServers('lua_ls')
+lspAddServers('lua_ls')
 return {}]]
 }
 
