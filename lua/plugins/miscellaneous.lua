@@ -1,8 +1,7 @@
 --[[
   File: plugins/miscellaneous.lua
   Description: Plugin spec for plugins that I haven't categorized
---]]
-
+]]
 return {
   {
     -- Session Management
@@ -67,7 +66,7 @@ return {
   {
     -- Markdown Previewer
     'OXY2DEV/markview.nvim',
-    ft = 'markdown',
+    ft = { 'markdown', 'html' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons'
