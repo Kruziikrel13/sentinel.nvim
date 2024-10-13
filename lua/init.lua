@@ -2,7 +2,6 @@
   File: init.lua
   Description: initializes neovim config and bootstraps lazy plugin manager
 ]]
-
 local M = {}
 
 local function clean_plugins()
@@ -79,10 +78,6 @@ function M.setup()
   require('config.options')
   require('config.autocmds')
   require('config.keymappings')
-end
-
-function _G.lspAddServers(...)
-  require('plugins.lsp.instance').addServers(...)
 end
 
 return M
