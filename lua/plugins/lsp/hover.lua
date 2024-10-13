@@ -15,6 +15,9 @@ return {
           select = 'e'
         }
       },
+      lightbulb = {
+        sign = false
+      }
     },
     keys = {
       { '<Tab><Tab>', '<cmd>Lspsaga hover_doc<cr>',
