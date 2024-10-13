@@ -1,4 +1,7 @@
---- @class Sentinel.Configuration
+--[[
+  File: configuration.lua
+  Description: Global Configuration for Neovim Configuration
+]]
 local conf = {}
 
 conf.namespace = 'sentinel'
