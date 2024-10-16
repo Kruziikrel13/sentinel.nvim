@@ -28,7 +28,7 @@ local function clean_plugins()
   vim.g.loaded_node_provider = 0
 end
 
-function M.setup()
+function M.plugin_setup()
   ---@see https://lazy.folke.io/installation
   local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
   if not (vim.uv or vim.loop).fs_stat(lazypath) then

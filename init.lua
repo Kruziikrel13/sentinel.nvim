@@ -4,4 +4,4 @@ vim.loader.enable()
 vim.g.mapleader = require('configuration').mapleader
 vim.g.maplocalleader = require('configuration').maplocalleader
 
-require('init').setup()
+require('init').plugin_setup()
