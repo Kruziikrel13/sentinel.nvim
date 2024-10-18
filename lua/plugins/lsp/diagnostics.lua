@@ -12,8 +12,18 @@ if configuration.diagnostics.line == "tiny-inline" then
 elseif configuration.diagnostics.line == "lsp_lines"  then
   inline = {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    config = function()
-      vim.diagnostic.config({ virtual_text = false })
+    opts = {
+      current_line = true,
+      highlight_line = true
+    },
+    config = function(_, opts)
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = {
+          only_current_line = opts.current_line,
+          highlight_whole_line = opts.highlight_line
+        }
+      })
       require('lsp_lines').setup()
     end
   }
