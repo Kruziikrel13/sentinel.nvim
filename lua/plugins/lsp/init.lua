@@ -15,7 +15,6 @@ return {
   specs = {
     module('ui'),
     module('diagnostics'),
-    module('state'),
     module('hover'),
     module('actions'),
   },
