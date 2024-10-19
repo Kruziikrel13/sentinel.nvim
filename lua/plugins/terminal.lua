@@ -5,7 +5,7 @@ return {
   'akinsho/toggleterm.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
   opts = {
-    open_mapping = [[<C-\>]],
+    open_mapping = [[<C-\><C-\>]],
     start_in_insert = true,
     direction = 'float'
   },
