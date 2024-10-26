@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -x GH_VERSION='2.50.0'
+declare -x GH_VERSION='2.59.0'
 declare -x GH_PKG="gh_${GH_VERSION}_linux_amd64"
 
 wget "https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_PKG}.tar.gz"
