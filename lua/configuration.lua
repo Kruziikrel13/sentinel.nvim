@@ -15,14 +15,14 @@ conf.init_file_loading = false -- load .nvim.lua init files (note: we already au
 
 -- Diagnostics Configuration
 conf.diagnostics = {}
-conf.diagnostics.line = 'tiny-inline' ---@type "lsp_lines" | "tiny-inline"
-conf.diagnostics.actions = 'clear-action' ---@type "clear-action" | "tiny-action"
+conf.diagnostics.line = 'lsp_lines' ---@type "lsp_lines" | "tiny-inline"
+conf.diagnostics.actions = 'tiny-action' ---@type "clear-action" | "tiny-action"
 
 -- Theme Configuration
 conf.theme = {}
 conf.theme.preset = "github" ---@type "flow" | "github" | "serene"
 conf.theme.transparency = false -- enables transparency if theme supports it
-conf.theme.mode = 'dark'
+conf.theme.mode = 'light'
 
 conf.experimental = {}
 conf.experimental.blink = true -- use blink for completions instead of cmp
