@@ -1,4 +1,4 @@
-require('localconf').addLspServers('lua_ls')
+require('localconf').lsp_servers('lua_ls')
 return {
   {
     'folke/lazydev.nvim',
