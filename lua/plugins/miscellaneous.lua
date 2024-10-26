@@ -18,13 +18,13 @@ return {
   },
 
   {
-    -- Indent Lines
-    'lukas-reineke/indent-blankline.nvim',
+    'shellRaining/hlchunk.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
-      exclude = { filetypes = { 'nvimtree', 'dashboard' } },
-      scope = { enabled = true }
-    },
-    main = 'ibl'
+      chunk = { enable = true },
+      indent = { enable = true },
+      blank = { enable = true }
+    }
   },
 
   {
