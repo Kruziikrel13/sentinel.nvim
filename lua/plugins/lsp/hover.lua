@@ -2,10 +2,13 @@ return {
   {
     'nvimdev/lspsaga.nvim',
     opts = {
+      breadcrumbs = {
+        enable = false
+      },
       finder = {
         keys = {
-          vsplit = "<C-c>v",
-          split = "<C-c>x",
+          vsplit = "<C-v>",
+          split = "<C-x>",
           toggle_or_open = "<CR>"
         }
       },
