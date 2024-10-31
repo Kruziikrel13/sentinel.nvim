@@ -18,6 +18,15 @@ return {
   },
 
   {
+    'brianhuster/live-preview.nvim',
+    dependencies = {
+      'brianhuster/autosave.nvim',
+      { 'nvim-telescope/telescope.nvim', optional = true }
+    },
+    opts = {}
+  },
+
+  {
     'shellRaining/hlchunk.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {
@@ -44,14 +53,6 @@ return {
     'stevearc/quicker.nvim',
     ft = "qf",
     opts = {}
-  },
-
-  {
-    -- Startup Screen
-    'echasnovski/mini.starter',
-    opts = {
-      query_updaters = 'abcdefghijklmnopqrsuvwxyz0123456789_-.'
-    },
   },
 
   {
