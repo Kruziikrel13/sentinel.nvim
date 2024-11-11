@@ -66,11 +66,11 @@ if require('configuration').experimental.blink then
       },
       nerd_font_variant = 'mono',
       keymap = {
-        show = {},
-        hide = {},
-        accept = '<A-CR>',
-        select_prev = { '<Up>', '<A-k>' },
-        select_next = { '<Down>', '<A-j>' }
+        ['<A-CR>'] = { 'select_and_accept' },
+        [ '<Up>' ] = { 'select_prev' },
+        [ '<A-k>' ] = { 'select_prev' },
+        [ '<Down>' ] = { 'select_next' },
+        [ '<A-j>' ] = { 'select_next' },
       },
       trigger = { signature_help = { enabled = true } },
       accept = { auto_brackets = { enabled = true } }
