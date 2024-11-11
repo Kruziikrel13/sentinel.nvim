@@ -1,3 +1,4 @@
+local Plugins = require('helpers.plugins')
 local M = {}
 
 local SentinelUtils = require('helpers.utils')
@@ -17,6 +18,10 @@ local function setupServer(server, overrides)
   local options = {
     capabilities = M.capabilities
   }
+
+  if Plugins.has('blink.cmp') then
+    options.capabilities = require('blink.cmp').get_lsp_capabilities(options.capabilities)
+  end
 
   if overrides ~= nil and type(overrides) == 'table' then
     options = SentinelUtils.merge_tables(options, overrides)
