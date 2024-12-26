@@ -57,14 +57,13 @@ local spec = {
 if require('configuration').experimental.blink then
   spec = {
     'saghen/blink.cmp',
-    lazy = false,
     dependencies = 'rafamadriz/friendly-snippets',
-    version = "v0.*",
+    version = "*",
     opts = {
-      highlight = {
+      appearance = {
         use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono',
       },
-      nerd_font_variant = 'mono',
       keymap = {
         ['<A-CR>'] = { 'select_and_accept' },
         [ '<Up>' ] = { 'select_prev' },
@@ -72,8 +71,6 @@ if require('configuration').experimental.blink then
         [ '<Down>' ] = { 'select_next' },
         [ '<A-j>' ] = { 'select_next' },
       },
-      trigger = { signature_help = { enabled = true } },
-      accept = { auto_brackets = { enabled = true } }
     }
   }
 end
