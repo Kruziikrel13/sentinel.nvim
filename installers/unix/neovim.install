@@ -3,6 +3,7 @@
 set -eux
 
 declare -r NEOVIM_VERSION='nightly' # stable
+declare -r NEOVIM_PACKAGE='nvim-linux-x86_64'
 
 function download() {
   TARGET="$1"
@@ -25,14 +26,12 @@ function install() {
 }
 
 function main() {
-  local url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux64.tar.gz"
-  local archive='nvim-linux64.tar.gz'
-  local extracted_archive='nvim-linux64'
+  local url="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/${NEOVIM_PACKAGE}.tar.gz"
   
   cd /tmp
   download $url
-  extract $archive
-  install "$extracted_archive/*" /usr/local
+  extract "${NEOVIM_PACKAGE}.tar.gz"
+  install "${NEOVIM_PACKAGE}/*" /usr/local
 }
 
 main
