@@ -25,7 +25,6 @@ return {
     },
     opts = {}
   },
-
   {
     'shellRaining/hlchunk.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -35,26 +34,15 @@ return {
       blank = { enable = true }
     }
   },
-
   {
-    -- Autopairs
-    'altermo/ultimate-autopair.nvim',
+    'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    opts = {},
+    opts = {}
   },
-
   {
     -- Change display based on neovim mode
     'sitiom/nvim-numbertoggle'
   },
-
-  {
-    -- Quickfix formatting
-    'stevearc/quicker.nvim',
-    ft = "qf",
-    opts = {}
-  },
-
   {
     -- Help View Formatting
     'OXY2DEV/helpview.nvim',
@@ -63,17 +51,6 @@ return {
       'nvim-treesitter/nvim-treesitter'
     }
   },
-
-  {
-    -- Markdown Previewer
-    'OXY2DEV/markview.nvim',
-    ft = { 'markdown', 'html' },
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons'
-    }
-  },
-
   {
     -- UI Library
     'stevearc/dressing.nvim',
