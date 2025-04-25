@@ -21,5 +21,4 @@ return {
   config = function()
     Instance.startServers()
   end,
-  dependencies = module('installer')
 }
