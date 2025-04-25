@@ -15,8 +15,9 @@ conf.init_file_loading = false -- load .nvim.lua init files (note: we already au
 
 -- Diagnostics Configuration
 conf.diagnostics = {}
-conf.diagnostics.line = 'tiny-inline' ---@type "lsp_lines" | "tiny-inline"
 conf.diagnostics.actions = 'tiny-action' ---@type "clear-action" | "tiny-action"
+
+vim.diagnostic.config { virtual_lines = true }
 
 -- Theme Configuration
 conf.theme = {}
