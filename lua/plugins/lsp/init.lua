@@ -14,7 +14,6 @@ return {
   end,
   specs = {
     module('ui'),
-    module('diagnostics'),
     module('hover'),
     module('actions'),
   },
