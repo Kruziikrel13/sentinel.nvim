@@ -36,7 +36,6 @@ return {
         dotfiles = true
       }
     },
-    config = true,
     lazy = false,
     keys = {
       { 't', '<CMD>NvimTreeToggle<cr>', desc = 'Explorer' }
