@@ -1,4 +1,4 @@
-local SentinelLib = require('helpers.utils')
+local SentinelLib = require('util.misc')
 local lazygit
 return {
   --- @see https://github.com/akinsho/toggleterm.nvim
