@@ -21,47 +21,6 @@ return {
     opts = {}
   },
   {
-    'Wansmer/symbol-usage.nvim',
-    event = 'LspAttach',
-    opts = {}
-  },
-  -- {
-  --   "rachartier/tiny-code-action.nvim",
-  --   event = 'LspAttach',
-  --   opts = {
-  --     backend = "vim"
-  --   },
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim',
-  --   },
-  --   keys = {
-  --     { '<Tab>a', function()
-  --       ---@diagnostic disable-next-line: missing-parameter
-  --       require('tiny-code-action').code_action()
-  --     end, desc = "Code Action" }
-  --   }
-  -- },
-  {
-    "Fildo7525/pretty_hover",
-    event = "LspAttach",
-    opts = {},
-    keys = {
-      { '<Tab><Tab>', function()
-        require('pretty_hover').hover()
-      end, desc = "Hover Doc"}
-    }
-  },
-  {
-    'hedyhli/outline.nvim',
-    opts = {},
-    keys = {
-      { '<leader>lo', function()
-        require('outline').toggle()
-      end, desc = 'Document Outline'}
-    }
-  },
-  {
     'nvimdev/lspsaga.nvim',
     opts = {
       breadcrumbs = {
