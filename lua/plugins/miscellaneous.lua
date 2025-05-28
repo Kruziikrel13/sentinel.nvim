@@ -16,15 +16,6 @@ return {
       autoload = 'last_cwd'
     }
   },
-
-  {
-    'brianhuster/live-preview.nvim',
-    dependencies = {
-      'brianhuster/autosave.nvim',
-      { 'nvim-telescope/telescope.nvim', optional = true }
-    },
-    opts = {}
-  },
   {
     'shellRaining/hlchunk.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -40,8 +31,32 @@ return {
     opts = {}
   },
   {
+    'vyfor/cord.nvim',
+    build = ':Cord update',
+    opts = {}
+  },
+  {
+    'm4xshen/hardtime.nvim',
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+   opts = {},
+  },
+  {
     -- Change display based on neovim mode
     'sitiom/nvim-numbertoggle'
+  },
+  {
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      formatters_by_ft = {
+        nix = { 'alejandra', 'statix' },
+        python = { 'isort', 'black' },
+        lua = { 'stylua' },
+        cpp = { 'clang-format' }
+      }
+    }
   },
   {
     -- Help View Formatting
@@ -74,7 +89,6 @@ return {
       { 'smjonas/inc-rename.nvim', opts = { input_buffer_type = 'dressing' }, optional = true }
     }
   },
-
   {
     -- Notifications Library
     'rcarriga/nvim-notify',
