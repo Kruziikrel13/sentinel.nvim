@@ -59,6 +59,11 @@ return {
     }
   },
   {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {}
+  },
+  {
     -- Help View Formatting
     'OXY2DEV/helpview.nvim',
     ft = 'help',
