@@ -46,19 +46,6 @@ return {
     'sitiom/nvim-numbertoggle'
   },
   {
-    'stevearc/conform.nvim',
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    opts = {
-      formatters_by_ft = {
-        nix = { 'alejandra', 'statix' },
-        python = { 'isort', 'black' },
-        lua = { 'stylua' },
-        cpp = { 'clang-format' }
-      }
-    }
-  },
-  {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
     opts = {}
