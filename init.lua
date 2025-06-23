@@ -1,7 +1,5 @@
-vim.uv = vim.uv or vim.loop
-vim.loader.enable()
+opts = {
+  theme = 'cyberdream'
+}
 
-vim.g.mapleader = require('configuration').mapleader
-vim.g.maplocalleader = require('configuration').maplocalleader
-
-require('init').plugin_setup()
+require('config.lazy').setup(opts)
