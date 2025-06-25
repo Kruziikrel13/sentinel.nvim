@@ -1,5 +1,10 @@
+vim.uv = vim.uv or vim.loop
+
 opts = {
-  theme = 'cyberdream'
+  colorscheme = 'cyberdream'
 }
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 require('config.lazy').setup(opts)

@@ -1,6 +1,34 @@
+--[[
+  File: config/lazy.lua
+  Description: lazy plugin bootstrapper and configuration entry point
+]]
+
 local M = {}
 
 local function lazy_bootstrap()
+  vim.g.editorconfig = false
+  vim.g.loaded_man = false
+  vim.g.loaded_matchit = 1
+  vim.g.loaded_matchparen = 1
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+  vim.g.loaded_remote_plugins = 1
+  vim.g.loaded_shada_plugin = 1
+  vim.g.loaded_spellfile_plugin = 1
+  vim.g.loaded_gzip = 1
+  vim.g.loaded_tar = 1
+  vim.g.loaded_tarPlugin = 1
+  vim.g.loaded_zip = 1
+  vim.g.loaded_zipPlugin = 1
+  vim.g.loaded_2html_plugin = 1
+  vim.g.loaded_tutor_mode_plugin = 1
+
+  vim.g.loaded_python3_provider = 0
+  vim.g.loaded_ruby_provider = 0
+  vim.g.loaded_perl_provider = 0
+  vim.g.loaded_node_provider = 0
+
+  ---@see https://lazy.folke.io/installation
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -21,6 +49,8 @@ end
 function M.setup(opts)
   lazy_bootstrap()
 
+  require('config').setup(opts)
+
   require("lazy").setup('plugins', {
     defaults = {
       lazy = false,
@@ -36,9 +66,9 @@ function M.setup(opts)
         -- disable some rtp plugins
         disabled_plugins = {
           "gzip",
-          -- "matchit",
-          -- "matchparen",
-          -- "netrwPlugin",
+          "matchit",
+          "matchparen",
+          "netrwPlugin",
           "tarPlugin",
           "tohtml",
           "tutor",
