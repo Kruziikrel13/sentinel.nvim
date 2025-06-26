@@ -23,6 +23,26 @@ return {
       end, desc = 'Dismiss All Notifications' }
     }
   },
+  {
+    "echasnovski/mini.icons",
+    version = false,
+    lazy = true,
+    opts = {
+      file = {
+        [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
+        ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+      },
+      filetype = {
+        dotenv = { glyph = "", hl = "MiniIconsYellow" },
+      },
+    },
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end
+  },
   -- ui components
   { "MunifTanjim/nui.nvim", lazy = true },
 }
