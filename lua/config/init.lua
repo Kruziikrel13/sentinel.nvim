@@ -89,8 +89,6 @@ function M.init()
   vim.opt.clipboard = ""
 end
 
--- Implement M.load
--- Implement M.init
 
 -- Will load value set from SentinelOpts if it has been set,
 -- Otherwise it will just use the default value set in defaults.
