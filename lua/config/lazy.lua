@@ -56,6 +56,7 @@ function M.setup(opts)
       lazy = false,
       version = false
     },
+    rocks = { enabled = false },
     install = { colorscheme = { "tokyonight", "habamax" } },
     checker = {
       enabled = true, -- check for plugin updates periodically
