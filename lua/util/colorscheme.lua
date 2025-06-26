@@ -46,7 +46,7 @@ local colorscheme
 function M.setup(theme)
   if colorschemes[theme] ~= nil then
     colorscheme = colorschemes[theme]
-    colorscheme = vim.tbl_deep_extend('force', colorscheme, {
+    colorscheme = vim.tbl_deep_extend('keep', colorscheme, {
       name = theme
     })
   end
