@@ -34,7 +34,11 @@ local colorschemes = {
       github.compile(false)
       vim.opt.background = 'light'
     end
-
+  },
+  rose_pine = {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    priority = 1000,
   }
 }
 
