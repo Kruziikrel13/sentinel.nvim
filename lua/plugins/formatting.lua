@@ -12,9 +12,18 @@ return {
     Sentinel.on_very_lazy(function()
       Sentinel.format.register({
         name = 'conform.nvim',
+        priority = 100,
+        primary = true,
         format = function(buf)
           require('conform').format({ bufnr = buf })
-        end
+        end,
+        sources = function(buf)
+          local ret = require("conform").list_formatters(buf)
+          ---@param v conform.FormatterInfo
+          return vim.tbl_map(function(v)
+            return v.name
+          end, ret)
+        end,
       })
     end)
   end,
