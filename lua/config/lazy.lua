@@ -47,6 +47,7 @@ local function lazy_bootstrap()
 end
 
 function M.setup(opts)
+  opts = opts or {}
   lazy_bootstrap()
 
   require('config').setup(opts)
