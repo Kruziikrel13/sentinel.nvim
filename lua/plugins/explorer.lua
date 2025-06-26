@@ -1,5 +1,5 @@
 return {
-  'folke/snacks.nvim',
+  'kruziikrel13/snacks.nvim',
   opts = {
     explorer = { enable = true  }
   },

@@ -30,7 +30,7 @@ local dashboard_icon =
 }
 
 return {
-  'folke/snacks.nvim',
+  'kruziikrel13/snacks.nvim',
   opts = {
     dashboard = { 
       enable = true,

@@ -10,7 +10,7 @@ end
 
 return {
   {
-    'folke/snacks.nvim',
+    'kruziikrel13/snacks.nvim',
     opts = {
       bigfile = { enabled = true },
       quickfile = { enabled = true },
