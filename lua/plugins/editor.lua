@@ -25,6 +25,7 @@ return {
     version = false,
     event = 'VeryLazy',
     opts = {},
+    enabled = false
   },
   {
     'folke/lazydev.nvim',
