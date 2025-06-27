@@ -16,6 +16,10 @@ jobs:
         run: |
           echo "title=$(date +'%m.%Y')\n" >> "$GITHUB_OUTPUT"
           echo "tag=$(date +'%d.%m.%Y')\n" >> "$GITHUB_OUTPUT"
+      - name: Test
+        run: |
+          echo ${{steps.date.outputs.title}}
+          echo ${{steps.date.outputs.tag}}
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
