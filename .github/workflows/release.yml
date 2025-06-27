@@ -14,8 +14,8 @@ jobs:
       - name: Get Date
         id: date
         run: |
-          echo "title=$(date +'%m.%Y')\n" >> "$GITHUB_OUTPUT"
-          echo "tag=$(date +'%d.%m.%Y')\n" >> "$GITHUB_OUTPUT"
+          echo "title=$(date +'%m.%Y')" >> "$GITHUB_OUTPUT"
+          echo "tag=$(date +'%d.%m.%Y')" >> "$GITHUB_OUTPUT"
       - name: Test
         run: |
           echo ${{steps.date.outputs.title}}
