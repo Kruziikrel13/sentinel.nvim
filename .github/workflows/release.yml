@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *' # First of every month
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get Date
+        id: date
+        run: |
+          echo "title=$(date +'%m.%Y')\n" >> "$GITHUB_OUTPUT"
+          echo "tag=$(date +'%d.%m.%Y')\n" >> "$GITHUB_OUTPUT"
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          prerelease: true
+          generate_release_notes: true
+          name: ${{date.outputs.title}}
+          tag_name: ${{date.outputs.tag}}
