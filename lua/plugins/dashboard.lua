@@ -71,7 +71,7 @@ return {
               indent = 3,
               height = 5,
               key = 'N',
-              cmd = 'gh notify -s -a -n5',
+              cmd = 'gh notify -s -n5',
               action = function()
                 vim.ui.open("https://github.com/notifications")
               end,
