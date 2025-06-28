@@ -128,5 +128,10 @@ return {
       },
       preset = { header = dashboard_icon }
     }
+  },
+  keys = {
+    { '<leader>D', function()
+      Snacks.dashboard()
+    end, desc = 'Dashboard' }
   }
 }
