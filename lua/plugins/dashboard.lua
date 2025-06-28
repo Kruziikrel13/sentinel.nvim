@@ -34,6 +34,7 @@ return {
   opts = {
     dashboard = { 
       enable = true,
+      row = 6,
       sections = {
         { 
           { section = 'header', align = 'center' },
