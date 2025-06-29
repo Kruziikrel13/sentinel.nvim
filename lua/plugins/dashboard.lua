@@ -1,12 +1,16 @@
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#641220' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo2', { fg = '#6e1423' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo3', { fg = '#85182a' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo4', { fg = '#a11d33' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo5', { fg = '#a71e34' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo6', { fg = '#b21e35' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo7', { fg = '#bd1f36' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo8', { fg = '#c71f37' })
-vim.api.nvim_set_hl(0, 'NeovimDashboardLogo9', { fg = '#da1e37' })
+Sentinel.on_load('snacks.nvim', function()
+  -- Create highlights when snacks.nvim loads
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo1', { fg = '#641220' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo2', { fg = '#6e1423' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo3', { fg = '#85182a' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo4', { fg = '#a11d33' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo5', { fg = '#a71e34' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo6', { fg = '#b21e35' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo7', { fg = '#bd1f36' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo8', { fg = '#c71f37' })
+  vim.api.nvim_set_hl(0, 'NeovimDashboardLogo9', { fg = '#da1e37' })
+end)
+
 
 local dashboard_icon =
 {
