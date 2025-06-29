@@ -1,18 +1,18 @@
 return {
-  'lewis6991/gitsigns.nvim',
-  opts = {
-    current_line_blame = true
+  {
+    'kruziikrel13/snacks.nvim',
+    opts = {
+      lazygit = { enable = true }
+    },
+    keys = {
+      { '<leader>gg', function()
+        Snacks.lazygit()
+      end, desc = 'LazyGit' }
+    }
   },
-  event = { 'BufEnter' },
-  keys = {
-    { '<leader>gs', '<cmd>Gitsigns<cr>', desc = 'Git Signs' }
-  },
-  config = true,
-  dependencies = {
-    {'nvimdev/lspsaga.nvim', optional = true, opts = {
-      code_action = {
-        extend_gitsigns = true
-      }
-    }}
+  {
+    'lewis6991/gitsigns.nvim',
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'BufEnter' },
+    opts = { current_line_blame = true }
   }
 }
