@@ -44,14 +44,14 @@ return {
         }
       }
     },
-    -- TODO Configure
+    --TODO: Configure
   },
   {
     'folke/todo-comments.nvim',
     cmd = { 'TodoTrouble', 'TodoTelescope' },
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {}
-    -- TODO Configure
+    --TODO: Configure
   },
   {
     'folke/lazydev.nvim',
@@ -60,7 +60,6 @@ return {
     opts = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       { path = "snacks.nvim", words = { "Snacks" } },
-      { path = "lazy.nvim", words = { "LazyVim" } },
     },
     config = function(_, opts)
       vim.lsp.enable('lua_ls')
