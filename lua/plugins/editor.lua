@@ -28,6 +28,32 @@ return {
     enabled = false
   },
   {
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    enabled = false,
+    opts = {},
+    -- TODO Configure
+  },
+  {
+    'folke/trouble.nvim',
+    cmd = 'Trouble',
+    opts = {
+      modes = {
+        lsp = {
+          win = { position = 'right' }
+        }
+      }
+    },
+    -- TODO Configure
+  },
+  {
+    'folke/todo-comments.nvim',
+    cmd = { 'TodoTrouble', 'TodoTelescope' },
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+    opts = {}
+    -- TODO Configure
+  },
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     cmd = 'LazyDev',
@@ -35,7 +61,11 @@ return {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       { path = "snacks.nvim", words = { "Snacks" } },
       { path = "lazy.nvim", words = { "LazyVim" } },
-    }
+    },
+    config = function(_, opts)
+      vim.lsp.enable('lua_ls')
+      require('lazydev').setup(opts)
+    end
   },
   {
     "MagicDuck/grug-far.nvim",
