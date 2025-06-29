@@ -36,11 +36,11 @@ local dashboard_icon =
 return {
   'kruziikrel13/snacks.nvim',
   opts = {
-    dashboard = { 
+    dashboard = {
       enable = true,
       row = 6,
       sections = {
-        { 
+        {
           { section = 'header', align = 'center' },
           { section = 'keys', gap = 1, padding = 1 },
         },
