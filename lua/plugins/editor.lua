@@ -94,7 +94,7 @@ return {
 		event = "VeryLazy",
 		opts_extend = { "spec" },
 		opts = {
-			preset = "helix",
+			preset = "modern",
 			defaults = {},
 			spec = {
 				{
@@ -113,7 +113,6 @@ return {
 					{ "]", group = "next" },
 					{ "g", group = "goto" },
 					{ "gs", group = "surround" },
-					{ "z", group = "fold" },
 					{
 						"<leader>b",
 						group = "buffer",
@@ -141,13 +140,6 @@ return {
 					require("which-key").show({ global = false })
 				end,
 				desc = "Buffer Keymaps (which-key)",
-			},
-			{
-				"<c-w><space>",
-				function()
-					require("which-key").show({ keys = "<c-w>", loop = true })
-				end,
-				desc = "Window Hydra Mode (which-key)",
 			},
 		},
 	},
