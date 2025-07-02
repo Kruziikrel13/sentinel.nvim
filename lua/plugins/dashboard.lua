@@ -62,7 +62,9 @@ return {
 							desc = "Browse Repo",
 							key = "b",
 							action = function()
-								Snacks.gitbrowse()
+								Snacks.gitbrowse({
+									what = "repo",
+								})
 							end,
 						},
 						{
