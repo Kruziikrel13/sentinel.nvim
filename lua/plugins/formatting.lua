@@ -1,41 +1,30 @@
-local M = {}
-
 return {
-  'stevearc/conform.nvim',
-  lazy = true,
-  cmd = 'ConformInfo',
-  keys = {
-    { '<leader>cF', function()
-    end, mode = 'n', 'v', desc = 'Format Languages' }
-  },
-  init = function()
-    Sentinel.on_very_lazy(function()
-      Sentinel.format.register({
-        name = 'conform.nvim',
-        priority = 100,
-        primary = true,
-        format = function(buf)
-          require('conform').format({ bufnr = buf })
-        end,
-        sources = function(buf)
-          local ret = require("conform").list_formatters(buf)
-          ---@param v conform.FormatterInfo
-          return vim.tbl_map(function(v)
-            return v.name
-          end, ret)
-        end,
-      })
-    end)
-  end,
-  opts = {
-    default_format_opts = {
-      timeout_ms = 3000,
-      async = false,
-      quiet = false,
-      lsp_format = 'fallback'
-    },
-    formatters = {
-      injected = { options = { ignore_errors = true } }
-    }
-  }
+	"stevearc/conform.nvim",
+	event = "BufWritePre",
+	cmd = "ConformInfo",
+	init = function()
+		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+	end,
+	keys = {
+		{
+			"<leader>f",
+			function()
+				require("conform").format({ async = true })
+			end,
+			desc = "Format Buffer",
+		},
+	},
+	opts = {
+		formatters_by_ft = {
+			lua = { "stylua" },
+			python = { "isort", "black" },
+			nix = { "statix" },
+		},
+		default_format_opts = {
+			timeout_ms = 3000,
+			quiet = false,
+			lsp_format = "fallback",
+		},
+		format_on_save = { timeout_ms = 500 },
+	},
 }

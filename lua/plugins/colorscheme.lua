@@ -1,2 +1,1 @@
 return Sentinel.colorscheme()
-
