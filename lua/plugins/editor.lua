@@ -104,7 +104,6 @@ return {
 					{ "<leader>d", group = "debug" },
 					{ "<leader>dp", group = "profiler" },
 					{ "<leader>f", group = "file/find" },
-					{ "<leader>g", group = "git", icon = { icon = " ", color = "orange" } },
 					{ "<leader>q", group = "quit/session" },
 					{ "<leader>s", group = "search" },
 					{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
