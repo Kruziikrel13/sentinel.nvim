@@ -54,6 +54,10 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
 -- Add undo break-points
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
