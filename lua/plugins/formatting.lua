@@ -18,7 +18,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "isort", "black" },
-			nix = { "statix" },
+			nix = { "alejandra", "statix" },
 		},
 		default_format_opts = {
 			timeout_ms = 3000,
