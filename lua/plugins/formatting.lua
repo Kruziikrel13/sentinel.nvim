@@ -7,7 +7,7 @@ return {
 	end,
 	keys = {
 		{
-			"<leader>cf",
+			"<leader>F",
 			function()
 				require("conform").format({ async = true })
 			end,
