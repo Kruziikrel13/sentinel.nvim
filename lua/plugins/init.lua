@@ -17,6 +17,9 @@ return {
 		priority = 1000,
 		lazy = false,
 		opts = {},
+		keys = {
+			{ "<leader>L", "<CMD>Lazy<CR>", desc = "Lazy" },
+		},
 		config = function(_, opts)
 			local notify = vim.notify
 			require("snacks").setup(opts)
