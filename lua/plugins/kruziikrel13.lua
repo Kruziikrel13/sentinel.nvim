@@ -12,6 +12,5 @@ return {
 	{
 		-- lspsaga with functionality stripped out that I don't use
 		"kruziikrel13/lspsaga.nvim",
-		dev = true,
 	},
 }
