@@ -38,13 +38,6 @@ return {
 				desc = "Find Text",
 			},
 			{
-				"<leader>fl",
-				function()
-					Snacks.picker.lazy()
-				end,
-				desc = "Find Text",
-			},
-			{
 				"<leader>un",
 				function()
 					Snacks.notifier.hide()
