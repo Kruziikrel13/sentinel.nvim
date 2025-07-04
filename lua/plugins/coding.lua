@@ -51,4 +51,13 @@ return {
 			{ "<leader>xk", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "Jump to prev diagnostic" },
 		},
 	},
+	{
+		"folke/which-key.nvim",
+		opts = {
+			spec = {
+				{ "<Tab>", group = "lsp" },
+				{ "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+			},
+		},
+	},
 }
