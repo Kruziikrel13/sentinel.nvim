@@ -54,6 +54,11 @@ return {
 		},
 	},
 	{
+		"akinsho/bufferline.nvim",
+		lazy = false,
+		opts = {},
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
