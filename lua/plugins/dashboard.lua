@@ -127,17 +127,4 @@ return {
 			preset = { header = dashboard_icon },
 		},
 	},
-	keys = {
-		{
-			"<leader>D",
-			function()
-				Snacks.dashboard.open()
-				Snacks.bufdelete.other()
-				if Snacks.picker.get({ source = "explorer" })[1] ~= nil then
-					Snacks.explorer()
-				end
-			end,
-			desc = "Dashboard",
-		},
-	},
 }
