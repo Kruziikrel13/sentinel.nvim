@@ -35,18 +35,6 @@ return {
 		-- TODO Configure
 	},
 	{
-		"folke/trouble.nvim",
-		cmd = "Trouble",
-		opts = {
-			modes = {
-				lsp = {
-					win = { position = "right" },
-				},
-			},
-		},
-		--TODO: Configure
-	},
-	{
 		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
