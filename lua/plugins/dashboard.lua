@@ -89,6 +89,7 @@ return {
 							title = "Browse Repo",
 							key = "b",
 							action = function()
+								---@diagnostic disable-next-line: missing-fields
 								Snacks.gitbrowse({
 									what = "repo",
 								})
