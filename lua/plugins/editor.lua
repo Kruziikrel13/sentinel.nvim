@@ -42,19 +42,6 @@ return {
 		--TODO: Configure
 	},
 	{
-		"folke/lazydev.nvim",
-		ft = "lua",
-		cmd = "LazyDev",
-		opts = {
-			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			{ path = "snacks.nvim", words = { "Snacks" } },
-		},
-		config = function(_, opts)
-			vim.lsp.enable("lua_ls")
-			require("lazydev").setup(opts)
-		end,
-	},
-	{
 		"MagicDuck/grug-far.nvim",
 		opts = { headerMaxWidth = 80 },
 		cmd = "GrugFar",
