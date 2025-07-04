@@ -59,6 +59,7 @@ return {
 		opts = {},
 	},
 	{
+		--TODO: reposition command ui to bottom left
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
