@@ -12,7 +12,7 @@ Sentinel.config = M
 
 ---@class SentinelOptions
 local defaults = {
-	---@type string|fun()
+	---@type string
 	colorscheme = "github_dark_default",
 }
 

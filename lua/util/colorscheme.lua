@@ -1,5 +1,6 @@
 local M = {}
 
+---@type table<string, LazyPluginSpec>
 local colorschemes = {
 	cyberdream = {
 		"scottmckendry/cyberdream.nvim",
