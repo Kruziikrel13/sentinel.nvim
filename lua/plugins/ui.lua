@@ -22,6 +22,28 @@ return {
 				end,
 				desc = "Notification History",
 			},
+			--TODO: Make these keys dependent on if picker is enabled
+			{
+				"<leader>ff",
+				function()
+					Snacks.picker.files()
+				end,
+				desc = "Find Files",
+			},
+			{
+				"<leader>fg",
+				function()
+					Snacks.picker.grep()
+				end,
+				desc = "Find Text",
+			},
+			{
+				"<leader>fl",
+				function()
+					Snacks.picker.lazy()
+				end,
+				desc = "Find Text",
+			},
 			{
 				"<leader>un",
 				function()
