@@ -72,12 +72,13 @@ return {
 		cmd = "GrugFar",
 		keys = {
 			{
-				"<leader>sr",
+				"<Tab>R",
 				function()
 					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
 					require("grug-far").open({
 						transient = true,
 						prefills = {
+							search = vim.fn.expand("<cword>"),
 							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
 						},
 					})
