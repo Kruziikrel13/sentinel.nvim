@@ -32,6 +32,8 @@ local lazy_clipboard
 function M.setup(opts)
 	options = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
+	require("health").check()
+
 	-- autocmds can be loaded lazily when not opening a file
 	local lazy_autocmds = vim.fn.argc(-1) == 0
 	if not lazy_autocmds then
