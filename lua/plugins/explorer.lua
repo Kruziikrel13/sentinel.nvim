@@ -7,6 +7,11 @@ return {
 				explorer = {
 					matcher = { fuzzy = true },
 					icons = {
+						git = {
+							added = Sentinel.config.icons.git.added,
+							staged = Sentinel.config.icons.git.staged,
+							modified = Sentinel.config.icons.git.modified,
+							deleted = Sentinel.config.icons.git.removed,
 						},
 					},
 					win = {

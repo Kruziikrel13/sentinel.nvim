@@ -22,6 +22,12 @@ local defaults = {
 			Hint = " ",
 			Info = " ",
 		},
+		git = {
+			added = " ",
+			staged = " ",
+			modified = " ",
+			removed = " ",
+		},
 	},
 }
 
