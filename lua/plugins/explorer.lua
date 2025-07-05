@@ -7,8 +7,6 @@ return {
 				explorer = {
 					matcher = { fuzzy = true },
 					icons = {
-						tree = {
-							expanders = { enabled = true },
 						},
 					},
 					win = {
