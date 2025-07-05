@@ -18,7 +18,7 @@ return {
 							keys = {
 								["<BS>"] = "toggle_hidden",
 								["C"] = "explorer_close_all",
-								["E"] = "explorer_open_all",
+								["E"] = "explorer_open_all", -- From PR https://github.com/folke/snacks.nvim/pull/1652
 								["c"] = "explorer_close",
 								["<"] = "explorer_up",
 								[">"] = "explorer_focus",
