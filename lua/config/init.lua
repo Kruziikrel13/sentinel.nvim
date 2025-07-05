@@ -14,6 +14,7 @@ Sentinel.config = M
 local defaults = {
 	---@type string
 	colorscheme = "github_dark_default",
+	shell = nil,
 }
 
 ---@type SentinelOptions
@@ -43,6 +44,7 @@ function M.setup(opts)
 				vim.opt.clipboard = lazy_clipboard
 			end
 
+			Sentinel.terminal.setup()
 			Sentinel.colorscheme.enable()
 
 			vim.api.nvim_create_user_command("SentinelHealth", function()
