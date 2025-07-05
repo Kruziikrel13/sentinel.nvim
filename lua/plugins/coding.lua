@@ -43,6 +43,7 @@ return {
 		},
 		keys = {
 			{ "<Tab><Tab>", "<CMD>Lspsaga hover_doc<CR>", desc = "Hover Doc" },
+			{ "<Tab>r", "<CMD>Lspsaga rename<CR>", desc = "Hover Doc" },
 			{ "<Tab>d", "<CMD>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
 			{ "<Tab>f", "<CMD>Lspsaga finder<CR>", desc = "Find" },
 			{ "<Tab>a", "<CMD>Lspsaga code_action<CR>", desc = "Code Actions" },
