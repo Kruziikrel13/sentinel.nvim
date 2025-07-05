@@ -28,7 +28,7 @@ function M.setup(opts)
 	if not lazy_autocmds then
 		M.load("autocmds")
 	end
-	Sentinel.colorscheme.setup(options.colorscheme)
+	Sentinel.colorscheme.setup()
 
 	local group = vim.api.nvim_create_augroup("Sentinel", { clear = true })
 	vim.api.nvim_create_autocmd("User", {

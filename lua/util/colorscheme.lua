@@ -44,7 +44,8 @@ local colorschemes = {
 }
 
 local colorscheme
-function M.setup(theme)
+function M.setup()
+	local theme = Sentinel.config.colorscheme
 	if colorschemes[theme] ~= nil then
 		colorscheme = colorschemes[theme]
 		colorscheme = vim.tbl_deep_extend("keep", colorscheme, {
