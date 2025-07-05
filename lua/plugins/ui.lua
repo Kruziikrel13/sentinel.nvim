@@ -52,6 +52,10 @@ return {
 		opts = {},
 	},
 	{
+		"sschleemilch/slimline.nvim",
+		opts = {},
+	},
+	{
 		--TODO: reposition command ui to bottom left
 		"folke/noice.nvim",
 		event = "VeryLazy",
