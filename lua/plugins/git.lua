@@ -20,6 +20,13 @@ local snacks_keys = {
 		end,
 		desc = "Git Browse",
 	},
+	{
+		"<leader>gB",
+		function()
+			Snacks.gitbrowse({ what = "repo" })
+		end,
+		desc = "Git Browse",
+	},
 }
 
 -- Enable lazygit and add keybinding if lazygit is present
