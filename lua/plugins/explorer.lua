@@ -5,7 +5,6 @@ return {
 		picker = {
 			sources = {
 				explorer = {
-					matcher = { fuzzy = true },
 					icons = {
 						git = {
 							added = Sentinel.config.icons.git.added,
