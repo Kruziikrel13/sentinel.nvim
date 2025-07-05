@@ -15,6 +15,14 @@ local defaults = {
 	---@type string
 	colorscheme = "github_dark_default",
 	shell = nil,
+	icons = {
+		diagnostics = {
+			Error = " ",
+			Warn = " ",
+			Hint = " ",
+			Info = " ",
+		},
+	},
 }
 
 ---@type SentinelOptions
