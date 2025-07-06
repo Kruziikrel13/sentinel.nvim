@@ -14,6 +14,16 @@ return {
 						},
 					},
 					win = {
+						input = {
+							keys = {
+								["<Esc>"] = {
+									function()
+										vim.cmd("wincmd p")
+									end,
+									mode = { "n", "i" },
+								},
+							},
+						},
 						list = {
 							keys = {
 								["<BS>"] = "toggle_hidden",
@@ -22,6 +32,9 @@ return {
 								["c"] = "explorer_close",
 								["<"] = "explorer_up",
 								[">"] = "explorer_focus",
+								["<C-W><C-W>"] = function()
+									vim.cmd("wincmd l")
+								end,
 							},
 						},
 					},
