@@ -5,7 +5,7 @@ local LazyUtil = require("lazy.core.util")
 ---@field config SentinelConfig
 ---@field terminal sentinel.util.terminal
 ---@field colorscheme sentinel.util.colorscheme
----@field debug sentinel.util.debug
+---@field debugging sentinel.util.debugging
 local M = {}
 
 function M.is_win()
