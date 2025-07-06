@@ -1,4 +1,4 @@
----@class util.terminal
+---@class sentinel.util.terminal
 local M = {}
 
 function M.setup()

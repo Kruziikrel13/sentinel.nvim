@@ -1,5 +1,11 @@
+---@diagnostic disable: undefined-field
 local LazyUtil = require("lazy.core.util")
 
+---@class sentinel.util: LazyUtilCore
+---@field config SentinelConfig
+---@field terminal sentinel.util.terminal
+---@field colorscheme sentinel.util.colorscheme
+---@field debug sentinel.util.debug
 local M = {}
 
 function M.is_win()

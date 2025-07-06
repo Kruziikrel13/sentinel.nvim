@@ -1,3 +1,4 @@
+---@class sentinel.util.colorscheme
 local M = {}
 
 ---@type table<string, LazyPluginSpec>
