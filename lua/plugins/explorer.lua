@@ -18,7 +18,7 @@ return {
 							keys = {
 								["<Esc>"] = {
 									function()
-										vim.cmd("wincmd p")
+										vim.cmd.wincmd("p")
 									end,
 									mode = { "n", "i" },
 								},
@@ -33,7 +33,7 @@ return {
 								["<"] = "explorer_up",
 								[">"] = "explorer_focus",
 								["<C-W><C-W>"] = function()
-									vim.cmd("wincmd l")
+									vim.cmd.wincmd("l")
 								end,
 							},
 						},
