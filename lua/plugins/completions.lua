@@ -4,15 +4,12 @@ return {
 	version = "1.*",
 	opts = {
 		signature = { enabled = true },
+		completion = {
+			accept = { auto_brackets = { enabled = true } },
+			menu = { draw = { treesitter = { "lsp" } } },
+		},
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-			providers = {
-				lazydev = {
-					name = "LazyDev",
-					module = "lazydev.integrations.blink",
-					score_offset = 100,
-				},
-			},
+			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		keymap = {
 			["<A-CR>"] = { "select_and_accept" },
