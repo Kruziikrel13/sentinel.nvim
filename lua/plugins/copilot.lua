@@ -1,4 +1,4 @@
-return vim.g.ai
+return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 		and {
 			{
 				"zbirenbaum/copilot.lua",
@@ -14,7 +14,7 @@ return vim.g.ai
 				"saghen/blink.cmp",
 				optional = true,
 				dependencies = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua" },
-				opts_extend = { "sources.default" },
+				opts_extend = { "sources.default" }, -- undocumented option
 				opts = {
 					completion = {
 						ghost_text = { enabled = true },
