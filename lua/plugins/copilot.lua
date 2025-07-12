@@ -30,10 +30,15 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 					panel = { enabled = false },
 					server = { type = "binary", custom_server_filepath = "copilot-language-server" },
 				},
+			},
+			{
+				"saghen/blink.cmp",
+				optional = true,
 				init = function()
 					vim.api.nvim_create_autocmd("User", {
 						pattern = "BlinkCmpMenuOpen",
 						callback = function()
+							require("copilot.suggestion").dismiss()
 							vim.b.copilot_suggestion_hidden = true
 						end,
 					})
@@ -44,10 +49,7 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 						end,
 					})
 				end,
-			},
-			{
-				"saghen/blink.cmp",
-				optional = true,
+
 				opts = {
 					completion = {
 						menu = {
