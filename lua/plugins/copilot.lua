@@ -18,33 +18,44 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
 				build = ":Copilot auth",
+				event = "InsertEnter",
 				opts = {
-					suggestion = { enabled = false },
+					suggestion = {
+						enabled = true,
+						debounce = 100,
+						auto_trigger = true,
+						hide_during_completion = true,
+						keymap = { accept = "<C-CR>", next = "<C-J>", prev = "<C-K>" },
+					},
 					panel = { enabled = false },
 					server = { type = "binary", custom_server_filepath = "copilot-language-server" },
 				},
+				init = function()
+					vim.api.nvim_create_autocmd("User", {
+						pattern = "BlinkCmpMenuOpen",
+						callback = function()
+							vim.b.copilot_suggestion_hidden = true
+						end,
+					})
+					vim.api.nvim_create_autocmd("User", {
+						pattern = "BlinkCmpMenuClose",
+						callback = function()
+							vim.b.copilot_suggestion_hidden = false
+						end,
+					})
+				end,
 			},
 			{
 				"saghen/blink.cmp",
 				optional = true,
-				dependencies = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua", "olimorris/codecompanion.nvim" },
-				opts_extend = { "sources.default" }, -- undocumented option
 				opts = {
 					completion = {
-						ghost_text = { enabled = true },
+						menu = {
+							auto_show = false,
+						},
 					},
-					sources = {
-						default = { "copilot" },
-						per_filetype = {
-							codecompanion = { "codecompanion" },
-						},
-						providers = {
-							copilot = {
-								name = "copilot",
-								module = "blink-copilot",
-								async = true,
-							},
-						},
+					keymap = {
+						["<A-CR>"] = { "select_and_accept", "show" },
 					},
 				},
 			},
