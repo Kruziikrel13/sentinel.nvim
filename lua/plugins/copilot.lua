@@ -1,6 +1,20 @@
 return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 		and {
 			{
+				"olimorris/codecompanion.nvim",
+				cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionChat" },
+				opts = {
+					strategies = {
+						chat = {
+							adapter = "copilot",
+						},
+						inline = {
+							adapter = "copilot",
+						},
+					},
+				},
+			},
+			{
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
 				build = ":Copilot auth",
@@ -13,7 +27,7 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 			{
 				"saghen/blink.cmp",
 				optional = true,
-				dependencies = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua" },
+				dependencies = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua", "olimorris/codecompanion.nvim" },
 				opts_extend = { "sources.default" }, -- undocumented option
 				opts = {
 					completion = {
@@ -21,6 +35,9 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 					},
 					sources = {
 						default = { "copilot" },
+						per_filetype = {
+							codecompanion = { "codecompanion" },
+						},
 						providers = {
 							copilot = {
 								name = "copilot",
