@@ -53,7 +53,21 @@ return {
 	},
 	{
 		"sschleemilch/slimline.nvim",
-		opts = {},
+		opts = {
+			spaces = {
+				components = "",
+				left = "",
+				right = "",
+			},
+			sep = {
+				hide = {
+					first = true,
+					last = true,
+				},
+				left = "",
+				right = "",
+			},
+		},
 	},
 	{
 		--TODO: reposition command ui to bottom left
