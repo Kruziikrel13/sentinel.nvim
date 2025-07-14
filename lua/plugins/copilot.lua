@@ -12,6 +12,12 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 						auto_insert_mode = true,
 						question_header = "  " .. user .. " ",
 						answer_header = "  Copilot ",
+						mappings = {
+							reset = {
+								normal = "",
+								insert = "",
+							},
+						},
 						window = {
 							width = 0.4,
 						},
