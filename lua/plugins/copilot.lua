@@ -7,7 +7,6 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 				opts = function()
 					local user = vim.env.USER or "User"
 					user = user:sub(1, 1):upper() .. user:sub(2)
-
 					return {
 						auto_insert_mode = true,
 						question_header = "  " .. user .. " ",
@@ -91,9 +90,8 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 				opts = {
 					suggestion = {
 						enabled = true,
-						debounce = 100,
 						auto_trigger = true,
-						hide_during_completion = true,
+						debounce = 200,
 						keymap = { accept = "<C-CR>", next = "<C-J>", prev = "<C-K>" },
 					},
 					panel = { enabled = false },
@@ -102,36 +100,6 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 						help = true,
 					},
 					server = { type = "binary", custom_server_filepath = "copilot-language-server" },
-				},
-			},
-			{
-				"saghen/blink.cmp",
-				optional = true,
-				init = function()
-					vim.api.nvim_create_autocmd("User", {
-						pattern = "BlinkCmpMenuOpen",
-						callback = function()
-							require("copilot.suggestion").dismiss()
-							vim.b.copilot_suggestion_hidden = true
-						end,
-					})
-					vim.api.nvim_create_autocmd("User", {
-						pattern = "BlinkCmpMenuClose",
-						callback = function()
-							vim.b.copilot_suggestion_hidden = false
-						end,
-					})
-				end,
-
-				opts = {
-					completion = {
-						menu = {
-							auto_show = false,
-						},
-					},
-					keymap = {
-						["<A-CR>"] = { "select_and_accept", "show" },
-					},
 				},
 			},
 			{
