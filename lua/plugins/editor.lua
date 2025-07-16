@@ -16,6 +16,11 @@ return {
 		},
 	},
 	{
+		"sontungexpt/bim.nvim",
+		event = "InsertEnter",
+		opts = {},
+	},
+	{
 		"folke/ts-comments.nvim",
 		event = "VeryLazy",
 		opts = {},
