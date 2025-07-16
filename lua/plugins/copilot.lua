@@ -92,7 +92,7 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 						enabled = true,
 						auto_trigger = true,
 						debounce = 200,
-						keymap = { accept = "<C-CR>", next = "<C-J>", prev = "<C-K>" },
+						keymap = { accept = "<C-CR>", next = "<C-Down>", prev = "<C-Up>" },
 					},
 					panel = { enabled = false },
 					filetypes = {
