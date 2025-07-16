@@ -29,9 +29,53 @@ return {
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
-		enabled = false,
-		opts = {},
-		-- TODO Configure
+		opts = {
+			modes = {
+				char = { enabled = false },
+			},
+		},
+		keys = {
+			{
+				"J",
+				function()
+					require("flash").jump({
+						search = { forward = true, wrap = false, multi_window = false },
+					})
+				end,
+			},
+			{
+				"K",
+				function()
+					require("flash").jump({
+						search = { forward = false, wrap = false, multi_window = false },
+					})
+				end,
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote Flash",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Treesitter Search",
+			},
+		},
 	},
 	{
 		"folke/todo-comments.nvim",

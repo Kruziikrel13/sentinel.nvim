@@ -13,6 +13,7 @@ end
 del({ "n", "v" }, "K") -- lsp hover
 del({ "n", "v" }, "q") -- macros
 del({ "n", "v" }, "Q") -- macros
+del({ "n" }, "J")
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
