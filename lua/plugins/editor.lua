@@ -84,10 +84,8 @@ return {
 	},
 	{
 		"folke/todo-comments.nvim",
-		cmd = { "TodoTrouble", "TodoTelescope" },
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		opts = {},
-		--TODO: Configure
 	},
 	{
 		"MagicDuck/grug-far.nvim",
