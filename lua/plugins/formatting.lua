@@ -19,7 +19,6 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			nix = { "alejandra", "statix" },
-			qml = { lsp_format = "never" }, -- don't run formatter for qml
 		},
 		default_format_opts = {
 			timeout_ms = 3000,
