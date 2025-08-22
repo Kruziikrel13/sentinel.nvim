@@ -45,21 +45,15 @@ return {
     },
 	},
 	{
-		"nvzone/floaterm",
-		dependencies = "nvzone/volt",
-		opts = {},
-		cmd = "FloatermToggle",
-		keys = {
-			{
-				[[<C-\><C-\>]],
-				function()
-					require("floaterm").toggle()
-				end,
-				desc = "Terminal",
-				mode = { "n", "t" },
+		"LuxVim/nvim-luxterm",
+		opts = {
+			keymaps = {
+				toggle_manager = "<C-\\>",
 			},
 		},
 	},
+
 	-- library used by other plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "ibhagwan/fzf-lua", lazy = true },
 }
