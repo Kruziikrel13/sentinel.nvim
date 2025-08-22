@@ -4,7 +4,6 @@ return {
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		config = function()
 			vim.diagnostic.config({
-				virtual_lines = true,
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = Sentinel.config.icons.diagnostics.Error,
