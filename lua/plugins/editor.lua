@@ -27,21 +27,6 @@ return {
 		opts = {},
 	},
 	{
-		"brenton-leighton/multiple-cursors.nvim",
-		version = "*",
-		opts = {},
-		keys = {
-			{ "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
-			{ "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-			{
-				"<Leader>m",
-				"<Cmd>MultipleCursorsAddVisualArea<CR>",
-				mode = { "x" },
-				desc = "Add cursors to the lines of the visual area",
-			},
-		},
-	},
-	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {
