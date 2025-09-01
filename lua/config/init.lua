@@ -23,6 +23,7 @@ local defaults = {
 			Info = " ",
 		},
 		git = {
+			untracked = " ",
 			added = " ",
 			staged = " ",
 			modified = " ",
