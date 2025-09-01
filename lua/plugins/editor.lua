@@ -3,6 +3,14 @@ return {
 		"nvim-mini/mini.pairs",
 		version = false,
 		event = "VeryLazy",
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "md", "markdown" },
+				callback = function()
+					vim.b.minipairs_disable = true
+				end,
+			})
+		end,
 		opts = {
 			modes = { insert = true, command = true, terminal = false },
 			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],

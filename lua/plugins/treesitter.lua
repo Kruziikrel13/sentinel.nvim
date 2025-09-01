@@ -27,7 +27,7 @@ return {
 		---@type TSConfig
 		---@diagnostic disable-next-line: missing-fields
 		opts = {
-			highlight = { enable = true },
+			highlight = { enable = true, disable = { "md", "markdown" } },
 			indent = { enable = true },
 			ensure_installed = {
 				"bash",
@@ -41,8 +41,6 @@ return {
 				"lua",
 				"luadoc",
 				"luap",
-				"markdown",
-				"markdown_inline",
 				"printf",
 				"python",
 				"query",
