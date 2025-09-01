@@ -123,7 +123,7 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.icons",
+		"nvim-mini/mini.icons",
 		version = false,
 		lazy = true,
 		opts = {
