@@ -21,12 +21,6 @@ return {
 		opts = {},
 	},
 	{
-		"echasnovski/mini.ai",
-		version = false,
-		event = "VeryLazy",
-		opts = {},
-	},
-	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {
