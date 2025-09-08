@@ -4,6 +4,7 @@ local LazyUtil = require("lazy.core.util")
 ---@class sentinel.util: LazyUtilCore
 ---@field config SentinelConfig
 ---@field terminal sentinel.util.terminal
+---@field treesitter sentinel.util.treesitter
 ---@field colorscheme sentinel.util.colorscheme
 ---@field debugging sentinel.util.debugging
 local M = {}
