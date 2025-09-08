@@ -46,10 +46,9 @@ return {
 		},
 		footer = function()
 			local stats = require("lazy.stats").stats()
-			local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 			local icon = "⚡ "
 
-			return icon .. "Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+			return icon .. "Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"
 		end,
 	},
 }
