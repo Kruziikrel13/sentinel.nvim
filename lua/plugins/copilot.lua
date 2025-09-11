@@ -12,12 +12,14 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 						question_header = "  " .. user .. " ",
 						answer_header = "  Copilot ",
 						mappings = {
-							reset = {
-								normal = "",
-								insert = "",
+							reset = nil,
+							close = {
+								normal = "<Esc>",
+								insert = "<C-q>",
 							},
 						},
 						window = {
+							layout = "float",
 							width = 0.4,
 						},
 					}
@@ -86,7 +88,7 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 				"zbirenbaum/copilot.lua",
 				cmd = "Copilot",
 				build = ":Copilot auth",
-				event = "BufReadPre",
+				event = "InsertEnter",
 				opts = {
 					suggestion = {
 						enabled = true,
@@ -97,8 +99,9 @@ return (vim.g.ai and vim.fn.executable("copilot-language-server"))
 					panel = { enabled = false },
 					filetypes = {
 						markdown = true,
-						help = true,
+						help = false,
 					},
+					disable_limit_reached_message = true,
 					server = { type = "binary", custom_server_filepath = "copilot-language-server" },
 				},
 			},
