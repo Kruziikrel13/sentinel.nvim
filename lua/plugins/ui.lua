@@ -72,6 +72,7 @@ return {
 	{
 		--TODO: reposition command ui to bottom left
 		"folke/noice.nvim",
+		enabled = false,
 		event = "VeryLazy",
 		opts = {
 			lsp = {
