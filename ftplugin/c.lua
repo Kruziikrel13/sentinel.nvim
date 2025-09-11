@@ -1,5 +1,5 @@
 if Sentinel.has("nvim-treesitter") then
-	require("nvim-treesitter").install("c")
+	require("nvim-treesitter").install("c"):wait(3000)
 	vim.treesitter.start(nil, "c")
 end
 
