@@ -45,14 +45,19 @@ return {
     },
 	},
 	{
-		"LuxVim/nvim-luxterm",
+		"imranzero/multiterm.nvim",
+		event = "VeryLazy",
 		opts = {
+			-- Recommended keymaps:
 			keymaps = {
-				toggle_manager = "<C-\\>",
+				toggle = [[<C-\><C-\>]],
+				list = [[<C-\>\]],
+			},
+			term_keys = {
+				next = { "<C-Right>" },
 			},
 		},
 	},
-
 	-- library used by other plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "ibhagwan/fzf-lua", lazy = true },
