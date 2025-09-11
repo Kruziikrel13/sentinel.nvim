@@ -3,14 +3,6 @@ return {
 		"nvim-mini/mini.pairs",
 		version = false,
 		event = "VeryLazy",
-		init = function()
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "md", "markdown" },
-				callback = function()
-					vim.b.minipairs_disable = true
-				end,
-			})
-		end,
 		opts = {
 			modes = { insert = true, command = true, terminal = false },
 			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -83,28 +75,6 @@ return {
 		"folke/todo-comments.nvim",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		opts = {},
-	},
-	{
-		"MagicDuck/grug-far.nvim",
-		opts = { headerMaxWidth = 80 },
-		cmd = "GrugFar",
-		keys = {
-			{
-				"<Tab>R",
-				function()
-					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-					require("grug-far").open({
-						transient = true,
-						prefills = {
-							search = vim.fn.expand("<cword>"),
-							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-						},
-					})
-				end,
-				mode = { "n", "v" },
-				desc = "Search and Replace",
-			},
-		},
 	},
 	-- which-key helps you remember key bindings by showing a popup
 	-- with the active keybindings of the command you started typing.
