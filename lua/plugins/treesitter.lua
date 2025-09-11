@@ -18,7 +18,14 @@ return {
 		end,
 		config = function(_, opts)
 			require("nvim-treesitter").setup(opts)
-			require("nvim-treesitter").install(Sentinel.treesitter.parsers)
+			require("nvim-treesitter").install({
+				"c",
+				"cpp",
+				"lua",
+				"nix",
+				"typescript",
+				"javascript",
+			})
 		end,
 	},
 
