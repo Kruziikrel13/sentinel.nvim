@@ -41,6 +41,18 @@ return {
 				section = "Custom Section",
 			},
 			function()
+				if not Sentinel.has("project.nvim") then
+					return nil
+				end
+				return {
+					name = "Projects",
+					action = function()
+						require("project").run_fzf_lua()
+					end,
+					section = "Custom Section",
+				}
+			end,
+			function()
 				return require("mini.starter").sections.builtin_actions()
 			end,
 		},
