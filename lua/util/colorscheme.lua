@@ -42,6 +42,38 @@ local colorschemes = {
 		name = "rose-pine",
 		priority = 1000,
 	},
+	github_base16_dark = {
+		"y3owk1n/base16-pro-max.nvim",
+		name = "base16-pro-max",
+		priority = 1000,
+		opts = {
+			colors = {
+				base00 = "#161b22",
+				base01 = "#30363d",
+				base02 = "#484f58",
+				base03 = "#6e7681",
+				base04 = "#8b949e",
+				base05 = "#c9d1d9",
+				base06 = "#f0f6fc",
+				base07 = "#ffffff",
+				base08 = "#f85149",
+				base09 = "#db6d28",
+				base0A = "#bb8009",
+				base0B = "#2ea043",
+				base0C = "#2A9D9A",
+				base0D = "#388bfd",
+				base0E = "#a371f7",
+				base0F = "#3D2F00",
+			},
+			plugins = {
+				enable_all = true,
+			},
+			setup_globals = {
+				terminal_colors = true,
+				base16_gui_colors = true,
+			},
+		},
+	},
 }
 
 local colorscheme
