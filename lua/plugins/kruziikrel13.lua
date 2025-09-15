@@ -7,7 +7,6 @@ return {
 	{
 		-- snacks with various pr's merged and custom changes
 		"kruziikrel13/snacks.nvim",
-		branch = "pr_merges",
 	},
 	{
 		-- lspsaga with functionality stripped out that I don't use
