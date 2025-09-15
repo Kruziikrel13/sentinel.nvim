@@ -45,13 +45,10 @@ function M.setup()
 
 			local lsp = handle.lsp
 			if type(lsp) == "table" then
-				if lsp.exe and vim.fn.executable(lsp.exe) == 1 then
-					vim.lsp.enable(lsp[1])
-				end
-
-				if not lsp.exe then
-					for _, v in pairs(lsp) do
-						if vim.fn.executable(v) == 1 then
+				for k, v in pairs(lsp) do
+					if k ~= "exe" then
+						local exe = lsp.exe or v
+						if vim.fn.executable(exe) == 1 then
 							vim.lsp.enable(v)
 						end
 					end
