@@ -1,7 +1,7 @@
 ---@class sentinel.util.treesitter
 local M = {}
 
-M.ftmap = {
+local filetype_map = {
 	c = { parser = "c", lsp = "clangd" },
 	cpp = { parser = "cpp", lsp = "clangd" },
 	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
@@ -20,14 +20,14 @@ M.ftmap = {
 function M.setup()
 	local supported_filetypes = {}
 
-	for k in pairs(M.ftmap) do
+	for k in pairs(filetype_map) do
 		table.insert(supported_filetypes, k)
 	end
 
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = supported_filetypes,
 		callback = function()
-			local handle = M.ftmap[vim.bo.filetype]
+			local handle = filetype_map[vim.bo.filetype]
 
 			if type(handle) == "function" then
 				handle()
