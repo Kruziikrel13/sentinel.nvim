@@ -56,6 +56,12 @@ function M.setup()
 						end
 					end
 				end
+			else
+				if type(lsp) == "string" then
+					if vim.fn.executable(lsp) == 1 then
+						vim.lsp.enable(lsp)
+					end
+				end
 			end
 		end,
 	})
