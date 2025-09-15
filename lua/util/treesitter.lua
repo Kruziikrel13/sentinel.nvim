@@ -1,0 +1,64 @@
+---@class sentinel.util.treesitter
+local M = {}
+
+M.ftmap = {
+	c = { parser = "c", lsp = "clangd" },
+	cpp = { parser = "cpp", lsp = "clangd" },
+	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
+	glsl = { parser = "glsl", lsp = "glsl_analyzer" },
+	javascript = { parser = "javascript", lsp = { "ts_ls", exe = "typescript-language-server" } },
+	lua = { parser = "lua" },
+	make = { parser = "make" },
+	markdown = function()
+		vim.b.minipairs_disable = true
+	end,
+	nix = { parser = "nix", lsp = { "nixd", "statix" } },
+	qml = { parser = "qmljs", lsp = "qmlls" },
+	typescript = { parser = "typescript", lsp = { "ts_ls", exe = "typescript-language-server" } },
+}
+
+function M.setup()
+	local supported_filetypes = {}
+
+	for k in pairs(M.ftmap) do
+		table.insert(supported_filetypes, k)
+	end
+
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = supported_filetypes,
+		callback = function()
+			local handle = M.ftmap[vim.bo.filetype]
+
+			if type(handle) == "function" then
+				handle()
+				return
+			end
+
+			if Sentinel.has("nvim-treesitter") and handle.parser then
+				require("nvim-treesitter").install(handle.parser):wait(300000)
+				vim.treesitter.start(nil, handle.parser)
+			end
+
+			if handle.lsp == nil then
+				return
+			end
+
+			local lsp = handle.lsp
+			if type(lsp) == "table" then
+				if lsp.exe and vim.fn.executable(lsp.exe) == 1 then
+					vim.lsp.enable(lsp[1])
+				end
+
+				if not lsp.exe then
+					for _, v in pairs(lsp) do
+						if vim.fn.executable(v) == 1 then
+							vim.lsp.enable(v)
+						end
+					end
+				end
+			end
+		end,
+	})
+end
+
+return M

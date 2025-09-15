@@ -13,20 +13,7 @@ return {
 		branch = "main",
 		lazy = false,
 		build = ":TSUpdate",
-		init = function(plugin)
-			require("lazy.core.loader").add_to_rtp(plugin)
-		end,
-		config = function(_, opts)
-			require("nvim-treesitter").setup(opts)
-			require("nvim-treesitter").install({
-				"c",
-				"cpp",
-				"lua",
-				"nix",
-				"typescript",
-				"javascript",
-			})
-		end,
+		opts = {},
 	},
 
 	-- Automatically add closing tags for HTML and JSX
