@@ -42,7 +42,7 @@ end
 
 return {
 	{
-		"kruziikrel13/snacks.nvim",
+		"folke/snacks.nvim",
 		opts = {
 			lazygit = { enable = vim.fn.executable("lazygit") == 1 },
 		},

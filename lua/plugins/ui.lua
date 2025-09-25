@@ -1,6 +1,6 @@
 return {
 	{
-		"kruziikrel13/snacks.nvim",
+		"folke/snacks.nvim",
 		opts = {
 			indent = { enabled = true },
 			input = { enabled = true },

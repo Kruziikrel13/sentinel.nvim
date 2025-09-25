@@ -13,7 +13,7 @@ require("config").init()
 return {
 	{ "folke/lazy.nvim", version = false },
 	{
-		"kruziikrel13/snacks.nvim",
+		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
 		opts = {},
