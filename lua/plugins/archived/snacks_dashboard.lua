@@ -1,7 +1,3 @@
-if Sentinel.has("mini.starter") then
-	return {}
-end
-
 Sentinel.on_load("snacks.nvim", function()
 	-- Create highlights when snacks.nvim loads
 	vim.api.nvim_set_hl(0, "NeovimDashboardLogo1", { fg = "#641220" })
