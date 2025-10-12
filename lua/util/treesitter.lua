@@ -35,7 +35,7 @@ function M.setup()
 			end
 
 			if Sentinel.has("nvim-treesitter") and handle.parser then
-				require("nvim-treesitter").install(handle.parser):wait(300000)
+				require("nvim-treesitter").install(handle.parser)
 				vim.treesitter.start(nil, handle.parser)
 			end
 
