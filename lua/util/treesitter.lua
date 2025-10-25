@@ -6,6 +6,7 @@ local filetype_map = {
 	cpp = { parser = "cpp", lsp = "clangd" },
 	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
 	glsl = { parser = "glsl", lsp = "glsl_analyzer" },
+	shaderslang = { parser = "slang", lsp = "slangd" },
 	javascript = { parser = "javascript", lsp = { "ts_ls", exe = "typescript-language-server" } },
 	lua = { parser = "lua" },
 	make = { parser = "make" },
