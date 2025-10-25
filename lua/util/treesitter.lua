@@ -3,7 +3,7 @@ local M = {}
 
 local filetype_map = {
 	c = { parser = "c", lsp = "clangd" },
-	cpp = { parser = "cpp", lsp = "clangd" },
+	cpp = { parser = "cpp", lsp = { "clangd", "clang-tidy" } },
 	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
 	glsl = { parser = "glsl", lsp = "glsl_analyzer" },
 	shaderslang = { parser = "slang", lsp = "slangd" },
