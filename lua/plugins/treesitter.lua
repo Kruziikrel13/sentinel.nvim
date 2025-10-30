@@ -30,6 +30,14 @@ return {
 			indent = { enable = true },
 			highlight = { enable = true },
 			folds = { enable = true },
+			ensure_installed = {
+				"bash",
+				"nix",
+				"lua",
+				"c",
+				"cpp",
+				"rust",
+			},
 		},
 		config = function(_, opts)
 			local TS = require("nvim-treesitter")
