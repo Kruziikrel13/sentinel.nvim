@@ -1,68 +1,144 @@
 ---@class sentinel.util.treesitter
 local M = {}
 
-local filetype_map = {
-	c = { parser = "c", lsp = "clangd" },
-	cpp = { parser = "cpp", lsp = { "clangd", "clang-tidy" } },
-	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
-	glsl = { parser = "glsl", lsp = "glsl_analyzer" },
-	shaderslang = { parser = "slang", lsp = "slangd" },
-	javascript = { parser = "javascript", lsp = { "ts_ls", exe = "typescript-language-server" } },
-	lua = { parser = "lua" },
-	make = { parser = "make" },
-	markdown = function()
-		vim.b.minipairs_disable = true
-	end,
-	nix = { parser = "nix", lsp = { "nixd", "statix" } },
-	qml = { parser = "qmljs", lsp = "qmlls" },
-	typescript = { parser = "typescript", lsp = { "ts_ls", exe = "typescript-language-server" } },
-}
+M._installed = nil ---@type table<string,boolean>?
+M._queries = {} ---@type table<string,boolean>
 
-function M.setup()
-	local supported_filetypes = {}
+---@param update boolean?
+function M.get_installed(update)
+	if update then
+		M._installed, M._queries = {}, {}
 
-	for k in pairs(filetype_map) do
-		table.insert(supported_filetypes, k)
+		for _, lang in ipairs(require("nvim-treesitter").get_installed("parsers")) do
+			M._installed[lang] = true
+		end
 	end
 
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = supported_filetypes,
-		callback = function()
-			local handle = filetype_map[vim.bo.filetype]
-
-			if type(handle) == "function" then
-				handle()
-				return
-			end
-
-			if Sentinel.has("nvim-treesitter") and handle.parser then
-				require("nvim-treesitter").install(handle.parser)
-				vim.treesitter.start(nil, handle.parser)
-			end
-
-			if handle.lsp == nil then
-				return
-			end
-
-			local lsp = handle.lsp
-			if type(lsp) == "table" then
-				for k, v in pairs(lsp) do
-					if k ~= "exe" then
-						local exe = lsp.exe or v
-						if vim.fn.executable(exe) == 1 then
-							vim.lsp.enable(v)
-						end
-					end
-				end
-			else
-				if type(lsp) == "string" then
-					if vim.fn.executable(lsp) == 1 then
-						vim.lsp.enable(lsp)
-					end
-				end
-			end
-		end,
-	})
+	return M._installed or {}
 end
+
+---@param what string|number|nil
+---@param query? string
+---@overload fun(buf?:number):boolean
+---@overload fun(ft:string):boolean
+---@return boolean
+function M.have(what, query)
+	what = what or vim.api.nvim_get_current_buf()
+	what = type(what) == "number" and vim.bo[what].filetype or what --[[@as string]]
+	local lang = vim.treesitter.language.get_lang(what)
+	if lang == nil or M.get_installed()[lang] == nil then
+		return false
+	end
+	if query and not M.have_query(lang, query) then
+		return false
+	end
+	return true
+end
+
+---@param lang string
+---@param query string
+function M.have_query(lang, query)
+	local key = lang .. ":" .. query
+	if M._queries[key] == nil then
+		M._queries[key] = vim.treesitter.query.get(lang, query) ~= nil
+	end
+	return M._queries[key]
+end
+
+function M.foldexpr()
+	return M.have(nil, "folds") and vim.treesitter.foldexpr() or "0"
+end
+
+function M.indentexpr()
+	return M.have(nil, "indents") and require("nvim-treesitter").indentexpr() or -1
+end
+
+---@param cb fun()
+function M.build(cb)
+	local is_win = vim.fn.has("win32") == 1
+
+	local function have(tool, win)
+		return (win == nil or is_win == win) and vim.fn.executable(tool) == 1
+	end
+
+	local have_compiler = vim.env.CC ~= nil or have("cc", false) or have("cl", true)
+
+	if not have_compiler and have("gcc") then
+		vim.env.CC = "gcc"
+		have_compiler = true
+	end
+
+	if not (have_compiler and have("treesitter") and have("curl") and have("tar")) then
+		vim.notify("Missing treesitter dependency, run :checkhealth nvim-treesitter for more info")
+		return
+	end
+
+	return cb()
+end
+
+-- local filetype_map = {
+-- 	c = { parser = "c", lsp = "clangd" },
+-- 	cpp = { parser = "cpp", lsp = { "clangd", "clang-tidy" } },
+-- 	rust = { parser = "rust", lsp = { { "bacon_ls", exe = "bacon" }, { "rust_analyzer", exe = "rust-analyzer" } },
+-- 	cmake = { parser = "cmake", lsp = { "neocmake", exe = "neocmakelsp" } },
+-- 	glsl = { parser = "glsl", lsp = "glsl_analyzer" },
+-- 	shaderslang = { parser = "slang", lsp = "slangd" },
+-- 	javascript = { parser = "javascript", lsp = { "ts_ls", exe = "typescript-language-server" } },
+-- 	lua = { parser = "lua" },
+-- 	make = { parser = "make" },
+-- 	markdown = function()
+-- 		vim.b.minipairs_disable = true
+-- 	end,
+-- 	nix = { parser = "nix", lsp = { "nixd", "statix" } },
+-- 	qml = { parser = "qmljs", lsp = "qmlls" },
+-- 	typescript = { parser = "typescript", lsp = { "ts_ls", exe = "typescript-language-server" } },
+-- }
+--
+-- function M.setup()
+-- 	local supported_filetypes = {}
+--
+-- 	for k in pairs(filetype_map) do
+-- 		table.insert(supported_filetypes, k)
+-- 	end
+--
+-- 	vim.api.nvim_create_autocmd("FileType", {
+-- 		pattern = supported_filetypes,
+-- 		callback = function()
+-- 			local handle = filetype_map[vim.bo.filetype]
+--
+-- 			if type(handle) == "function" then
+-- 				handle()
+-- 				return
+-- 			end
+--
+-- 			if Sentinel.has("nvim-treesitter") and handle.parser then
+-- 				require("nvim-treesitter").install(handle.parser)
+-- 				vim.treesitter.start(nil, handle.parser)
+-- 			end
+--
+-- 			if handle.lsp == nil then
+-- 				return
+-- 			end
+--
+-- 			local lsp = handle.lsp
+-- 			if type(lsp) == "table" then
+-- 				for k, v in pairs(lsp) do
+-- 					if k ~= "exe" then
+-- 						local exe = lsp.exe or v
+-- 						if vim.fn.executable(exe) == 1 then
+-- 							vim.lsp.enable(v)
+-- 						end
+-- 					end
+-- 				end
+-- 			else
+-- 				if type(lsp) == "string" then
+-- 					if vim.fn.executable(lsp) == 1 then
+-- 						vim.lsp.enable(lsp)
+-- 					end
+-- 				end
+-- 			end
+-- 		end,
+-- 	})
+-- end
 
 return M
