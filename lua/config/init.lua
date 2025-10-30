@@ -13,7 +13,7 @@ Sentinel.config = M
 ---@class SentinelOptions
 local defaults = {
 	---@type string
-	colorscheme = "github_dark_default",
+	colorscheme = "github",
 	shell = nil,
 	icons = {
 		diagnostics = {
@@ -60,7 +60,6 @@ function M.setup(opts)
 			end
 
 			Sentinel.terminal.setup()
-			Sentinel.colorscheme.enable()
 
 			vim.api.nvim_create_user_command("SentinelHealth", function()
 				vim.cmd([[Lazy! load all]])
