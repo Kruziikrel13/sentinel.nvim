@@ -94,6 +94,28 @@ function M.lazy_notify()
 	timer:start(500, 0, replay)
 end
 
+---@param exes string | table
+---@overload fun(exes?:table):boolean
+---@return boolean
+function M.executable(exes)
+	if type(exes) == "string" then
+		exes = { exes } --@cast exes table
+	elseif type(exes) ~= "table" then
+		error("Expected string or table, got " .. type(exes))
+	end
+
+	local all_ok = true
+
+	for _, exe in ipairs(exes) do
+		if vim.fn.executable(exe) ~= 1 then
+			vim.notify("Missing executable: " .. exe, vim.log.levels.WARN)
+			all_ok = false
+		end
+	end
+
+	return all_ok
+end
+
 function M.is_loaded(name)
 	local Config = require("lazy.core.config")
 	return Config.plugins[name] and Config.plugins[name]._.loaded
