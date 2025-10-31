@@ -2,8 +2,14 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		config = function()
-			vim.diagnostic.config({
+		opts = {
+			---@type vim.diagnostic.Opts
+			diagnostics = {
+				underline = true,
+				update_in_insert = false,
+				virtual_lines = true,
+				virtual_text = false,
+				severity_sort = true,
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = Sentinel.config.icons.diagnostics.Error,
@@ -12,8 +18,11 @@ return {
 						[vim.diagnostic.severity.INFO] = Sentinel.config.icons.diagnostics.Info,
 					},
 				},
-			})
-		end,
+			},
+		},
+		config = vim.schedule_wrap(function(_, opts)
+			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+		end),
 	},
 	{
 		"kruziikrel13/lspsaga.nvim",
