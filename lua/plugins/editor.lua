@@ -16,6 +16,15 @@ return {
 		},
 	},
 	{
+		"XXiaoA/atone.nvim",
+		cmd = "Atone",
+		opts = {},
+	},
+	{
+		"krady21/compiler-explorer.nvim",
+		opts = {},
+	},
+	{
 		"folke/ts-comments.nvim",
 		event = "VeryLazy",
 		opts = {},
