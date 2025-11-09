@@ -38,9 +38,10 @@ function M.find_file(filename, path)
 end
 
 ---@param exes string | table
+---@param notify? boolean
 ---@overload fun(exes?:table):boolean
 ---@return boolean
-function M.executable(exes)
+function M.executable(exes, notify)
 	if type(exes) == "string" then
 		exes = { exes } --@cast exes table
 	elseif type(exes) ~= "table" then
@@ -51,7 +52,9 @@ function M.executable(exes)
 
 	for _, exe in ipairs(exes) do
 		if vim.fn.executable(exe) ~= 1 then
-			vim.notify("Missing executable: " .. exe, vim.log.levels.WARN)
+			if notify then
+				vim.notify("Missing executable: " .. exe, vim.log.levels.INFO)
+			end
 			all_ok = false
 		end
 	end
