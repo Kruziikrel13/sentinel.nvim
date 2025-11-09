@@ -1,131 +1,126 @@
 return {
 	{
-		"nvim-mini/mini.pairs",
-		version = false,
-		event = "VeryLazy",
-		opts = {
-			modes = { insert = true, command = true, terminal = false },
-			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-			-- skip autopair when the cursor is inside these treesitter nodes
-			skip_ts = { "string" },
-			-- skip autopair when next character is closing pair
-			-- and there are more closing pairs than opening pairs
-			skip_unbalanced = true,
-			-- better deal with markdown code blocks
-			markdown = true,
-		},
-	},
-	{
-		"folke/ts-comments.nvim",
-		event = "VeryLazy",
-		opts = {},
-	},
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		opts = {
-			modes = {
-				char = { enabled = false },
-			},
-		},
-		keys = {
-			{
-				"J",
-				function()
-					require("flash").jump({
-						search = { forward = true, wrap = false, multi_window = false },
-					})
-				end,
-			},
-			{
-				"K",
-				function()
-					require("flash").jump({
-						search = { forward = false, wrap = false, multi_window = false },
-					})
-				end,
-			},
-			{
-				"S",
-				mode = { "n", "o", "x" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-			{
-				"r",
-				mode = "o",
-				function()
-					require("flash").remote()
-				end,
-				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Treesitter Search",
-			},
-		},
-	},
-	{
-		"folke/todo-comments.nvim",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		opts = {},
-	},
-	-- which-key helps you remember key bindings by showing a popup
-	-- with the active keybindings of the command you started typing.
-	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts_extend = { "spec" },
 		opts = {
-			preset = "modern",
+			preset = "helix",
 			defaults = {},
 			spec = {
 				{
 					mode = { "n", "v" },
-					{ "<leader><tab>", group = "tabs" },
-					{ "<leader>d", group = "debug" },
-					{ "<leader>dp", group = "profiler" },
 					{ "<leader>f", group = "file/find" },
 					{ "<leader>q", group = "quit/session" },
-					{ "<leader>s", group = "search" },
-					{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
 					{ "[", group = "prev" },
 					{ "]", group = "next" },
 					{ "g", group = "goto" },
 					{ "gs", group = "surround" },
-					{
-						"<leader>b",
-						group = "buffer",
-						expand = function()
-							return require("which-key.extras").expand.buf()
-						end,
-					},
-					{
-						"<leader>w",
-						group = "windows",
-						proxy = "<c-w>",
-						expand = function()
-							return require("which-key.extras").expand.win()
-						end,
-					},
-					-- better descriptions
-					{ "gx", desc = "Open with system app" },
 				},
 			},
 		},
+	},
+
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "LazyFile",
+		opts = {
+			current_line_blame = true,
+		},
+	},
+
+	{
+		"snacks.nvim",
+		keys = function()
+			local res = {
+				{
+					"<leader>gb",
+					function()
+						Snacks.gitbrowse()
+					end,
+					desc = "Git Browse",
+				},
+				{
+					"<leader>gB",
+					function()
+						Snacks.gitbrowse({ what = "repo" })
+					end,
+					desc = "Git Browse (Repo)",
+				},
+			}
+
+			if vim.fn.executable("lazygit") == 1 then
+				table.insert(res, {
+					"<leader>gg",
+					function()
+						Snacks.lazygit()
+					end,
+					desc = "LazyGit",
+				})
+			end
+
+			if vim.fn.executable("gh") == 1 then
+				res = vim.tbl_deep_extend("force", res, {
+					{
+						"<leader>gi",
+						function()
+							Snacks.picker.gh_issue()
+						end,
+						desc = "GitHub Issues (Open)",
+					},
+					{
+						"<leader>gI",
+						function()
+							Snacks.picker.gh_issue({ state = "all" })
+						end,
+						desc = "GitHub Issues (All)",
+					},
+					{
+						"<leader>gp",
+						function()
+							Snacks.picker.gh_pr()
+						end,
+						desc = "GitHub Pull Requests (Open)",
+					},
+					{
+						"<leader>gP",
+						function()
+							Snacks.picker.gh_pr({ state = "all" })
+						end,
+						desc = "GitHub Pull Requests (All)",
+					},
+				})
+			end
+			return res
+		end,
+	},
+
+	{
+		"which-key.nvim",
+		opts = {
+			spec = {
+				{ "<leader>g", group = "git" },
+			},
+		},
+	},
+
+	{
+		"folke/todo-comments.nvim",
+		event = "LazyFile",
+		opts = {},
 		keys = {
 			{
-				"<leader>?",
+				"]t",
 				function()
-					require("which-key").show({ global = false })
+					require("todo-comments").jump_next()
 				end,
-				desc = "Buffer Keymaps (which-key)",
+				desc = "Next Todo Comment",
+			},
+			{
+				"[t",
+				function()
+					require("todo-comments").jump_prev()
+				end,
+				desc = "Previous Todo Comment",
 			},
 		},
 	},
