@@ -32,6 +32,10 @@ return {
 		},
 	},
 	{
+		"nvim-lualine/lualine.nvim",
+		opts = {},
+	},
+	{
 		"saghen/blink.indent",
 		opts = {},
 	},
