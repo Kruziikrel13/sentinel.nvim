@@ -75,12 +75,12 @@ opt.hlsearch = false
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
-	opt.foldexpr = "v:lua.require'util'.ui.foldexpr()"
+	opt.foldexpr = "v:lua.Sentinel.ui.foldexpr()"
 	opt.foldmethod = "expr"
 	opt.foldtext = ""
 else
 	opt.foldmethod = "indent"
-	opt.foldtext = "v:lua.require'util'.ui.foldtext()"
+	opt.foldtext = "v:lua.Sentinel.ui.foldtext()"
 end
 
 -- Fix markdown indentation settings
