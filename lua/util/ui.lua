@@ -20,4 +20,8 @@ function M.foldexpr()
 	return vim.b[buf].ts_folds and vim.treesitter.foldexpr() or "0"
 end
 
+function M.statuscolumn()
+	return package.loaded.snacks and require("snacks.statuscolumn").get() or ""
+end
+
 return M
