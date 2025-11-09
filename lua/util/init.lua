@@ -1,10 +1,12 @@
----@diagnostic disable: undefined-field
+---@diagnostic disable: need-check-nil
 local LazyUtil = require("lazy.core.util")
 
 ---@class sentinel.util: LazyUtilCore
 ---@field config SentinelConfig
----@field terminal sentinel.util.terminal
 ---@field treesitter sentinel.util.treesitter
+---@field events sentinel.util.events
+---@field terminal sentinel.util.terminal
+---@field ui sentinel.util.ui
 local M = {}
 
 function M.is_win()
@@ -16,44 +18,45 @@ function M.get_plugin(name)
 	return require("lazy.core.config").spec.plugins[name]
 end
 
----@param plugin string
 function M.has(plugin)
 	return M.get_plugin(plugin) ~= nil
 end
 
----@param fn fun()
-function M.on_very_lazy(fn)
-	vim.api.nvim_create_autocmd("User", {
-		pattern = "VeryLazy",
-		callback = function()
-			fn()
-		end,
-	})
+function M.debounce(ms, fn)
+	local timer = vim.uv.new_timer()
+	return function(...)
+		local argv = { ... }
+		timer:start(ms, 0, function()
+			timer:stop()
+			vim.schedule_wrap(fn)(unpack(argv))
+		end)
+	end
 end
 
----@generic T
----@param list T[]
----@return T[]
-function M.dedup(list)
-	local ret = {}
-	local seen = {}
-	for _, v in ipairs(list) do
-		if not seen[v] then
-			table.insert(ret, v)
-			seen[v] = true
+function M.find_file(filename, path)
+	return vim.fs.find({ filename }, { path = path, upward = true })[1]
+end
+
+---@param exes string | table
+---@overload fun(exes?:table):boolean
+---@return boolean
+function M.executable(exes)
+	if type(exes) == "string" then
+		exes = { exes } --@cast exes table
+	elseif type(exes) ~= "table" then
+		error("Expected string or table, got " .. type(exes))
+	end
+
+	local all_ok = true
+
+	for _, exe in ipairs(exes) do
+		if vim.fn.executable(exe) ~= 1 then
+			vim.notify("Missing executable: " .. exe, vim.log.levels.WARN)
+			all_ok = false
 		end
 	end
-	return ret
-end
 
----@param name string
-function M.opts(name)
-	local plugin = M.get_plugin(name)
-	if not plugin then
-		return {}
-	end
-	local Plugin = require("lazy.core.plugin")
-	return Plugin.values(plugin, "opts", false)
+	return all_ok
 end
 
 -- delay notifications till vim.notify was replaced or after 500ms
@@ -91,29 +94,6 @@ function M.lazy_notify()
 	end)
 	-- or if it took more than 500ms, then something went wrong
 	timer:start(500, 0, replay)
-end
-
-function M.is_loaded(name)
-	local Config = require("lazy.core.config")
-	return Config.plugins[name] and Config.plugins[name]._.loaded
-end
-
----@param name string
----@param fn fun(name:string)
-function M.on_load(name, fn)
-	if M.is_loaded(name) then
-		fn(name)
-	else
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "LazyLoad",
-			callback = function(event)
-				if event.data == name then
-					fn(name)
-					return true
-				end
-			end,
-		})
-	end
 end
 
 setmetatable(M, {
