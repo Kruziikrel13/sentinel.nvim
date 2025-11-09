@@ -11,6 +11,7 @@ return {
 					mode = { "n", "v" },
 					{ "<leader>f", group = "file/find" },
 					{ "<leader>q", group = "quit/session" },
+					{ "<leader>u", group = "utilities" },
 					{ "[", group = "prev" },
 					{ "]", group = "next" },
 					{ "g", group = "goto" },
@@ -122,6 +123,15 @@ return {
 				end,
 				desc = "Previous Todo Comment",
 			},
+		},
+	},
+
+	{
+		"ellisonleao/carbon-now.nvim",
+		cmd = "CarbonNow",
+		opts = {},
+		keys = {
+			{ "<leader>uS", ":CarbonNow<CR>", desc = "Screenshot Code", mode = { "n", "v" } },
 		},
 	},
 }
