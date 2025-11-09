@@ -36,7 +36,7 @@ return {
 
 			if not TS.get_installed then
 				vim.notify("Please use `:Lazy` and update `nvim-treesitter`")
-			elseif type(opts.ensure_installed) ~= "table" then
+			elseif opts.ensure_installed ~= nil and type(opts.ensure_installed) ~= "table" then
 				vim.notify("`nvim-treesitter` opts.ensure_installed must be a table")
 			end
 
