@@ -1,8 +1,9 @@
-This config is currently heavily coupled with NixOS Config as it's installation, dependencies etc are all defined in my NixOS Config.
+# Editor Settings
+- **Editor Mode**: `vim.o.background` "light | dark"
+- **Editor Colorscheme**: `vim.g.EDITOR_THEME`
+  - Valid themes can be found in `lua/plugins/colorschemes`
 
-Dependencies need to be mapped and install process documented.
-
-## Dependencies
+# Dependencies
+- Ripgrep
+- Lazygit
 - gh
-  - gh-notify
-  - gh-contribs
