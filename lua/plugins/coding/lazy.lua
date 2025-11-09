@@ -6,7 +6,9 @@ return {
 		opts = {
 			library = {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				Sentinel.has("snacks.nvim") and { path = "snacks.nvim", words = { "Snacks" } } or nil,
+				{ path = "Sentinel", words = { "Sentinel" } },
+				{ path = "snacks.nvim", words = { "Snacks" } },
+				{ path = "lazy.nvim", words = { "Sentinel" } },
 			},
 		},
 		config = function(_, opts)
@@ -14,9 +16,9 @@ return {
 			require("lazydev").setup(opts)
 		end,
 	},
+
 	{
-		"saghen/blink.cmp",
-		optional = true,
+		"blink.cmp",
 		opts = {
 			sources = {
 				per_filetype = {
