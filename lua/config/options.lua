@@ -82,7 +82,3 @@ else
 	opt.foldmethod = "indent"
 	opt.foldtext = "v:lua.Sentinel.ui.foldtext()"
 end
-
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
-vim.g.ai = true
