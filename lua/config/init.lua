@@ -1,7 +1,7 @@
 --[[
   File: config/init.lua
-  Description: Neovim Configuration Init File.
-  Depends on lazy.core and as such has to be called after lazy has been bootstrapped and is available.
+  Description: Neovim configuration init file.
+  Depends on lazy.core and has to be called after lazy has been bootstrapped and is available.
 ]]
 
 _G.Sentinel = require("util")
@@ -12,8 +12,6 @@ Sentinel.config = M
 
 ---@class SentinelOptions
 local defaults = {
-	---@type string
-	colorscheme = "github_dark_default",
 	shell = nil,
 	icons = {
 		diagnostics = {
@@ -21,6 +19,13 @@ local defaults = {
 			Warn = " ",
 			Hint = " ",
 			Info = " ",
+		},
+		dap = {
+			Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+			Breakpoint = " ",
+			BreakpointCondition = " ",
+			BreakpointRejected = { " ", "DiagnosticError" },
+			LogPoint = ".>",
 		},
 		git = {
 			untracked = " ",
@@ -59,6 +64,7 @@ function M.setup(opts)
 				vim.opt.clipboard = lazy_clipboard
 			end
 
+			-- Late Utility Setup
 			Sentinel.terminal.setup()
 			Sentinel.colorscheme.enable()
 
