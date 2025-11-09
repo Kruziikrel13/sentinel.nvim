@@ -23,7 +23,7 @@ return {
 				TS.update(nil, { summary = true })
 			end)
 		end,
-		event = { "VeryLazy", "BufReadPost", "BufNewFile", "BufWritePre" },
+		event = { "LazyFile", "VeryLazy" },
 		cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
 		opts_extend = { "ensure_installed" },
 		opts = {
@@ -98,7 +98,7 @@ return {
 	-- Automatically add closing tags for HTML and JSX
 	{
 		"windwp/nvim-ts-autotag",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		event = "LazyFile",
 		opts = {},
 	},
 }
