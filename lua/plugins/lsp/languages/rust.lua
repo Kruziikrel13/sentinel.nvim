@@ -1,4 +1,4 @@
-if not Sentinel.executable("bacon") then
+if not Sentinel.executable({ "bacon", "rust-analyzer" }) then
 	return {}
 end
 
@@ -12,6 +12,7 @@ return {
 		opts = {
 			servers = {
 				bacon_ls = {},
+				rust_analyzer = {},
 			},
 		},
 	},
