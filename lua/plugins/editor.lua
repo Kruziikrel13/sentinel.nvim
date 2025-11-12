@@ -105,6 +105,11 @@ return {
 	},
 
 	{
+		"qwavies/smart-backspace.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+	},
+
+	{
 		"folke/todo-comments.nvim",
 		event = "LazyFile",
 		opts = {},
