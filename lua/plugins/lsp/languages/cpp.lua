@@ -5,7 +5,6 @@ end
 return {
 	{
 		"nvim-lint",
-		ft = "cpp",
 		opts = {
 			linters = {
 				cppcheck = {},
@@ -58,13 +57,11 @@ return {
 	},
 	{
 		"nvim-treesitter",
-		ft = "cpp",
 		opts = { ensure_installed = { "cpp" } },
 	},
 
 	{
 		"p00f/clangd_extensions.nvim",
-		ft = "cpp",
 		opts = {},
 	},
 }
