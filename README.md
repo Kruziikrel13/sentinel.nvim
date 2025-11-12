@@ -2,7 +2,7 @@
 ```lua
 vim.o.background = "dark" ---@type "light" | "dark"
 vim.g.EDITOR_THEME = "github" ---@see lua/plugins/colorschemes
-vim.g.ENABLE_SIDEKICK = true
+vim.g.ENABLE_SIDEKICK = true -- requires copilot-language-server
 ```
 
 
@@ -14,3 +14,4 @@ vim.g.ENABLE_SIDEKICK = true
 - Ripgrep
 - Lazygit
 - gh
+- copilot-language-server
