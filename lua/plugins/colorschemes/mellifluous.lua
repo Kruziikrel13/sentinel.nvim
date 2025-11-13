@@ -1,5 +1,5 @@
 return {
-	-- https://github.com/ramojus/mellifluous.nvim
+	---@see https://github.com/ramojus/mellifluous.nvim
 	"ramojus/mellifluous.nvim",
 	opts = {},
 	config = function(_, opts)

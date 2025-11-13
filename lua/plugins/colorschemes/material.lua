@@ -1,5 +1,5 @@
 return {
-	-- https://github.com/marko-cerovac/material.nvim
+	---@see https://github.com/marko-cerovac/material.nvim
 	"marko-cerovac/material.nvim",
 	opts = {},
 	config = function(_, opts)

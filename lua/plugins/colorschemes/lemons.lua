@@ -1,4 +1,5 @@
 return {
+	---@see https://github.com/Kaikacy/Lemons.nvim
 	"kaikacy/lemons.nvim",
 	opts = {},
 	config = function()

@@ -1,5 +1,5 @@
 return {
-	-- https://github.com/projekt0n/github-nvim-theme
+	---@see https://github.com/projekt0n/github-nvim-theme
 	"projekt0n/github-nvim-theme",
 	opts = {
 		options = {
