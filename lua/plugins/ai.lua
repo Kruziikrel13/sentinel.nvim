@@ -17,6 +17,7 @@ return {
 			nes = { enabled = false },
 		},
 		keys = {
+			{ "<leader>a", "", desc = "+sidekick", mode = { "n", "v" } },
 			{
 				"<C-.>",
 				function()
