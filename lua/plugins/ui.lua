@@ -42,7 +42,7 @@ return {
 	{
 		"snacks.nvim",
 		opts = {
-			indent = { enabled = Sentinel.has("blink.indent") },
+			indent = { enabled = not Sentinel.has("blink.indent") },
 			input = { enabled = true },
 			notifier = { enabled = true },
 			scope = { enabled = true },
