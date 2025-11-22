@@ -25,6 +25,11 @@ return {
 		},
 	},
 	{
+		"calops/hmts.nvim",
+		ft = "nix",
+		opts = {},
+	},
+	{
 		"nvim-lint",
 		optional = true,
 		opts = {
