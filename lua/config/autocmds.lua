@@ -7,13 +7,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	end,
 })
 
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		(vim.hl or vim.highlight).on_yank()
-	end,
-})
-
 vim.api.nvim_create_autocmd({ "VimResized" }, {
 	callback = function()
 		local current_tab = vim.fn.tabpagenr()
