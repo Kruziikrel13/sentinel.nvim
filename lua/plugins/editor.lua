@@ -60,6 +60,13 @@ return {
 					end,
 					desc = "Git Browse (Repo)",
 				},
+				{
+					"<leader>gf",
+					function()
+						Snacks.gitbrowse({ what = "file" })
+					end,
+					desc = "Git Browse (File)",
+				},
 			}
 
 			if vim.fn.executable("lazygit") == 1 then
