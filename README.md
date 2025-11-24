@@ -6,6 +6,7 @@
 ```lua
 vim.o.background = "dark" ---@type "light" | "dark"
 vim.g.EDITOR_THEME = "github" ---@see lua/plugins/colorschemes
+vim.g.TRANSPARENT = false
 vim.g.ENABLE_SIDEKICK = true -- requires copilot-language-server
 ```
 
