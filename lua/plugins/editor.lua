@@ -51,6 +51,7 @@ return {
 						Snacks.gitbrowse()
 					end,
 					desc = "Git Browse",
+					mode = { "x", "n" },
 				},
 				{
 					"<leader>gB",
