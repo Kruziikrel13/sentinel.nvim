@@ -1,3 +1,4 @@
+---TODO: Add Lazier Wrapper
 ---@see https://lazy.folke.io/installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
