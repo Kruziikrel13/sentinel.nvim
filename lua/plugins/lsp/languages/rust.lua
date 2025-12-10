@@ -20,4 +20,8 @@ return {
 		"mrcjkb/rustaceanvim",
 		ft = "rust",
 	},
+	{
+		"alexpasmantier/krust.nvim",
+		ft = "rust",
+	},
 }
