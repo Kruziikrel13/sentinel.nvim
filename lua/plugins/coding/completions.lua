@@ -33,4 +33,9 @@ return {
 		dependencies = { "blink.cmp" },
 		opts = {},
 	},
+	{
+		"nvim-mini/mini.cmdline",
+		version = false,
+		opts = {},
+	},
 }
