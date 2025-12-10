@@ -159,4 +159,11 @@ return {
 			{ "<leader>uS", ":CarbonNow<CR>", desc = "Screenshot Code", mode = { "n", "v" } },
 		},
 	},
+
+	{
+		"noamsto/resolved.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		event = "VeryLazy",
+		opts = {},
+	},
 }
