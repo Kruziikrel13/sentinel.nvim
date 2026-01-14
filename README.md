@@ -12,9 +12,9 @@ vim.g.ENABLE_SIDEKICK = true -- requires copilot-language-server
 
 # Dependencies
 - gcc
+- [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 
 ## Optional
-- [gh](https://cli.github.com/)
 - [copilot-language-server](https://github.com/features/copilot)
