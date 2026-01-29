@@ -20,16 +20,6 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
-		opts = {
-			options = {
-        -- stylua: ignore
-        close_command = function (n) Snacks.bufdelete(n) end,
-        -- stylua: ignore
-        right_mouse_command = function (n) Snacks.bufdelete(n) end,
-				diagnostics = "nvim_lsp",
-				always_show_bufferline = false,
-			},
-		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
