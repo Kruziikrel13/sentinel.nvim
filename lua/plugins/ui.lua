@@ -1,4 +1,5 @@
 return {
+	-- Icon handling
 	{
 		"nvim-mini/mini.icons",
 		lazy = true,
@@ -20,45 +21,41 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
+		opts = {},
 	},
+	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {},
 	},
-	-- {
-	-- 	"saghen/blink.indent",
-	-- 	opts = {},
-	-- },
+	-- Indent Highlighting
+	{
+		"saghen/blink.indent",
+		opts = {},
+	},
+	-- File Picker
+	{
+		"ibhagwan/fzf-lua",
+		opts = {},
+		init = function()
+			require("fzf-lua").register_ui_select()
+		end,
+    -- stylua: ignore
+		keys = {
+			{ "<leader>ff", function() require("fzf-lua").files() end, desc = "Find Files" },
+			{ "<leader>fg", function() require("fzf-lua").live_grep() end, desc = "Find Text" },
+		},
+	},
 	{
 		"snacks.nvim",
 		opts = {
-			indent = { enabled = not Sentinel.has("blink.indent") },
-			input = { enabled = true },
 			notifier = { enabled = true },
 			scope = { enabled = true },
 			scroll = { enabled = true },
 			statuscolumn = { enabled = false },
 			-- toggle = {}
 		},
-    -- stylua: ignore
-		keys = {
-			{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Find Text" },
-      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-			{
-				"<leader>n",
-				function()
-					if Snacks.config.picker and Snacks.config.picker.enabled then
-						Snacks.picker.notifications()
-					else
-						Snacks.notifier.show_history()
-					end
-				end,
-				desc = "Notification History",
-			},
-		},
 	},
-
 	{
 		"rachartier/tiny-glimmer.nvim",
 		event = "VeryLazy",
