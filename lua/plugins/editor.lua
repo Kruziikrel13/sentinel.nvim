@@ -150,13 +150,4 @@ return {
 			},
 		},
 	},
-
-	{
-		"ellisonleao/carbon-now.nvim",
-		cmd = "CarbonNow",
-		opts = {},
-		keys = {
-			{ "<leader>uS", ":CarbonNow<CR>", desc = "Screenshot Code", mode = { "n", "v" } },
-		},
-	},
 }
