@@ -12,10 +12,4 @@ require("config").init()
 
 return {
 	{ "folke/lazy.nvim", version = false },
-	{
-		"folke/snacks.nvim",
-		priority = 1000,
-		lazy = false,
-		opts = {},
-	},
 }

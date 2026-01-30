@@ -47,16 +47,6 @@ return {
 		},
 	},
 	{
-		"snacks.nvim",
-		opts = {
-			notifier = { enabled = true },
-			scope = { enabled = true },
-			scroll = { enabled = true },
-			statuscolumn = { enabled = false },
-			-- toggle = {}
-		},
-	},
-	{
 		"rachartier/tiny-glimmer.nvim",
 		event = "VeryLazy",
 		priority = 10,

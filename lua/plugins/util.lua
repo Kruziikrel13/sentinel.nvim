@@ -1,12 +1,5 @@
 return {
 	{
-		"snacks.nvim",
-		opts = {
-			bigfile = { enabled = true },
-			quickfile = { enabled = true },
-		},
-	},
-	{
 		"folke/persistence.nvim",
 		event = "BufReadPre",
 		opts = {},

@@ -42,77 +42,17 @@ return {
 	},
 
 	{
-		"snacks.nvim",
-		keys = function()
-			local res = {
-				{
-					"<leader>gb",
-					function()
-						Snacks.gitbrowse()
-					end,
-					desc = "Git Browse",
-					mode = { "x", "n" },
-				},
-				{
-					"<leader>gB",
-					function()
-						Snacks.gitbrowse({ what = "repo" })
-					end,
-					desc = "Git Browse (Repo)",
-				},
-				{
-					"<leader>gf",
-					function()
-						Snacks.gitbrowse({ what = "file" })
-					end,
-					desc = "Git Browse (File)",
-				},
-			}
+		"NeogitOrg/neogit",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
 
-			if vim.fn.executable("lazygit") == 1 then
-				table.insert(res, {
-					"<leader>gg",
-					function()
-						Snacks.lazygit()
-					end,
-					desc = "LazyGit",
-				})
-			end
-
-			if vim.fn.executable("gh") == 1 then
-				res = vim.tbl_deep_extend("force", res, {
-					{
-						"<leader>gi",
-						function()
-							Snacks.picker.gh_issue()
-						end,
-						desc = "GitHub Issues (Open)",
-					},
-					{
-						"<leader>gI",
-						function()
-							Snacks.picker.gh_issue({ state = "all" })
-						end,
-						desc = "GitHub Issues (All)",
-					},
-					{
-						"<leader>gp",
-						function()
-							Snacks.picker.gh_pr()
-						end,
-						desc = "GitHub Pull Requests (Open)",
-					},
-					{
-						"<leader>gP",
-						function()
-							Snacks.picker.gh_pr({ state = "all" })
-						end,
-						desc = "GitHub Pull Requests (All)",
-					},
-				})
-			end
-			return res
-		end,
+			"ibhagwan/fzf-lua", -- optional
+		},
+		keys = {
+			{ "<leader>gg", "<CMD>Neogit<CR>", desc = "Show Neogit UI" },
+		},
 	},
 
 	{
