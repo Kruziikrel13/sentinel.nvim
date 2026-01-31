@@ -12,4 +12,9 @@ require("config").init()
 
 return {
 	{ "folke/lazy.nvim", version = false },
+	{
+		"cosmicbuffalo/super_lazy.nvim",
+		lazy = false,
+		opts = {},
+	},
 }
