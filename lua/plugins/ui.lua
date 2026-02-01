@@ -33,6 +33,12 @@ return {
 		"saghen/blink.indent",
 		opts = {},
 	},
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
 	-- File Picker
 	{
 		"ibhagwan/fzf-lua",
