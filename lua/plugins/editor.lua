@@ -42,20 +42,6 @@ return {
 	},
 
 	{
-		"NeogitOrg/neogit",
-		opts = {},
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			"ibhagwan/fzf-lua", -- optional
-		},
-		keys = {
-			{ "<leader>gg", "<CMD>Neogit<CR>", desc = "Show Neogit UI" },
-		},
-	},
-
-	{
 		"which-key.nvim",
 		opts = {
 			spec = {
