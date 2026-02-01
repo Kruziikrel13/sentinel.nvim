@@ -6,6 +6,7 @@ local LazyUtil = require("lazy.core.util")
 ---@field treesitter sentinel.util.treesitter
 ---@field events sentinel.util.events
 ---@field terminal sentinel.util.terminal
+---@field fs sentinel.util.fs
 ---@field ui sentinel.util.ui
 local M = {}
 
