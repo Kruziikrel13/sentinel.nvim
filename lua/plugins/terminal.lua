@@ -23,8 +23,10 @@ return {
 			sticky = true,
 			float_winblend = 0,
 			watch_files = true,
-			on_unfocus = function()
-				vim.cmd.stopinsert()
+			on_close = function()
+				vim.defer_fn(function()
+					vim.cmd.stopinsert()
+				end, 150)
 			end,
 		})
 	end,
