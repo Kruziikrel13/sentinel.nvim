@@ -14,6 +14,19 @@ return {
 				below = "30%",
 			},
 		})
+
+		Sentinel.terminal.lazygit_setup()
+		ergoterm:new({
+			name = "git",
+			cmd = "lazygit",
+			layout = "float",
+			sticky = true,
+			float_winblend = 0,
+			watch_files = true,
+			on_unfocus = function()
+				vim.cmd.stopinsert()
+			end,
+		})
 	end,
 
 	keys = {
@@ -24,6 +37,13 @@ return {
 			end,
 			desc = "Terminal",
 			mode = { "x", "n", "t" },
+		},
+		{
+			"<leader>gg",
+			function()
+				require("ergoterm").get_by_name("git"):toggle()
+			end,
+			desc = "Git",
 		},
 	},
 }
