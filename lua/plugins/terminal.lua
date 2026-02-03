@@ -1,3 +1,4 @@
+-- Terminal util hard depends on this
 return {
 	"waiting-for-dev/ergoterm.nvim",
 	opts = {},
