@@ -71,6 +71,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.whichwrap = "bs<>[]hl"
 opt.hlsearch = false
+opt.exrc = true
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
