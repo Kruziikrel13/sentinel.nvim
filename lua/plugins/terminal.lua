@@ -25,6 +25,7 @@ return {
 			float_winblend = 0,
 			watch_files = true,
 			on_close = function()
+				-- fixes insert mode bug
 				vim.defer_fn(function()
 					vim.cmd.stopinsert()
 				end, 150)
