@@ -14,6 +14,14 @@ return {
 			size = {
 				below = "30%",
 			},
+			-- stylua: ignore
+			on_open = function(term)
+				local bufnr = term:get_state("bufnr")
+
+				vim.keymap.set("t", "<Esc>", function() vim.cmd.stopinsert() end, { buffer = bufnr })
+				vim.keymap.set("n", "q", function() term:close() end, { buffer = bufnr })
+				vim.keymap.set("n", "<Esc>", function() term:close() end, { buffer = bufnr })
+			end,
 		})
 
 		Sentinel.terminal.lazygit_setup()
