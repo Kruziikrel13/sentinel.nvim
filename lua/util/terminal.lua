@@ -183,6 +183,12 @@ function M.create_task(cmd, mapping, opts)
 				opts.open_hook()
 			end
 		end,
+		on_job_exit = function(term, _, exit_code, __)
+			local bufnr = term:get_state("bufnr")
+			vim.keymap.set("n", "<CR>", function()
+				term:cleanup()
+			end, { buffer = bufnr, noremap = true, desc = "Close Terminal Window" })
+		end,
 	}
 
 	task_opts = vim.tbl_deep_extend("force", task_opts, opts or {})
