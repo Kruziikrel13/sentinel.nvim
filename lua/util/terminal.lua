@@ -2,7 +2,7 @@
 ---@class sentinel.util.terminal
 local M = {}
 
-function M.setup()
+function M.setup(opts)
 	local shell = Sentinel.config.shell
 	vim.o.shell = shell or vim.o.shell
 
@@ -138,6 +138,62 @@ function M.lazygit_setup()
 	end
 
 	vim.env.LG_CONFIG_FILE = table.concat(config_files, ",")
+end
+
+-- Requires ergoterm
+function M.create_task(cmd, mapping, opts)
+	local ergoterm = require("ergoterm")
+
+	if not mapping then
+		vim.notify("No task keybind specified.", vim.log.levels.ERROR)
+		return
+	end
+
+	if not cmd then
+		vim.notify("No command specified specified. For terminal " .. opts.name, vim.log.levels.ERROR)
+		return
+	end
+
+	local task_opts = {
+		layout = "right",
+		size = {
+			right = "20%",
+			below = "30%",
+		},
+		cmd = cmd,
+		persist_size = false,
+		start_in_insert = false,
+		auto_scroll = true,
+		bang_target = false,
+		cleanup_on_success = not opts.show,
+		on_open = function(term)
+			local bufnr = term:get_state("bufnr")
+			vim.keymap.set("n", "q", function()
+				term:close()
+			end, { buffer = bufnr, noremap = true, desc = "Close Terminal Window" })
+
+			vim.keymap.set("n", "Q", function()
+				term:stop()
+				vim.notify("Killed terminal")
+			end, { buffer = bufnr, noremap = true, desc = "Kill Terminal Process" })
+
+			if opts.open_hook then
+				opts.open_hook()
+			end
+		end,
+	}
+
+	task_opts = vim.tbl_deep_extend("force", task_opts, opts or {})
+	local terminal = ergoterm:new(task_opts)
+
+	vim.keymap.set("n", "<leader>t" .. mapping, function()
+		if terminal:is_active() or opts.show then
+			terminal:focus()
+		else
+			terminal:start()
+			vim.notify("Started terminal" .. ((": " .. opts.name) or ""))
+		end
+	end, { desc = opts.name })
 end
 
 return M
