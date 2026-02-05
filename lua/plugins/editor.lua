@@ -42,6 +42,35 @@ return {
 	},
 
 	{
+		"linrongbin16/gitlinker.nvim",
+		opts = {
+			router = {
+				default_branch = {
+					-- example: https://github.com/linrongbin16/gitlinker.nvim/blob/master/lua/gitlinker.lua#L3-L4
+					["^github%.com"] = "https://github.com/" .. "{_A.ORG}/" .. "{_A.REPO}",
+					["^gitlab%.com"] = "https://gitlab.com/" .. "{_A.ORG}/" .. "{_A.REPO}",
+				},
+				current_branch = {
+					-- example: https://github.com/linrongbin16/gitlinker.nvim/blob/master/lua/gitlinker.lua#L3-L4
+					["^github%.com"] = "https://github.com/"
+						.. "{_A.ORG}/"
+						.. "{_A.REPO}/tree/"
+						.. "{_A.CURRENT_BRANCH}/",
+					["^gitlab%.com"] = "https://gitlab.com/"
+						.. "{_A.ORG}/"
+						.. "{_A.REPO}/tree/"
+						.. "{_A.CURRENT_BRANCH}/",
+				},
+			},
+		},
+
+		keys = {
+			{ "<leader>gb", "<CMD>GitLink! default_branch<CR>", desc = "Open In Browser" },
+			{ "<leader>gc", "<CMD>GitLink! current_branch<CR>", desc = "Open Current Branch In Browser" },
+		},
+	},
+
+	{
 		"which-key.nvim",
 		opts = {
 			spec = {
