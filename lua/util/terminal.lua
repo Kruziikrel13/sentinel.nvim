@@ -173,8 +173,6 @@ function M.create_task(cmd, mapping, opts)
 			end, { buffer = bufnr, noremap = true, desc = "Close Terminal Window" })
 
 			vim.keymap.set("n", "Q", function()
-				-- Cleanup makes the terminal "fail", this fixes a bug to ensure it closes without error
-				term:update({ show_on_failure = false })
 				term:cleanup()
 				vim.notify("Killed terminal")
 			end, { buffer = bufnr, noremap = true, desc = "Kill Terminal Process" })
