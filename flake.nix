@@ -1,4 +1,5 @@
 {
+  description = "Custom Neovim Configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nvim-nightly.url = "github:nix-community/neovim-nightly-overlay";
@@ -12,15 +13,16 @@
     }:
     let
       inherit (nixpkgs) lib;
+      overlayPkgs = p: p.appendOverlays [ self.overlays.default ];
       systems = lib.platforms.linux;
-      forEachSystem = fn: lib.genAttrs systems (system: fn system nixpkgs.legacyPackages.${system});
+      forEachSystem =
+        fn: lib.genAttrs systems (system: fn system (overlayPkgs nixpkgs.legacyPackages.${system}));
     in
     {
+      overlays.default = import ./nix/overlay.nix nvim-nightly;
       packages = forEachSystem (
         system: pkgs: rec {
-          sentinel = pkgs.callPackage ./nix/package.nix {
-            neovim-unwrapped = nvim-nightly.packages.${system}.default;
-          };
+          inherit (pkgs) sentinel;
           default = sentinel;
         }
       );
