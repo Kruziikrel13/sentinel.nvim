@@ -8,6 +8,7 @@
   fzf,
   lazygit,
   tree-sitter,
+  inlyne,
 
   lua-language-server,
   stylua,
@@ -24,6 +25,8 @@ wrapNeovimUnstable neovim-unwrapped rec {
     fzf
     lazygit
     tree-sitter
+
+    inlyne
     lua-language-server
     stylua
   ];
