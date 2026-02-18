@@ -1,8 +1,10 @@
 return {
 	{
 		"olimorris/persisted.nvim",
-		event = "BufReadPre",
-		opts = {},
+		lazy = false,
+		opts = {
+			autoload = true,
+		},
     -- stylua: ignore
 		keys = {
 			{ "<leader>qs", function() require("persisted").load() end, desc = "Restore Session" },
