@@ -85,16 +85,6 @@ return {
 	},
 
 	{
-		"jameswolensky/marker-groups.nvim",
-		cmd = {
-			"MarkerGroupsCreate",
-			"MarkerAdd",
-		},
-		opts = { picker = "fzf-lua", keymaps = { enabled = false } },
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- Required
-			"ibhagwan/fzf-lua", -- Optional: fzf-lua picker
-		},
 	},
 
 	{
