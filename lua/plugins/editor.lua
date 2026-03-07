@@ -85,6 +85,8 @@ return {
 	},
 
 	{
+		"hadishahpuri/nvimlaunch",
+		opts = {},
 	},
 
 	{

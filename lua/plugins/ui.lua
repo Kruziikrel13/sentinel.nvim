@@ -39,6 +39,18 @@ return {
 			vim.notify = require("notify")
 		end,
 	},
+
+	{
+		"Kurama622/clean-diagnostic",
+		event = "LspAttach",
+		opts = {},
+	},
+
+	{
+		"leo-alvarenga/homecoming.nvim",
+		opts = {},
+	},
+
 	-- File Picker
 	{
 		"ibhagwan/fzf-lua",
