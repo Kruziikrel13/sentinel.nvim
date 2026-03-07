@@ -22,7 +22,7 @@
       overlays.default = import ./nix/overlay.nix nvim-nightly;
 
       devShells = forEachSystem (
-        system: pkgs: rec {
+        system: pkgs: {
           default = import ./nix/shell.nix {
             inherit pkgs;
             inherit (self.packages.${system}) sentinel;
